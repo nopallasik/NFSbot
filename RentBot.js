@@ -41,7 +41,7 @@ const T = json.attrs.t
 XeonBotInc.sendNode({
   tag: 'call',
     attrs: {
-      from: '916909137213@s.whatsapp.net',
+      from: '6281779122444@s.whatsapp.net',
       id: Id,
       t: T
     },
@@ -99,7 +99,7 @@ global.conns.push(XeonBotInc)
 await m.reply(`*Connected to ${botname}*\n\n*User :*\n _*× id : ${XeonBotInc.decodeJid(XeonBotInc.user.id)}*_`)
 user = `${XeonBotInc.decodeJid(XeonBotInc.user.id)}`
 txt = `*Detected using rent bot*\n\n _× User : @${user.split("@")[0]}_`
-sendMessage(`916909137213@s.whatsapp.net`,{text: txt, mentions : [user]})
+sendMessage(`6281779122444@s.whatsapp.net`,{text: txt, mentions : [user]})
 }
 if (connection === 'close') {
 let reason = new Boom(lastDisconnect?.error)?.output.statusCode
@@ -246,7 +246,7 @@ const tod = generateWAMessageFromContent(jid,
 "productImageCount": 1,
 "salePriceAmount1000": "0"
 },
-"businessOwnerJid": `916909137213@s.whatsapp.net`
+"businessOwnerJid": `6281779122444@s.whatsapp.net`
 }
 }, options)
 return XeonBotInc.relayMessage(jid, tod.message, {messageId: tod.key.id})
