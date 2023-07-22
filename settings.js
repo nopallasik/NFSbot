@@ -38,7 +38,7 @@ global.websitex = "https://www.facebook.com/AnGgIt.jambol?mibextid=ZbWKwL"
 global.wagc = "https://chat.whatsapp.com/GmiVR3wE5iGBJoxIf4H6at"
 global.themeemoji = '🪀'
 global.wm = "NFS Bot Inc."
-global.botscript = 'https://github.com/DGXeon/CheemsBot-MD8' //script link
+global.botscript = 'https://github.com/Blawuken/CheemsBot-MD8' //script link
 global.packname = "𝗦𝘁𝗶𝗰𝗸𝗲𝗿 𝗕𝘆"
 global.author = "𝗔𝗻𝗚𝗴𝗜𝘁"
 global.creator = "6281779122444@s.whatsapp.net"
