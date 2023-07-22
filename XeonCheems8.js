@@ -2116,11 +2116,20 @@ XeonBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [t
 }
 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
-me = m.sender
-teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg`
+let me = m.sender
+teks = `*「  ${global.botname} Script 」*
+
+Halo @${me.split('@')[0]} 👋
+Jangan lupa donasi ya 🍜
+
+*Dana* : 089629929193
+*Ovo* : 089629929193
+
+Facebook : ${global.websitex}
+GitHub : ${global.botscript}
+WhatsApp : +${global.ownernumber}`
 sendXeonBotIncMessage(from, { 
 text: teks,
-mentions:[sender],
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: true, 
@@ -2131,7 +2140,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": defaultpp,
+"thumbnail": fs.readFileSync("./XeonMedia/theme/donate.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }

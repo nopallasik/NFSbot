@@ -26,7 +26,7 @@ global.ownernomer = "6281779122444" //ur owner number2
 global.ownername = "𝗔𝗻𝗚𝗴𝗜𝘁" //ur owner name
 global.ytname = "YT: sentup-gaming8456" //ur yt chanel name
 global.socialm = "GitHub: Blawuken" //ur github or insta name
-global.location = "India, Mizoram, Aizawl, Indonesia" //ur location
+global.location = "Bangsal, Mojokerto, Jawa Timur, Indonesia" //ur location
 
 //new
 global.botname = "NFS-Bot"
