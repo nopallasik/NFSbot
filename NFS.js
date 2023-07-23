@@ -201,6 +201,7 @@ try {
         if(time2 == "22"){var NFSytimewisher = `Selamat Malam 🌃`}
         if(time2 == "23"){var NFSytimewisher = `Selamat Malam 🌜`}
         if(time2 == "00"){var NFSytimewisher = `Selamat Malam 🌜`}
+
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
 				text = q,
@@ -219,6 +220,7 @@ try {
 				NFSBotInc.sendMessage(from, { text: String(e) }, { quoted: m })
 			}
 		}
+
 try {
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const user = global.db.users[m.sender]
@@ -289,21 +291,13 @@ During ${clockString(new Date - afkTime)}
 
 //math
 if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
-
             kuis = true
-
             jawaban = kuismath[m.sender.split('@')[0]]
-
             if (budy.toLowerCase() == jawaban) {
-
                 await m.reply(`🎮 Math Quiz 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Send ${prefix}math mode`)
-
                 delete kuismath[m.sender.split('@')[0]]
-
             } else m.reply('*Wrong Answer!*')
-
-        }
-
+}
 
 //TicTacToe\\
 	    this.game = this.game ? this.game : {}
@@ -453,15 +447,15 @@ user.afkTime = -1
 user.afkReason = ''
 }
 
-		// auto set bio
-	if (db.settings[botNumber].autobio) {
-	    let setting = global.db.settings[botNumber]
-	    if (new Date() * 1 - setting.status > 1000) {
-		let uptime = await runtime(process.uptime())
-		await NFSBotInc.updateProfileStatus(`${NFSBotInc.user.name} | Runtime : ${runtime(uptime)}`)
-		setting.status = new Date() * 1
-	    }
-	}
+// auto set bio
+if (db.settings[botNumber].autobio) {
+    let setting = global.db.settings[botNumber]
+    if (new Date() * 1 - setting.status > 1000) {
+    let uptime = await runtime(process.uptime())
+    await NFSBotInc.updateProfileStatus(`${NFSBotInc.user.name} | Runtime : ${runtime(uptime)}`)
+    setting.status = new Date() * 1
+    }
+}
 
 //autoblock 212
 if (global.autoblockmorroco) {
@@ -476,12 +470,9 @@ if (m.isGroup && m.sender.startsWith('212')) return NFSBotInc.groupParticipantsU
 //antispam kick
 if (global.antispam) {
 if (m.isGroup && m.message && msgFilter.isFiltered(from)) {
-
-console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
-
-return await NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-
+    console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
+    return await NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    }
 }
 
 async function sendNFSBotIncMessage(chatId, message, options = {}){
@@ -511,7 +502,8 @@ isForwarded: true,
 "sourceUrl": `${wagc}`}}},
 { quoted: m})
 }
-const replygcNFS2 = (teks) => {        
+
+const replygcNFS2 = (teks) => {
 sendNFSBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
@@ -532,6 +524,7 @@ mentionedJid:[sender],
 }
 })
 }
+
 const reply = (teks) => {
 NFSBotInc.sendMessage(from, { text: teks ,
 contextInfo:{
@@ -556,18 +549,21 @@ let audiobuffy = fs.readFileSync(`./NFSMedia/audio/${BhosdikaNFS}.mp3`)
 NFSBotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 }
+
 for (let BhosdikaNFS of StickerNFS){
 if (budy === BhosdikaNFS){
 let stickerbuffy = fs.readFileSync(`./NFSMedia/sticker/${BhosdikaNFS}.webp`)
 NFSBotInc.sendMessage(m.chat, { sticker: stickerbuffy }, { quoted: m })
 }
 }
+
 for (let BhosdikaNFS of ImageNFS){
 if (budy === BhosdikaNFS){
 let imagebuffy = fs.readFileSync(`./NFSMedia/image/${BhosdikaNFS}.jpg`)
 NFSBotInc.sendMessage(m.chat, { image: imagebuffy }, { quoted: m })
 }
 }
+
 for (let BhosdikaNFS of VideoNFS){
 if (budy === BhosdikaNFS){
 let videobuffy = fs.readFileSync(`./NFSMedia/video/${BhosdikaNFS}.mp4`)
@@ -597,7 +593,7 @@ message: {
 }
 }
 
-const ftext = { 
+const ftext = {
 key: { 
 fromMe: false, 
 participant: `0@s.whatsapp.net`, 
@@ -677,6 +673,7 @@ if (command) {
 NFSBotInc.sendPresenceUpdate('composing', from)
 }
 }
+
 if (global.autoRecord) {
 if (command) {
 NFSBotInc.sendPresenceUpdate('recording', from)
@@ -908,6 +905,7 @@ async function GetBuffer(url) {
 		resolve(buffer);
 	});
 }
+
 function GetType(Data) {
 	return new Promise((resolve, reject) => {
 		let Result, Status;
@@ -923,6 +921,7 @@ function GetType(Data) {
 		});
 	});
 }
+
 async function Cartoon(url) {
 	return new Promise(async (resolve, reject) => {
 		let Data;
@@ -989,6 +988,7 @@ async function Cartoon(url) {
 		}
 	});
 }
+
 function randomId() {
 	return Math.floor(100000 + Math.random() * 900000);
 }
@@ -1058,9 +1058,9 @@ async function replyprem(teks) {
             }            
         }
 
- // Antiwame by NFS
-  if (antiWame)
-  if (budy.includes(`Wa.me`)) {
+// Antiwame by NFS
+if (antiWame)
+if (budy.includes(`Wa.me`)) {
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1080,8 +1080,9 @@ kice = m.sender
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
-  if (antiWame)
-  if (budy.includes(`http://wa.me`)) {
+
+if (antiWame)
+if (budy.includes(`http://wa.me`)) {
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1101,6 +1102,7 @@ kice = m.sender
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
+
 //antivirtex by NFS
   if (antiVirtex) {
   if (budy.length > 3500) {
@@ -1118,6 +1120,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@$
 			NFSBotInc.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
   }
   }
+
 //anti bad words by NFS
 if (antiToxic)
 if (BadNFS.includes(messagesD)) {
@@ -1138,6 +1141,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			await NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
 }
+
 //antilink youtube video by NFS
 if (AntiLinkYoutubeVid)
 if (budy.includes("https://youtu.be/")){
@@ -1159,9 +1163,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink youtube channel by NFS
 if (AntiLinkYoutubeChannel)
-   if (budy.includes("https://youtube.com/")){
+if (budy.includes("https://youtube.com/")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a youtube channel link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1180,9 +1185,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
 } else {
 }
+
 //antilink instagram by NFS
 if (AntiLinkInstagram)
-   if (budy.includes("https://www.instagram.com/")){
+if (budy.includes("https://www.instagram.com/")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1201,9 +1207,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink facebook by NFS
 if (AntiLinkFacebook)
-   if (budy.includes("https://facebook.com/")){
+if (budy.includes("https://facebook.com/")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1222,9 +1229,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink telegram by NFS
 if (AntiLinkTelegram)
-   if (budy.includes("https://t.me/")){
+if (budy.includes("https://t.me/")){
 if (AntiLinkTelegram)
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram link, admin is free to send any link😇`
@@ -1244,9 +1252,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink tiktok by NFS
 if (AntiLinkTiktok)
-   if (budy.includes("https://www.tiktok.com/")){
+if (budy.includes("https://www.tiktok.com/")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1265,9 +1274,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink twitter by NFS
 if (AntiLinkTwitter)
-   if (budy.includes("https://twitter.com/")){
+if (budy.includes("https://twitter.com/")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Twitter Link Detected 」\`\`\`\n\nAdmin has sent a twitter link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1286,9 +1296,10 @@ if (NFSTheCreator) return m.reply(bvl)
 NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
+
 //antilink all by NFS
 if (AntiLinkAll)
-   if (budy.includes("https://")){
+if (budy.includes("https://")){
 if (!isBotAdmins) return
 bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
@@ -1487,23 +1498,6 @@ replygcNFS(`Bot akan di mulai ulang...`)
 await sleep(3000)
 process.exit()
 exec("npm start", (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`)
-        return
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`)
-        return
-    }
-    console.log(`stdout: ${stdout}`)
-})
-}
-break
-case 'updatebot': {
-if (!NFSTheCreator) return NFSStickOwner()
-replygcNFS(`Memperbarui bot...`)
-await sleep(3000)
-exec("git pull --rebase origin HEAD", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`)
         return
@@ -2137,7 +2131,7 @@ case 'sound158':
 case 'sound159':
 case 'sound160':
 case 'sound161':
-NFSBotInc_dev = await getBuffer(`https://github.com/DGNFS/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
+NFSBotInc_dev = await getBuffer(`https://github.com/Blawuken/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await NFSBotInc.sendMessage(m.chat, { audio: NFSBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
 case 'friend':
@@ -2277,7 +2271,7 @@ Latest Publish Time : ${eha.latestPublishTime}`)
 }
 break
 case 'ghstalk': case 'githubstalk':{
-if (!q) return replygcNFS(`Example ${prefix+command} DGNFS`)
+if (!q) return replygcNFS(`Example ${prefix+command} Blawuken`)
 NFSStickWait()
 aj = await githubstalk.githubstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
@@ -3320,7 +3314,7 @@ replygcNFS(`${result4}`)
 NFSBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m })
 }
 break
-case 'tiktokxx':{ 
+case 'tiktokvideo':{ 
 if (!text) return replygcNFS( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
 NFSStickWait()
@@ -3329,7 +3323,7 @@ NFSBotInc.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.wate
 })
 }
 break
-case 'tiktokaudioxx':{
+case 'tiktokaudio':{
 if (!text) return replygcNFS( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
 NFSStickWait()
@@ -5025,107 +5019,107 @@ case 'akira': case 'akiyama': case 'ana': case 'art': case 'asuna': case 'ayuzaw
 
 NFSStickWait()
 let heyy
-if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/akira.json')
-if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/akiyama.json')
-if (/ana/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/ana.json')
-if (/art/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/art.json')
-if (/asuna/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/asuna.json')
-if (/ayuzawa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/ayuzawa.json')
-if (/boneka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/boneka.json')
-if (/boruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/boruto.json')
-if (/bts/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/bts.json')
-if (/cecan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cecan.json')
-if (/chiho/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/chiho.json')
-if (/chitoge/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/chitoge.json')
-if (/cogan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cogan.json')
-if (/cosplay/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cosplay.json')
-if (/cosplayloli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cosplayloli.json')
-if (/cosplaysagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cosplaysagiri.json')
-if (/cyber/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/cyber.json')
-if (/deidara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/deidara.json')
-if (/doraemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/doraemon.json')
-if (/eba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/eba.json')
-if (/elaina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/elaina.json')
-if (/emilia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/emilia.json')
-if (/erza/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/erza.json')
-if (/exo/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/exo.json')
-if (/femdom/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/femdom.json')
-if (/freefire/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/freefire.json')
-if (/gamewallpaper/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/gamewallpaper.json')
-if (/glasses/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/glasses.json')
-if (/gremory/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/gremory.json')
-if (/hacker/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/hekel.json')
-if (/hestia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/hestia.json')
-if (/husbu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/husbu.json')
-if (/inori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/inori.json')
-if (/islamic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/islamic.json')
-if (/isuzu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/isuzu.json')
-if (/itachi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/itachi.json')
-if (/itori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/itori.json')
-if (/jennie/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/jeni.json')
-if (/jiso/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/jiso.json')
-if (/justina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/justina.json')
-if (/kaga/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kaga.json')
-if (/kagura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kagura.json')
-if (/kakasih/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kakasih.json')
-if (/kaori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kaori.json')
-if (/cartoon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kartun.json')
-if (/shortquote/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/katakata.json')
-if (/keneki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/keneki.json')
-if (/kotori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kotori.json')
-if (/kpop/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kpop.json')
-if (/kucing/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kucing.json')
-if (/kurumi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/kurumi.json')
-if (/lisa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/lisa.json')
-if (/loli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/loli.json')
-if (/madara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/madara.json')
-if (/megumin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/megumin.json')
-if (/mikasa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/mikasa.json')
-if (/mikey/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/mikey.json')
-if (/miku/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/miku.json')
-if (/minato/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/minato.json')
-if (/mobile/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/mobil.json')
-if (/motor/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/motor.json')
-if (/mountain/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/mountain.json')
-if (/naruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/naruto.json')
-if (/neko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/neko.json')
-if (/neko2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/neko2.json')
-if (/nekonime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/nekonime.json')
-if (/nezuko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/nezuko.json')
-if (/onepiece/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/onepiece.json')
-if (/pentol/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/pentol.json')
-if (/pokemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/pokemon.json')
-if (/profil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/profil.json')
-if (/progamming/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/programming.json')
-if (/pubg/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/pubg.json')
-if (/randblackpink/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/randblackpink.json')
-if (/randomnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/randomnime.json')
-if (/randomnime2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/randomnime2.json')
-if (/rize/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/rize.json')
-if (/rose/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/rose.json')
-if (/ryujin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/ryujin.json')
-if (/sagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/sagiri.json')
-if (/sakura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/sakura.json')
-if (/sasuke/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/sasuke.json')
-if (/satanic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/satanic.json')
-if (/shina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/shina.json')
-if (/shinka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/shinka.json')
-if (/shinomiya/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/shinomiya.json')
-if (/shizuka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/shizuka.json')
-if (/shota/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/shota.json')
-if (/space/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/tatasurya.json')
-if (/technology/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/technology.json')
-if (/tejina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/tejina.json')
-if (/toukachan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/toukachan.json')
-if (/tsunade/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/tsunade.json')
-if (/waifu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/waifu.json')
-if (/wallhp/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/wallhp.json')
-if (/wallml/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/wallml.json')
-if (/wallmlnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/wallnime.json')
-if (/yotsuba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/yotsuba.json')
-if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/yuki.json')
-if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/yulibocil.json')
-if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/yumeko.json')
+if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/akira.json')
+if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/akiyama.json')
+if (/ana/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/ana.json')
+if (/art/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/art.json')
+if (/asuna/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/asuna.json')
+if (/ayuzawa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/ayuzawa.json')
+if (/boneka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/boneka.json')
+if (/boruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/boruto.json')
+if (/bts/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/bts.json')
+if (/cecan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cecan.json')
+if (/chiho/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/chiho.json')
+if (/chitoge/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/chitoge.json')
+if (/cogan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cogan.json')
+if (/cosplay/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cosplay.json')
+if (/cosplayloli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cosplayloli.json')
+if (/cosplaysagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cosplaysagiri.json')
+if (/cyber/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/cyber.json')
+if (/deidara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/deidara.json')
+if (/doraemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/doraemon.json')
+if (/eba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/eba.json')
+if (/elaina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/elaina.json')
+if (/emilia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/emilia.json')
+if (/erza/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/erza.json')
+if (/exo/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/exo.json')
+if (/femdom/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/femdom.json')
+if (/freefire/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/freefire.json')
+if (/gamewallpaper/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/gamewallpaper.json')
+if (/glasses/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/glasses.json')
+if (/gremory/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/gremory.json')
+if (/hacker/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/hekel.json')
+if (/hestia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/hestia.json')
+if (/husbu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/husbu.json')
+if (/inori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/inori.json')
+if (/islamic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/islamic.json')
+if (/isuzu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/isuzu.json')
+if (/itachi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/itachi.json')
+if (/itori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/itori.json')
+if (/jennie/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/jeni.json')
+if (/jiso/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/jiso.json')
+if (/justina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/justina.json')
+if (/kaga/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kaga.json')
+if (/kagura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kagura.json')
+if (/kakasih/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kakasih.json')
+if (/kaori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kaori.json')
+if (/cartoon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kartun.json')
+if (/shortquote/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/katakata.json')
+if (/keneki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/keneki.json')
+if (/kotori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kotori.json')
+if (/kpop/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kpop.json')
+if (/kucing/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kucing.json')
+if (/kurumi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/kurumi.json')
+if (/lisa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/lisa.json')
+if (/loli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/loli.json')
+if (/madara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/madara.json')
+if (/megumin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/megumin.json')
+if (/mikasa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/mikasa.json')
+if (/mikey/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/mikey.json')
+if (/miku/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/miku.json')
+if (/minato/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/minato.json')
+if (/mobile/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/mobil.json')
+if (/motor/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/motor.json')
+if (/mountain/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/mountain.json')
+if (/naruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/naruto.json')
+if (/neko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/neko.json')
+if (/neko2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/neko2.json')
+if (/nekonime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/nekonime.json')
+if (/nezuko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/nezuko.json')
+if (/onepiece/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/onepiece.json')
+if (/pentol/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/pentol.json')
+if (/pokemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/pokemon.json')
+if (/profil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/profil.json')
+if (/progamming/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/programming.json')
+if (/pubg/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/pubg.json')
+if (/randblackpink/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/randblackpink.json')
+if (/randomnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/randomnime.json')
+if (/randomnime2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/randomnime2.json')
+if (/rize/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/rize.json')
+if (/rose/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/rose.json')
+if (/ryujin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/ryujin.json')
+if (/sagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/sagiri.json')
+if (/sakura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/sakura.json')
+if (/sasuke/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/sasuke.json')
+if (/satanic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/satanic.json')
+if (/shina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/shina.json')
+if (/shinka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/shinka.json')
+if (/shinomiya/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/shinomiya.json')
+if (/shizuka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/shizuka.json')
+if (/shota/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/shota.json')
+if (/space/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/tatasurya.json')
+if (/technology/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/technology.json')
+if (/tejina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/tejina.json')
+if (/toukachan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/toukachan.json')
+if (/tsunade/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/tsunade.json')
+if (/waifu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/waifu.json')
+if (/wallhp/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/wallhp.json')
+if (/wallml/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/wallml.json')
+if (/wallmlnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/wallnime.json')
+if (/yotsuba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/yotsuba.json')
+if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/yuki.json')
+if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/yulibocil.json')
+if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/yumeko.json')
 let yeha = heyy[Math.floor(Math.random() * heyy.length)]
 NFSBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
 }
@@ -5510,8 +5504,8 @@ if (!AntiNsfw) return replygcNFS(mess.nsfw)
 NFSStickWait()
 let heyy
     let yeha = heyy[Math.floor(Math.random() * heyy.length)]
-    if (/gifs/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/gifs.json')
-    if (/foot/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/master/foot.json')
+    if (/gifs/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/gifs.json')
+    if (/foot/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/foot.json')
 NFSBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
 }
 break
@@ -5951,7 +5945,7 @@ break
   }
  break
 case 'git': case 'gitclone':
-if (!args[0]) return replygcNFS(`Where is the link?\nExample :\n${prefix}${command} https://github.com/DGNFS/NFSMedia`)
+if (!args[0]) return replygcNFS(`Where is the link?\nExample :\n${prefix}${command} https://github.com/Blawuken/NFSMedia`)
 if (!isUrl(args[0]) && !args[0].includes('github.com')) return replygcNFS(`Link invalid!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
@@ -6478,7 +6472,7 @@ return replygcNFS('Error')
 break
 case 'patrick':
 case 'patricksticker': {
-var ano = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/main/patrick')
+var ano = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/main/patrick')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6487,7 +6481,7 @@ break
 case 'dogesticker':
 case 'dogestick':
 	case 'doge':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/main/doge')
+var ano = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/main/doge')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6495,7 +6489,7 @@ encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: g
 break
 case 'lovesticker':
 case 'lovestick' :{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/main/love')
+var ano = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/main/love')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6504,7 +6498,7 @@ encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: g
 break
 case 'gura':
 case 'gurastick':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGNFS/NFSMedia/main/gura')
+var ano = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/main/gura')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
