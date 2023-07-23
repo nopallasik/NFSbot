@@ -1481,6 +1481,41 @@ replygcNFS(`Bot telah di matikan...`)
 await sleep(3000)
 process.exit()
 break
+case 'restart': {
+if (!NFSTheCreator) return NFSStickOwner()
+replygcNFS(`Bot akan di mulai ulang...`)
+await sleep(3000)
+process.exit()
+exec("npm start", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`)
+        return
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`)
+        return
+    }
+    console.log(`stdout: ${stdout}`)
+})
+}
+break
+case 'updatebot': {
+if (!NFSTheCreator) return NFSStickOwner()
+replygcNFS(`Memperbarui bot...`)
+await sleep(3000)
+exec("git pull --rebase https://github.com/Blawuken/CheemsBot-MD8", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`)
+        return
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`)
+        return
+    }
+    console.log(`stdout: ${stdout}`)
+})
+}
+break
 case 'owner': {
 const repf = await NFSBotInc.sendMessage(from, { 
 contacts: { 
@@ -2120,7 +2155,7 @@ NFSBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [te
 }, 9000)
 }
 break
-case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
+case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'cekbot': case 'sourcecode': {
 let me = m.sender
 teks = `*「  ${global.botname} Script 」*
 
