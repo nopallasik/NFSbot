@@ -139,7 +139,7 @@ XeonBotInc.ev.on('creds.update', await saveCreds)
     for (let XeonFucks of XeonPapa) {
     if (XeonFucks.isGroup == false) {
     if (XeonFucks.status == "offer") {
-    let XeonBlokMsg = await XeonBotInc.sendTextWithMentions(XeonFucks.from, `*${XeonBotInc.user.name}* can't receive ${XeonFucks.isVideo ? `video` : `voice` } call. Sorry @${XeonFucks.from.split('@')[0]} you will be blocked. If accidentally please contact the owner to be unblocked !`)
+    let XeonBlokMsg = await XeonBotInc.sendTextWithMentions(XeonFucks.from, `*${XeonBotInc.user.name}* tidak dapat menerima ${XeonFucks.isVideo ? `video` : `voice` } panggilan. Maaf @${XeonFucks.from.split('@')[0]} Anda akan diblokir. Jika tidak sengaja mohon hubungi pemilik untuk di blokir !`)
     XeonBotInc.sendContact(XeonFucks.from, global.owner, XeonBlokMsg)
     await sleep(8000)
     await XeonBotInc.updateBlockStatus(XeonFucks.from, "block")
@@ -228,17 +228,17 @@ XeonLft = await getBuffer(ppuser)
                 if (anu.action == 'add') {
                 const xeonbuffer = await getBuffer(ppuser)
                 let xeonName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+	            const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
                 xeonbody = `┌─❖
-│「 𝗛𝗶 👋 」
+│「 𝗛𝗮𝗹𝗼 👋 」
 └┬❖ 「  @${xeonName.split("@")[0]}  」
-   │✑  𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 
+   │✑  𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗗𝗮𝘁𝗮𝗻𝗴 𝗗𝗶
    │✑  ${metadata.subject}
    │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
    │✑ ${xmembers}th
-   │✑  𝗝𝗼𝗶𝗻𝗲𝗱 : 
+   │✑  𝗪𝗮𝗸𝘁𝘂 : 
    │✑ ${xtime} ${xdate}
    └───────────────┈ ⳹`
 XeonBotInc.sendMessage(anu.id,
@@ -255,18 +255,18 @@ XeonBotInc.sendMessage(anu.id,
 "sourceUrl": `${wagc}`}}})
                 } else if (anu.action == 'remove') {
                 	const xeonbuffer = await getBuffer(ppuser)
-                    const xeontime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const xeondate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                    const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+	                const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
                 	let xeonName = num
                     const xeonmembers = metadata.participants.length
                     xeonbody = `┌─❖
-│「 𝗚𝗼𝗼𝗱𝗯𝘆𝗲 👋 」
+│「 𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗧𝗶𝗻𝗴𝗴𝗮𝗹 👋 」
 └┬❖ 「 @${xeonName.split("@")[0]}  」
-   │✑  𝗟𝗲𝗳𝘁 
+   │✑  𝗞𝗲𝗹𝘂𝗮𝗿 𝗗𝗮𝗿𝗶 
    │✑ ${metadata.subject}
    │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
    │✑ ${xeonmembers}th
-   │✑  𝗧𝗶𝗺𝗲 : 
+   │✑  𝗪𝗮𝗸𝘁𝘂 : 
    │✑  ${xeontime} ${xeondate}
    └───────────────┈ ⳹`
 XeonBotInc.sendMessage(anu.id,
@@ -283,10 +283,10 @@ XeonBotInc.sendMessage(anu.id,
 "sourceUrl": `${wagc}`}}})
 } else if (anu.action == 'promote') {
 const xeonbuffer = await getBuffer(ppuser)
-const xeontime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const xeondate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
 let xeonName = num
-xeonbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${xeonName.split("@")[0]}, you have been *promoted* to *admin* 🥳`
+xeonbody = ` 𝗦𝗲𝗹𝗮𝗺𝗮𝘁🎉 @${xeonName.split("@")[0]}, Anda telah *dipromosikan* menjadi *admin* 🥳`
    XeonBotInc.sendMessage(anu.id,
  { text: xeonbody,
  contextInfo:{
@@ -301,8 +301,8 @@ xeonbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${xeonName.split("@")[0]}, yo
 "sourceUrl": `${wagc}`}}})
 } else if (anu.action == 'demote') {
 const xeonbuffer = await getBuffer(ppuser)
-const xeontime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const xeondate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
 let xeonName = num
 xeonbody = `𝗢𝗼𝗽𝘀‼️ @${xeonName.split("@")[0]}, you have been *demoted* from *admin* 😬`
 XeonBotInc.sendMessage(anu.id,

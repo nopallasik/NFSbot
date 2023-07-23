@@ -59,7 +59,7 @@ XeonBotInc.sendNode({
 })
 if (json.content[0].tag == 'offer') {
 let qutsnya = await XeonBotInc.sendContact(callerId, owner)
-await XeonBotInc.sendMessage(callerId, { text: `Block Automatic System!!!\nDon't Call Bots!!!\nPlease contact the owner to open the block!!!`}, { quoted : qutsnya })
+await XeonBotInc.sendMessage(callerId, { text: `Blokir Sistem Otomatis!!!\nJangan Panggil Bot!!!\nSilakan hubungi pemilik untuk membuka blok!!!`}, { quoted : qutsnya })
 await sleep(8000)
 await XeonBotInc.updateBlockStatus(callerId, "block")
 }
@@ -96,9 +96,9 @@ if (connection == "open") {
 XeonBotInc.id = XeonBotInc.decodeJid(XeonBotInc.user.id)
 XeonBotInc.time = Date.now()
 global.conns.push(XeonBotInc)
-await m.reply(`*Connected to ${botname}*\n\n*User :*\n _*× id : ${XeonBotInc.decodeJid(XeonBotInc.user.id)}*_`)
+await m.reply(`*Terhubung dengan ${botname}*\n\n*User :*\n _*× id : ${XeonBotInc.decodeJid(XeonBotInc.user.id)}*_`)
 user = `${XeonBotInc.decodeJid(XeonBotInc.user.id)}`
-txt = `*Detected using rent bot*\n\n _× User : @${user.split("@")[0]}_`
+txt = `*Terdeteksi menggunakan bot sewa*\n\n _× User : @${user.split("@")[0]}_`
 sendMessage(`6281779122444@s.whatsapp.net`,{text: txt, mentions : [user]})
 }
 if (connection === 'close') {
