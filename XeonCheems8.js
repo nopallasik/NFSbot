@@ -176,32 +176,31 @@ try {
         //TIME
         const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-        if(time2 < "00:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
-        if(time2 < "01:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
-        if(time2 < "02:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
-        if(time2 < "03:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
-        if(time2 < "04:00:00"){var xeonytimewisher = `*Selamat Pagi 🌔*`}
-        if(time2 < "05:00:00"){var xeonytimewisher = `*Selamat Pagi 🌄*`}
-        if(time2 < "06:00:00"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
-        if(time2 < "07:00:00"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
-        if(time2 < "08:00:00"){var xeonytimewisher = `*Selamat Pagi 🌤️*`}
-        if(time2 < "09:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "10:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "11:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "12:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "13:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "14:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
-        if(time2 < "15:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
-        if(time2 < "16:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
-        if(time2 < "17:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
-        if(time2 < "18:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
-        if(time2 < "19:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
-        if(time2 < "20:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
-        if(time2 < "21:00:00"){var xeonytimewisher = `*Selamat Malam 🌃*`}
-        if(time2 < "22:00:00"){var xeonytimewisher = `*Selamat Malam 🌃*`}
-        if(time2 < "23:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
-        if(time2 < "24:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
+        const time2 = moment.tz('Asia/Jakarta').format('HH')
+        if(time2 == "01"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 == "02"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 == "03"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 == "04"){var xeonytimewisher = `*Selamat Pagi 🌔*`}
+        if(time2 == "05"){var xeonytimewisher = `*Selamat Pagi 🌄*`}
+        if(time2 == "06"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
+        if(time2 == "07"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
+        if(time2 == "08"){var xeonytimewisher = `*Selamat Pagi 🌤️*`}
+        if(time2 == "09"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "10"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "11"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "12"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "13"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "14"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 == "15"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 == "16"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 == "17"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 == "18"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 == "19"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 == "20"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 == "21"){var xeonytimewisher = `*Selamat Malam 🌃*`}
+        if(time2 == "22"){var xeonytimewisher = `*Selamat Malam 🌃*`}
+        if(time2 == "23"){var xeonytimewisher = `*Selamat Malam 🌜*`}
+        if(time2 == "00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
 				text = q,
@@ -1502,6 +1501,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │ ✑  ${xeonytimewisher}
 │
 └─ ❖「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧」❖
+│
 │𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻 : ${latensie.toFixed(4)} miliseconds
 │𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
 │𝗕𝗼𝘁 : ${global.botname}
@@ -1513,11 +1513,13 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
 │
 └─ ❖「 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥 」❖
+│
 │𝗡𝗮𝗺𝗮 : ${pushname}
 │𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
 │𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
 │
 └─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
+│
 │𝗪𝗮𝗸𝘁𝘂 : ${xtime}
 │𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
 │
