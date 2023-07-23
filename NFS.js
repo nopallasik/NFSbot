@@ -1503,7 +1503,7 @@ case 'updatebot': {
 if (!NFSTheCreator) return NFSStickOwner()
 replygcNFS(`Memperbarui bot...`)
 await sleep(3000)
-exec("git pull --rebase origin", (error, stdout, stderr) => {
+exec("git pull --rebase origin HEAD", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`)
         return
