@@ -1,7 +1,7 @@
-const axios = require('axios')
+const axios = require("axios")
 const vm = require('node:vm')
 
-async function XeonTwitter() {
+async function NFSInstaMp4() {
     let body = new URLSearchParams({
         "sf_url": encodeURI(arguments[0]),
         "sf_submit": "",
@@ -13,7 +13,7 @@ async function XeonTwitter() {
         "browser": "Chrome",
         "channel": " main",
         "sf-nomad": 1
-    });
+    })
     let {
         data
     } = await axios({
@@ -26,16 +26,16 @@ async function XeonTwitter() {
             "referer": "https://id.savefrom.net/",
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36"
         }
-    });
+    })
     let exec = '[]["filter"]["constructor"](b).call(a);';
     data = data.replace(exec, `\ntry {\ni++;\nif (i === 2) scriptResult = ${exec.split(".call")[0]}.toString();\nelse (\n${exec.replace(/;/, "")}\n);\n} catch {}`);
     let context = {
         "scriptResult": "",
         "i": 0
-    };
-    vm.createContext(context);
-    new vm.Script(data).runInContext(context);
+    }
+    vm.createContext(context)
+    new vm.Script(data).runInContext(context)
     return JSON.parse(context.scriptResult.split("window.parent.sf.videoResult.show(")?.[1].split(");")?.[0])
 }
 
-module.exports.XeonTwitter = XeonTwitter
+module.exports.NFSInstaMp4 = NFSInstaMp4

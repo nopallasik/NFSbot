@@ -3,12 +3,12 @@ const moment = require('moment-timezone');
 const { baileys, boom, chalk, fs, figlet, FileType, path, pino, process, PhoneNumber, axios, yargs, _ } = modul;
 const { Boom } = boom
 const {
-	default: XeonBotIncConnect,
+	default: NFSBotIncConnect,
 	BufferJSON,
 	initInMemoryKeyStore,
 	DisconnectReason,
 	AnyMessageContent,
-        makeInMemoryStore,
+	makeInMemoryStore,
 	useMultiFileAuthState,
 	delay,
 	fetchLatestBaileysVersion,
@@ -46,14 +46,14 @@ const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
 
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
-require('./XeonCheems8.js')
-nocache('../XeonCheems8.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
+require('./NFS.js')
+nocache('../NFS.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
 require('./index.js')
 nocache('../index.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
 
-async function XeonBotIncBot() {
+async function NFSBotIncBot() {
 	const {  saveCreds, state } = await useMultiFileAuthState(`./${sessionName}`)
-    	const XeonBotInc = XeonBotIncConnect({
+    	const NFSBotInc = NFSBotIncConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
         browser: [`${botname}`,'Safari','3.0'],
@@ -69,9 +69,9 @@ async function XeonBotIncBot() {
         }
     })
 
-    store.bind(XeonBotInc.ev)
+    store.bind(NFSBotInc.ev)
 
-XeonBotInc.ev.on('connection.update', async (update) => {
+NFSBotInc.ev.on('connection.update', async (update) => {
 	const {
 		connection,
 		lastDisconnect
@@ -81,33 +81,33 @@ try{
 			let reason = new Boom(lastDisconnect?.error)?.output.statusCode
 			if (reason === DisconnectReason.badSession) {
 				console.log(`Bad Session File, Please Delete Session and Scan Again`);
-				XeonBotIncBot()
+				NFSBotIncBot()
 			} else if (reason === DisconnectReason.connectionClosed) {
 				console.log("Connection closed, reconnecting....");
-				XeonBotIncBot();
+				NFSBotIncBot();
 			} else if (reason === DisconnectReason.connectionLost) {
 				console.log("Connection Lost from Server, reconnecting...");
-				XeonBotIncBot();
+				NFSBotIncBot();
 			} else if (reason === DisconnectReason.connectionReplaced) {
 				console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First");
-				XeonBotIncBot()
+				NFSBotIncBot()
 			} else if (reason === DisconnectReason.loggedOut) {
 				console.log(`Device Logged Out, Please Scan Again And Run.`);
-				XeonBotIncBot();
+				NFSBotIncBot();
 			} else if (reason === DisconnectReason.restartRequired) {
 				console.log("Restart Required, Restarting...");
-				XeonBotIncBot();
+				NFSBotIncBot();
 			} else if (reason === DisconnectReason.timedOut) {
 				console.log("Connection TimedOut, Reconnecting...");
-				XeonBotIncBot();
-			} else XeonBotInc.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+				NFSBotIncBot();
+			} else NFSBotInc.end(`Unknown DisconnectReason: ${reason}|${connection}`)
 		}
 		if (update.connection == "connecting" || update.receivedPendingNotifications == "false") {
 			console.log(color(`\n🌿Connecting...`, 'yellow'))
 		}
 		if (update.connection == "open" || update.receivedPendingNotifications == "true") {
 			console.log(color(` `,'magenta'))
-            console.log(color(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2), 'yellow'))
+            console.log(color(`🌿Connected to => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
 			await delay(1999)
             console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
             console.log(color(`< ================================================== >`, 'cyan'))
@@ -120,7 +120,7 @@ try{
 	
 } catch (err) {
 	  console.log('Error in Connection.update '+err)
-	  XeonBotIncBot();
+	  NFSBotIncBot();
 	}
 	
 })
@@ -128,44 +128,44 @@ try{
 await delay(5555) 
 start('2',colors.bold.white('\n\nWaiting for New Messages..'))
 
-XeonBotInc.ev.on('creds.update', await saveCreds)
+NFSBotInc.ev.on('creds.update', await saveCreds)
 
     // Anti Call
-    XeonBotInc.ev.on('call', async (XeonPapa) => {
-    let botNumber = await XeonBotInc.decodeJid(XeonBotInc.user.id)
-    let XeonBotNum = db.settings[botNumber].anticall
-    if (!XeonBotNum) return
-    console.log(XeonPapa)
-    for (let XeonFucks of XeonPapa) {
-    if (XeonFucks.isGroup == false) {
-    if (XeonFucks.status == "offer") {
-    let XeonBlokMsg = await XeonBotInc.sendTextWithMentions(XeonFucks.from, `*${XeonBotInc.user.name}* tidak dapat menerima ${XeonFucks.isVideo ? `video` : `voice` } panggilan. Maaf @${XeonFucks.from.split('@')[0]} Anda akan diblokir. Jika tidak sengaja mohon hubungi pemilik untuk di blokir !`)
-    XeonBotInc.sendContact(XeonFucks.from, global.owner, XeonBlokMsg)
+    NFSBotInc.ev.on('call', async (NFSPapa) => {
+    let botNumber = await NFSBotInc.decodeJid(NFSBotInc.user.id)
+    let NFSBotNum = db.settings[botNumber].anticall
+    if (!NFSBotNum) return
+    console.log(NFSPapa)
+    for (let NFSFucks of NFSPapa) {
+    if (NFSFucks.isGroup == false) {
+    if (NFSFucks.status == "offer") {
+    let NFSBlokMsg = await NFSBotInc.sendTextWithMentions(NFSFucks.from, `*${NFSBotInc.user.name}* tidak dapat menerima ${NFSFucks.isVideo ? `video` : `voice` } panggilan. Maaf @${NFSFucks.from.split('@')[0]} Anda akan diblokir. Jika tidak sengaja mohon hubungi pemilik untuk di blokir !`)
+    NFSBotInc.sendContact(NFSFucks.from, global.owner, NFSBlokMsg)
     await sleep(8000)
-    await XeonBotInc.updateBlockStatus(XeonFucks.from, "block")
+    await NFSBotInc.updateBlockStatus(NFSFucks.from, "block")
     }
     }
     }
     })
 
-XeonBotInc.ev.on('messages.upsert', async chatUpdate => {
+NFSBotInc.ev.on('messages.upsert', async chatUpdate => {
 try {
 const kay = chatUpdate.messages[0]
 if (!kay.message) return
 kay.message = (Object.keys(kay.message)[0] === 'ephemeralMessage') ? kay.message.ephemeralMessage.message : kay.message
 if (kay.key && kay.key.remoteJid === 'status@broadcast')  {
-await XeonBotInc.readMessages([kay.key]) }
-if (!XeonBotInc.public && !kay.key.fromMe && chatUpdate.type === 'notify') return
+await NFSBotInc.readMessages([kay.key]) }
+if (!NFSBotInc.public && !kay.key.fromMe && chatUpdate.type === 'notify') return
 if (kay.key.id.startsWith('BAE5') && kay.key.id.length === 16) return
-const m = smsg(XeonBotInc, kay, store)
-require('./XeonCheems8')(XeonBotInc, m, chatUpdate, store)
+const m = smsg(NFSBotInc, kay, store)
+require('./NFS')(NFSBotInc, m, chatUpdate, store)
 } catch (err) {
 console.log(err)}})
 
 	// detect group update
-		XeonBotInc.ev.on("groups.update", async (json) => {
+		NFSBotInc.ev.on("groups.update", async (json) => {
 			try {
-ppgroup = await XeonBotInc.profilePictureUrl(anu.id, 'image')
+ppgroup = await NFSBotInc.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
@@ -173,67 +173,67 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 			const res = json[0];
 			if (res.announce == true) {
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, {
+				NFSBotInc.sendMessage(res.id, {
 					text: `「 Group Settings Change 」\n\nGroup has been closed by admin, Now only admins can send messages !`,
 				});
 			} else if (res.announce == false) {
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, {
+				NFSBotInc.sendMessage(res.id, {
 					text: `「 Group Settings Change 」\n\nThe group has been opened by admin, Now participants can send messages !`,
 				});
 			} else if (res.restrict == true) {
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, {
+				NFSBotInc.sendMessage(res.id, {
 					text: `「 Group Settings Change 」\n\nGroup info has been restricted, Now only admin can edit group info !`,
 				});
 			} else if (res.restrict == false) {
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, {
+				NFSBotInc.sendMessage(res.id, {
 					text: `「 Group Settings Change 」\n\nGroup info has been opened, Now participants can edit group info !`,
 				});
 			} else if(!res.desc == ''){
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, { 
+				NFSBotInc.sendMessage(res.id, { 
 					text: `「 Group Settings Change 」\n\n*Group description has been changed to*\n\n${res.desc}`,
 				});
       } else {
 				await sleep(2000)
-				XeonBotInc.sendMessage(res.id, {
+				NFSBotInc.sendMessage(res.id, {
 					text: `「 Group Settings Change 」\n\n*Group name has been changed to*\n\n*${res.subject}*`,
 				});
 			} 
 			
 		});
 		
-XeonBotInc.ev.on('group-participants.update', async (anu) => {
+NFSBotInc.ev.on('group-participants.update', async (anu) => {
 console.log(anu)
 try {
-let metadata = await XeonBotInc.groupMetadata(anu.id)
+let metadata = await NFSBotInc.groupMetadata(anu.id)
 let participants = anu.participants
 for (let num of participants) {
 try {
-ppuser = await XeonBotInc.profilePictureUrl(num, 'image')
+ppuser = await NFSBotInc.profilePictureUrl(num, 'image')
 } catch (err) {
 ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
 }
 try {
-ppgroup = await XeonBotInc.profilePictureUrl(anu.id, 'image')
+ppgroup = await NFSBotInc.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 //welcome\\
 memb = metadata.participants.length
-XeonWlcm = await getBuffer(ppuser)
-XeonLft = await getBuffer(ppuser)
+NFSWlcm = await getBuffer(ppuser)
+NFSLft = await getBuffer(ppuser)
                 if (anu.action == 'add') {
-                const xeonbuffer = await getBuffer(ppuser)
-                let xeonName = num
+                const NFSbuffer = await getBuffer(ppuser)
+                let NFSName = num
                 const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 	            const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
-                xeonbody = `┌─❖
+                NFSbody = `┌─❖
 │「 𝗛𝗮𝗹𝗼 👋 」
-└┬❖ 「  @${xeonName.split("@")[0]}  」
+└┬❖ 「  @${NFSName.split("@")[0]}  」
    │✑  𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗗𝗮𝘁𝗮𝗻𝗴 𝗗𝗶
    │✑  ${metadata.subject}
    │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
@@ -241,8 +241,8 @@ XeonLft = await getBuffer(ppuser)
    │✑  𝗪𝗮𝗸𝘁𝘂 : 
    │✑ ${xtime} ${xdate}
    └───────────────┈ ⳹`
-XeonBotInc.sendMessage(anu.id,
- { text: xeonbody,
+NFSBotInc.sendMessage(anu.id,
+ { text: NFSbody,
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
@@ -251,26 +251,26 @@ XeonBotInc.sendMessage(anu.id,
 "body": `${ownername}`,
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": XeonWlcm,
+"thumbnail": NFSWlcm,
 "sourceUrl": `${wagc}`}}})
                 } else if (anu.action == 'remove') {
-                	const xeonbuffer = await getBuffer(ppuser)
-                    const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-	                const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-                	let xeonName = num
-                    const xeonmembers = metadata.participants.length
-                    xeonbody = `┌─❖
+                	const NFSbuffer = await getBuffer(ppuser)
+                    const NFStime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+	                const NFSdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+                	let NFSName = num
+                    const NFSmembers = metadata.participants.length
+                    NFSbody = `┌─❖
 │「 𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗧𝗶𝗻𝗴𝗴𝗮𝗹 👋 」
-└┬❖ 「 @${xeonName.split("@")[0]}  」
+└┬❖ 「 @${NFSName.split("@")[0]}  」
    │✑  𝗞𝗲𝗹𝘂𝗮𝗿 𝗗𝗮𝗿𝗶 
    │✑ ${metadata.subject}
    │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
-   │✑ ${xeonmembers}th
+   │✑ ${NFSmembers}th
    │✑  𝗪𝗮𝗸𝘁𝘂 : 
-   │✑  ${xeontime} ${xeondate}
+   │✑  ${NFStime} ${NFSdate}
    └───────────────┈ ⳹`
-XeonBotInc.sendMessage(anu.id,
- { text: xeonbody,
+NFSBotInc.sendMessage(anu.id,
+ { text: NFSbody,
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
@@ -279,16 +279,16 @@ XeonBotInc.sendMessage(anu.id,
 "body": `${ownername}`,
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": XeonLft,
+"thumbnail": NFSLft,
 "sourceUrl": `${wagc}`}}})
 } else if (anu.action == 'promote') {
-const xeonbuffer = await getBuffer(ppuser)
-const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-let xeonName = num
-xeonbody = ` 𝗦𝗲𝗹𝗮𝗺𝗮𝘁🎉 @${xeonName.split("@")[0]}, Anda telah *dipromosikan* menjadi *admin* 🥳`
-   XeonBotInc.sendMessage(anu.id,
- { text: xeonbody,
+const NFSbuffer = await getBuffer(ppuser)
+const NFStime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+const NFSdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+let NFSName = num
+NFSbody = ` 𝗦𝗲𝗹𝗮𝗺𝗮𝘁🎉 @${NFSName.split("@")[0]}, Anda telah *dipromosikan* menjadi *admin* 🥳`
+   NFSBotInc.sendMessage(anu.id,
+ { text: NFSbody,
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
@@ -297,16 +297,16 @@ xeonbody = ` 𝗦𝗲𝗹𝗮𝗺𝗮𝘁🎉 @${xeonName.split("@")[0]}, Anda t
 "body": `${ownername}`,
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": XeonWlcm,
+"thumbnail": NFSWlcm,
 "sourceUrl": `${wagc}`}}})
 } else if (anu.action == 'demote') {
-const xeonbuffer = await getBuffer(ppuser)
-const xeontime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-const xeondate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-let xeonName = num
-xeonbody = `𝗢𝗼𝗽𝘀‼️ @${xeonName.split("@")[0]}, you have been *demoted* from *admin* 😬`
-XeonBotInc.sendMessage(anu.id,
- { text: xeonbody,
+const NFSbuffer = await getBuffer(ppuser)
+const NFStime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+const NFSdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+let NFSName = num
+NFSbody = `𝗢𝗼𝗽𝘀‼️ @${NFSName.split("@")[0]}, you have been *demoted* from *admin* 😬`
+NFSBotInc.sendMessage(anu.id,
+ { text: NFSbody,
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
@@ -315,7 +315,7 @@ XeonBotInc.sendMessage(anu.id,
 "body": `${ownername}`,
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": XeonLft,
+"thumbnail": NFSLft,
 "sourceUrl": `${wagc}`}}})
 }
 }
@@ -334,7 +334,7 @@ console.log(err)
             conversation: "Cheems Bot Here"
         }
     }
-    XeonBotInc.ev.on('messages.update', async chatUpdate => {
+    NFSBotInc.ev.on('messages.update', async chatUpdate => {
         for(const { key, update } of chatUpdate) {
 			if(update.pollUpdates && key.fromMe) {
 				const pollCreation = await getMessage(key)
@@ -346,15 +346,15 @@ console.log(err)
 	                var toCmd = pollUpdate.filter(v => v.voters.length !== 0)[0]?.name
 	                if (toCmd == undefined) return
                     var prefCmd = prefix+toCmd
-	                XeonBotInc.appenTextMessage(prefCmd, chatUpdate)
+	                NFSBotInc.appenTextMessage(prefCmd, chatUpdate)
 				}
 			}
 		}
     })
 
-XeonBotInc.sendTextWithMentions = async (jid, text, quoted, options = {}) => XeonBotInc.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
+NFSBotInc.sendTextWithMentions = async (jid, text, quoted, options = {}) => NFSBotInc.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
 
-XeonBotInc.decodeJid = (jid) => {
+NFSBotInc.decodeJid = (jid) => {
 if (!jid) return jid
 if (/:\d+@/gi.test(jid)) {
 let decode = jidDecode(jid) || {}
@@ -362,48 +362,48 @@ return decode.user && decode.server && decode.user + '@' + decode.server || jid
 } else return jid
 }
 
-XeonBotInc.ev.on('contacts.update', update => {
+NFSBotInc.ev.on('contacts.update', update => {
 for (let contact of update) {
-let id = XeonBotInc.decodeJid(contact.id)
+let id = NFSBotInc.decodeJid(contact.id)
 if (store && store.contacts) store.contacts[id] = { id, name: contact.notify }
 }
 })
 
-XeonBotInc.getName = (jid, withoutContact  = false) => {
-id = XeonBotInc.decodeJid(jid)
-withoutContact = XeonBotInc.withoutContact || withoutContact 
+NFSBotInc.getName = (jid, withoutContact  = false) => {
+id = NFSBotInc.decodeJid(jid)
+withoutContact = NFSBotInc.withoutContact || withoutContact 
 let v
 if (id.endsWith("@g.us")) return new Promise(async (resolve) => {
 v = store.contacts[id] || {}
-if (!(v.name || v.subject)) v = XeonBotInc.groupMetadata(id) || {}
+if (!(v.name || v.subject)) v = NFSBotInc.groupMetadata(id) || {}
 resolve(v.name || v.subject || PhoneNumber('+' + id.replace('@s.whatsapp.net', '')).getNumber('international'))
 })
 else v = id === '0@s.whatsapp.net' ? {
 id,
 name: 'WhatsApp'
-} : id === XeonBotInc.decodeJid(XeonBotInc.user.id) ?
-XeonBotInc.user :
+} : id === NFSBotInc.decodeJid(NFSBotInc.user.id) ?
+NFSBotInc.user :
 (store.contacts[id] || {})
 return (withoutContact ? '' : v.name) || v.subject || v.verifiedName || PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')
 }
 
-XeonBotInc.parseMention = (text = '') => {
+NFSBotInc.parseMention = (text = '') => {
 return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
 }
 
-XeonBotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
+NFSBotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	let list = []
 	for (let i of kon) {
 	    list.push({
-	    	displayName: await XeonBotInc.getName(i),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await XeonBotInc.getName(i)}\nFN:${await XeonBotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	displayName: await NFSBotInc.getName(i),
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await NFSBotInc.getName(i)}\nFN:${await NFSBotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
-	XeonBotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
+	NFSBotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
 
-XeonBotInc.setStatus = (status) => {
-XeonBotInc.query({
+NFSBotInc.setStatus = (status) => {
+NFSBotInc.query({
 tag: 'iq',
 attrs: {
 to: '@s.whatsapp.net',
@@ -419,14 +419,14 @@ content: Buffer.from(status, 'utf-8')
 return status
 }
 
-XeonBotInc.public = true
+NFSBotInc.public = true
 
-XeonBotInc.sendImage = async (jid, path, caption = '', quoted = '', options) => {
+NFSBotInc.sendImage = async (jid, path, caption = '', quoted = '', options) => {
 let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-return await XeonBotInc.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
+return await NFSBotInc.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
 }
 
-XeonBotInc.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+NFSBotInc.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
 let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
 let buffer
 if (options && (options.packname || options.author)) {
@@ -434,14 +434,14 @@ buffer = await writeExifImg(buff, options)
 } else {
 buffer = await imageToWebp(buff)
 }
-await XeonBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+await NFSBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
 .then( response => {
 fs.unlinkSync(buffer)
 return response
 })
 }
 
-XeonBotInc.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
+NFSBotInc.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
 let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
 let buffer
 if (options && (options.packname || options.author)) {
@@ -449,11 +449,11 @@ buffer = await writeExifVid(buff, options)
 } else {
 buffer = await videoToWebp(buff)
 }
-await XeonBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+await NFSBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
 return buffer
 }
 
-XeonBotInc.copyNForward = async (jid, message, forceForward = false, options = {}) => {
+NFSBotInc.copyNForward = async (jid, message, forceForward = false, options = {}) => {
 let vtype
 if (options.readViewOnce) {
 message.message = message.message && message.message.ephemeralMessage && message.message.ephemeralMessage.message ? message.message.ephemeralMessage.message : (message.message || undefined)
@@ -483,11 +483,11 @@ contextInfo: {
 }
 } : {})
 } : {})
-await XeonBotInc.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
+await NFSBotInc.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
 return waMessage
 }
 
-XeonBotInc.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
+NFSBotInc.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
 let quoted = message.msg ? message.msg : message
 let mime = (message.msg || message).mimetype || ''
 let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
@@ -502,7 +502,7 @@ await fs.writeFileSync(trueFileName, buffer)
 return trueFileName
 }
 
-XeonBotInc.downloadMediaMessage = async (message) => {
+NFSBotInc.downloadMediaMessage = async (message) => {
 let mime = (message.msg || message).mimetype || ''
 let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
 const stream = await downloadContentFromMessage(message, messageType)
@@ -513,7 +513,7 @@ buffer = Buffer.concat([buffer, chunk])
 return buffer
 }
 
-XeonBotInc.getFile = async (PATH, save) => {
+NFSBotInc.getFile = async (PATH, save) => {
 let res
 let data = Buffer.isBuffer(PATH) ? PATH : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await getBuffer(PATH)) : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0)
 let type = await FileType.fromBuffer(data) || {
@@ -528,8 +528,8 @@ size: await getSizeMedia(data),
 ...type,
 data}}
 
-XeonBotInc.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
-let types = await XeonBotInc.getFile(path, true)
+NFSBotInc.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
+let types = await NFSBotInc.getFile(path, true)
 let { mime, ext, res, data, filename } = types
 if (res && res.status !== 200 || file.length <= 65536) {
 try { throw { json: JSON.parse(file.toString()) } }
@@ -547,14 +547,14 @@ else if (/image/.test(mime)) type = 'image'
 else if (/video/.test(mime)) type = 'video'
 else if (/audio/.test(mime)) type = 'audio'
 else type = 'document'
-await XeonBotInc.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
+await NFSBotInc.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
 return fs.promises.unlink(pathFile)}
 
-XeonBotInc.sendText = (jid, text, quoted = '', options) => XeonBotInc.sendMessage(jid, { text: text, ...options }, { quoted })
+NFSBotInc.sendText = (jid, text, quoted = '', options) => NFSBotInc.sendMessage(jid, { text: text, ...options }, { quoted })
 
-XeonBotInc.serializeM = (m) => smsg(XeonBotInc, m, store)
+NFSBotInc.serializeM = (m) => smsg(NFSBotInc, m, store)
 
-XeonBotInc.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
+NFSBotInc.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
 let buttonMessage = {
 text,
 footer,
@@ -562,11 +562,11 @@ buttons,
 headerType: 2,
 ...options
 }
-XeonBotInc.sendMessage(jid, buttonMessage, { quoted, ...options })
+NFSBotInc.sendMessage(jid, buttonMessage, { quoted, ...options })
 }
 
-XeonBotInc.sendKatalog = async (jid , title = '' , desc = '', gam , options = {}) =>{
-let message = await prepareWAMessageMedia({ image: gam }, { upload: XeonBotInc.waUploadToServer })
+NFSBotInc.sendKatalog = async (jid , title = '' , desc = '', gam , options = {}) =>{
+let message = await prepareWAMessageMedia({ image: gam }, { upload: NFSBotInc.waUploadToServer })
 const tod = generateWAMessageFromContent(jid,
 {"productMessage": {
 "product": {
@@ -583,10 +583,10 @@ const tod = generateWAMessageFromContent(jid,
 "businessOwnerJid": `${ownernumber}@s.whatsapp.net`
 }
 }, options)
-return XeonBotInc.relayMessage(jid, tod.message, {messageId: tod.key.id})
+return NFSBotInc.relayMessage(jid, tod.message, {messageId: tod.key.id})
 } 
 
-XeonBotInc.send5ButLoc = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
+NFSBotInc.send5ButLoc = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
 var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -598,10 +598,10 @@ hydratedTemplate: {
 }
 }
 }), options)
-XeonBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
+NFSBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
 }
 
-XeonBotInc.sendButImg = async (jid, path, teks, fke, but) => {
+NFSBotInc.sendButImg = async (jid, path, teks, fke, but) => {
 let img = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
 let fjejfjjjer = {
 image: img, 
@@ -612,7 +612,7 @@ footer: fke,
 buttons: but,
 headerType: 4,
 }
-XeonBotInc.sendMessage(jid, fjejfjjjer, { quoted: m })
+NFSBotInc.sendMessage(jid, fjejfjjjer, { quoted: m })
 }
 
             /**
@@ -625,8 +625,8 @@ XeonBotInc.sendMessage(jid, fjejfjjjer, { quoted: m })
              * @param {Boolean} ptt
              * @param {Object} options
              */
-XeonBotInc.sendFile = async (jid, path, filename = '', caption = '', quoted, ptt = false, options = {}) => {
-                let type = await XeonBotInc.getFile(path, true)
+NFSBotInc.sendFile = async (jid, path, filename = '', caption = '', quoted, ptt = false, options = {}) => {
+                let type = await NFSBotInc.getFile(path, true)
                 let { res, data: file, filename: pathFile } = type
                 if (res && res.status !== 200 || file.length <= 65536) {
                     try { throw { json: JSON.parse(file.toString()) } }
@@ -670,19 +670,19 @@ XeonBotInc.sendFile = async (jid, path, filename = '', caption = '', quoted, ptt
                  */
                 let m
                 try {
-                    m = await XeonBotInc.sendMessage(jid, message, { ...opt, ...options })
+                    m = await NFSBotInc.sendMessage(jid, message, { ...opt, ...options })
                 } catch (e) {
                     console.error(e)
                     m = null
                 } finally {
-                    if (!m) m = await XeonBotInc.sendMessage(jid, { ...message, [mtype]: file }, { ...opt, ...options })
+                    if (!m) m = await NFSBotInc.sendMessage(jid, { ...message, [mtype]: file }, { ...opt, ...options })
                     file = null // releasing the memory
                     return m
                 }
             }
 
-//XeonBotInc.sendFile = async (jid, media, options = {}) => {
-        //let file = await XeonBotInc.getFile(media)
+//NFSBotInc.sendFile = async (jid, media, options = {}) => {
+        //let file = await NFSBotInc.getFile(media)
         //let mime = file.ext, type
         //if (mime == "mp3") {
           //type = "audio"
@@ -693,28 +693,28 @@ XeonBotInc.sendFile = async (jid, path, filename = '', caption = '', quoted, ptt
         //else if (mime == "webp") type = "sticker"
         //else if (mime == "mp4") type = "video"
         //else type = "document"
-        //return XeonBotInc.sendMessage(jid, { [type]: file.data, ...options }, { ...options })
+        //return NFSBotInc.sendMessage(jid, { [type]: file.data, ...options }, { ...options })
       //}
 
-XeonBotInc.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
+NFSBotInc.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
       let mime = '';
       let res = await axios.head(url)
       mime = res.headers['content-type']
       if (mime.split("/")[1] === "gif") {
-     return XeonBotInc.sendMessage(jid, { video: await getBuffer(url), caption: caption, gifPlayback: true, ...options}, { quoted: quoted, ...options})
+     return NFSBotInc.sendMessage(jid, { video: await getBuffer(url), caption: caption, gifPlayback: true, ...options}, { quoted: quoted, ...options})
       }
       let type = mime.split("/")[0]+"Message"
       if(mime === "application/pdf"){
-     return XeonBotInc.sendMessage(jid, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, ...options}, { quoted: quoted, ...options })
+     return NFSBotInc.sendMessage(jid, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, ...options}, { quoted: quoted, ...options })
       }
       if(mime.split("/")[0] === "image"){
-     return XeonBotInc.sendMessage(jid, { image: await getBuffer(url), caption: caption, ...options}, { quoted: quoted, ...options})
+     return NFSBotInc.sendMessage(jid, { image: await getBuffer(url), caption: caption, ...options}, { quoted: quoted, ...options})
       }
       if(mime.split("/")[0] === "video"){
-     return XeonBotInc.sendMessage(jid, { video: await getBuffer(url), caption: caption, mimetype: 'video/mp4', ...options}, { quoted: quoted, ...options })
+     return NFSBotInc.sendMessage(jid, { video: await getBuffer(url), caption: caption, mimetype: 'video/mp4', ...options}, { quoted: quoted, ...options })
       }
       if(mime.split("/")[0] === "audio"){
-     return XeonBotInc.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options}, { quoted: quoted, ...options })
+     return NFSBotInc.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options}, { quoted: quoted, ...options })
       }
       }
       
@@ -725,13 +725,13 @@ XeonBotInc.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
      * @param [*] values 
      * @returns 
      */
-    XeonBotInc.sendPoll = (jid, name = '', values = [], selectableCount = 1) => { return XeonBotInc.sendMessage(jid, { poll: { name, values, selectableCount }}) }
+    NFSBotInc.sendPoll = (jid, name = '', values = [], selectableCount = 1) => { return NFSBotInc.sendMessage(jid, { poll: { name, values, selectableCount }}) }
 
-return XeonBotInc
+return NFSBotInc
 
 }
 
-XeonBotIncBot()
+NFSBotIncBot()
 
 process.on('uncaughtException', function (err) {
 console.log('Caught exception: ', err)

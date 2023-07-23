@@ -1,7 +1,7 @@
 const axios = require('axios')
 const vm = require('node:vm')
 
-async function XeonFb() {
+async function NFSFb() {
     let body = new URLSearchParams({
         "sf_url": encodeURI(arguments[0]),
         "sf_submit": "",
@@ -38,4 +38,4 @@ async function XeonFb() {
     return JSON.parse(context.scriptResult.split("window.parent.sf.videoResult.show(")?.[1].split(");")?.[0])
 }
 
-module.exports.XeonFb = XeonFb
+module.exports.NFSFb = NFSFb

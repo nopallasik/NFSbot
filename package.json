@@ -1,9 +1,9 @@
 {
-  "name": "Cheems-Bot-MD",
-  "version": "8.0.0",
+  "name": "NFS-Bot",
+  "version": "1.0.0",
   "description": "Automated whatsapp md bot created using nodejs and baileys lib",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "common.js",
   "scripts": {
     "start": "node index.js"
   },
@@ -18,10 +18,10 @@
     "bot-md",
     "multi-device"
   ],
-  "author": "DGXeon",
+  "author": "Blawuken",
   "license": "ISC",
   "dependencies": {
-    "@adiwajshing/baileys": "npm:@ferdiz-afk/baileys",
+    "@adiwajshing/baileys": "npm:@ferdiz-afk/baileys@6.3.10",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "4.0.22-alpha.0",
     "@saipulanuar/jadianime-ts": "^2.0.0",
@@ -94,10 +94,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DGXeon/CheemsBot-MD8.git"
+    "url": "git+https://github.com/Blawuken/CheemsBot-MD8.git"
   },
   "bugs": {
-    "url": "https://github.com/DGXeon/CheemsBot-MD8/issues"
+    "url": "https://github.com/Blawuken/CheemsBot-MD8/issues"
   },
-  "homepage": "https://github.com/DGXeon/CheemsBot-MD8/#readme"
+  "homepage": "https://github.com/Blawuken/CheemsBot-MD8/#readme"
 }
