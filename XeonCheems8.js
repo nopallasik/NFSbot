@@ -177,30 +177,30 @@ try {
         const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
         const time2 = moment.tz('Asia/Jakarta').format('HH')
-        if(time2 == "01"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌝*`}
-        if(time2 == "02"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌝*`}
-        if(time2 == "03"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌝*`}
-        if(time2 == "04"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌔*`}
-        if(time2 == "05"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌄*`}
-        if(time2 == "06"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌇*`}
-        if(time2 == "07"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌇*`}
-        if(time2 == "08"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕻𝖆𝖌𝖎 🌤️*`}
-        if(time2 == "09"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "10"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "11"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "12"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "13"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "14"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖎𝖆𝖓𝖌 🌤️*`}
-        if(time2 == "15"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌥️*`}
-        if(time2 == "16"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌥️*`}
-        if(time2 == "17"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌥️*`}
-        if(time2 == "18"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌃*`}
-        if(time2 == "19"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌃*`}
-        if(time2 == "20"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕾𝖔𝖗𝖊 🌃*`}
-        if(time2 == "21"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕸𝖆𝖑𝖆𝖒 🌃*`}
-        if(time2 == "22"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕸𝖆𝖑𝖆𝖒 🌃*`}
-        if(time2 == "23"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕸𝖆𝖑𝖆𝖒 🌜*`}
-        if(time2 == "00"){var xeonytimewisher = `*𝕾𝖊𝖑𝖆𝖒𝖆𝖙 𝕸𝖆𝖑𝖆𝖒 🌜*`}
+        if(time2 == "01"){var xeonytimewisher = `Selamat Pagi 🌝`}
+        if(time2 == "02"){var xeonytimewisher = `Selamat Pagi 🌝`}
+        if(time2 == "03"){var xeonytimewisher = `Selamat Pagi 🌝`}
+        if(time2 == "04"){var xeonytimewisher = `Selamat Pagi 🌔`}
+        if(time2 == "05"){var xeonytimewisher = `Selamat Pagi 🌄`}
+        if(time2 == "06"){var xeonytimewisher = `Selamat Pagi 🌇`}
+        if(time2 == "07"){var xeonytimewisher = `Selamat Pagi 🌇`}
+        if(time2 == "08"){var xeonytimewisher = `Selamat Pagi 🌤️`}
+        if(time2 == "09"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "10"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "11"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "12"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "13"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "14"){var xeonytimewisher = `Selamat Siang 🌤️`}
+        if(time2 == "15"){var xeonytimewisher = `Selamat Sore 🌥️`}
+        if(time2 == "16"){var xeonytimewisher = `Selamat Sore 🌥️`}
+        if(time2 == "17"){var xeonytimewisher = `Selamat Sore 🌥️`}
+        if(time2 == "18"){var xeonytimewisher = `Selamat Sore 🌃`}
+        if(time2 == "19"){var xeonytimewisher = `Selamat Sore 🌃`}
+        if(time2 == "20"){var xeonytimewisher = `Selamat Sore 🌃`}
+        if(time2 == "21"){var xeonytimewisher = `Selamat Malam 🌃`}
+        if(time2 == "22"){var xeonytimewisher = `Selamat Malam 🌃`}
+        if(time2 == "23"){var xeonytimewisher = `Selamat Malam 🌜`}
+        if(time2 == "00"){var xeonytimewisher = `Selamat Malam 🌜`}
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
 				text = q,
@@ -1495,12 +1495,9 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             let timestampe = speed()
             let latensie = speed() - timestampe
             xeonezy = `◈ ━━━━━ *𝗡𝗙𝗦  ┃ ᴮᴼᵀ* ━━━━━ ◈
-*Halo Kak ${pushname} 👋. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+*${xeonytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
 
-┌─❖
-│ ✑  ${xeonytimewisher}
-│
-└─ ❖「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧」❖
+┌─ ❖「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧」❖
 │
 │𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻 : ${latensie.toFixed(4)} miliseconds
 │𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
