@@ -178,22 +178,22 @@ try {
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
         const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')  
          if(time2 < "23:59:00"){
-var xeonytimewisher = `Good Night 🌌`
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗠𝗮𝗹𝗮𝗺 🌌`
  }
- if(time2 < "19:00:00"){
-var xeonytimewisher = `Good Evening 🌃`
+ if(time2 < "20:00:00"){
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌃`
  }
  if(time2 < "18:00:00"){
-var xeonytimewisher = `Good Evening 🌃`
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌃`
  }
  if(time2 < "15:00:00"){
-var xeonytimewisher = `Good Afternoon 🌅`
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌅`
  }
  if(time2 < "11:00:00"){
-var xeonytimewisher = `Good Morning 🌄`
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗶𝗮𝗻𝗴 🌄`
  }
  if(time2 < "05:00:00"){
-var xeonytimewisher = `Good Morning 🌄`
+var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗣𝗮𝗴𝗶 🌄`
  } 
 
 		if (isEval && senderNumber == "6281779122444") {
@@ -1489,34 +1489,34 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             let me = m.sender
             let timestampe = speed()
             let latensie = speed() - timestampe
-            xeonezy = `┌─❖ 𝗡𝗙𝗦ᴮᴼᵀ
-│ Hi ${pushname} 👋
-└┬❖
-┌┤✑  ${xeonytimewisher}
-│└────────────┈ ⳹
+            xeonezy = `◈ ━━━━━ *𝗡𝗙𝗦  ┃ ᴮᴼᵀ* ━━━━━ ◈
+ *Halo Kak ${pushname} 👋. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+
+┌─❖
+│ ✑  ${xeonytimewisher}
 │
-└─ ❖「 𝗕𝗢𝗧 𝗜𝗡𝗙𝗢 」❖
-│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+└─ ❖「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧」❖
+│𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻 : ${latensie.toFixed(4)} miliseconds
+│𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
 │𝗕𝗼𝘁 : ${global.botname}
-│𝗢𝘄𝗻𝗲𝗿 : ${global.ownername}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : ${ownernumber}
+│𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
+│𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
 │𝗣𝗿𝗲𝗳𝗶𝘅 : NO-PREFIX
 │𝗠𝗼𝗱𝗲 : ${XeonBotInc.public ? 'Public' : `Self`}
 │𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
 │𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
 │
-└─ ❖「 𝗨𝗦𝗘𝗥 𝗜𝗡𝗙𝗢 」❖
-│𝗡𝗮𝗺𝗲 : ${pushname}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
+└─ ❖「 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥 」❖
+│𝗡𝗮𝗺𝗮 : ${pushname}
+│𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
 │𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
 │
-└─ ❖「 𝗧𝗜𝗠𝗘 𝗜𝗡𝗙𝗢 」❖
-│𝗧𝗶𝗺𝗲 : ${xtime}
-│𝗗𝗮𝘁𝗲 : ${xdate}
+└─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
+│𝗪𝗮𝗸𝘁𝘂 : ${xtime}
+│𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
+│
 └┬────────────┈ ⳹
-   │✑  Please Type The *MENU*
-   │✑  Given *BELOW*
+   │✑「 𝗠𝗘𝗡𝗨 」
 ┌└─────────────┈ ⳹
 │❏.allmenu
 │❏.downloadmenu
