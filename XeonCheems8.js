@@ -176,26 +176,32 @@ try {
         //TIME
         const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
-        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')  
-         if(time2 < "23:59:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗠𝗮𝗹𝗮𝗺 🌌`
- }
- if(time2 < "20:00:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌃`
- }
- if(time2 < "18:00:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌃`
- }
- if(time2 < "15:00:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗼𝗿𝗲 🌅`
- }
- if(time2 < "11:00:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗦𝗶𝗮𝗻𝗴 🌄`
- }
- if(time2 < "05:00:00"){
-var xeonytimewisher = `𝗦𝗲𝗹𝗮𝗺𝗮𝘁 𝗣𝗮𝗴𝗶 🌄`
- } 
-
+        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+        if(time2 < "00:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
+        if(time2 < "01:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 < "02:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 < "03:00:00"){var xeonytimewisher = `*Selamat Pagi 🌝*`}
+        if(time2 < "04:00:00"){var xeonytimewisher = `*Selamat Pagi 🌔*`}
+        if(time2 < "05:00:00"){var xeonytimewisher = `*Selamat Pagi 🌄*`}
+        if(time2 < "06:00:00"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
+        if(time2 < "07:00:00"){var xeonytimewisher = `*Selamat Pagi 🌇*`}
+        if(time2 < "08:00:00"){var xeonytimewisher = `*Selamat Pagi 🌤️*`}
+        if(time2 < "09:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "10:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "11:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "12:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "13:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "14:00:00"){var xeonytimewisher = `*Selamat Siang 🌤️*`}
+        if(time2 < "15:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 < "16:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 < "17:00:00"){var xeonytimewisher = `*Selamat Sore 🌥️*`}
+        if(time2 < "18:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 < "19:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 < "20:00:00"){var xeonytimewisher = `*Selamat Sore 🌃*`}
+        if(time2 < "21:00:00"){var xeonytimewisher = `*Selamat Malam 🌃*`}
+        if(time2 < "22:00:00"){var xeonytimewisher = `*Selamat Malam 🌃*`}
+        if(time2 < "23:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
+        if(time2 < "24:00:00"){var xeonytimewisher = `*Selamat Malam 🌜*`}
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
 				text = q,
@@ -1490,7 +1496,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             let timestampe = speed()
             let latensie = speed() - timestampe
             xeonezy = `◈ ━━━━━ *𝗡𝗙𝗦  ┃ ᴮᴼᵀ* ━━━━━ ◈
- *Halo Kak ${pushname} 👋. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+*Halo Kak ${pushname} 👋. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
 
 ┌─❖
 │ ✑  ${xeonytimewisher}
