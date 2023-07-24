@@ -572,10 +572,10 @@ NFSBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 }
 
 if (m.isGroup && m.mtype == 'viewOnceMessage') {
-let teks = `╭「 *Anti ViewOnce* 」\n├ *Name* : ${pushname}\n├ *User* : @${m.sender.split("@")[0]}\n├ *Clock* : ${time2}\n└ *Message* : ${m.mtype}`
+let teks = `╭「 *Anti ViewOnce* 」\n├ *Nama* : ${pushname}\n├ *Pengguna* : @${m.sender.split("@")[0]}\n├ *Jam* : ${time2}\n└ *Pesan* : ${m.mtype}`
 NFSBotInc.sendMessage(m.chat, { text: teks, mentions: [m.sender] }, { quoted: m })
 await sleep(500)
-m.copyNForward(m.chat, true, {readViewOnce: true}, {quoted: m}).catch(_ => m.reply(`Maybe It's Opened`))
+m.copyNForward(m.chat, true, {readViewOnce: true}, {quoted: m}).catch(_ => m.reply(`Mungkin Sudah Dibuka`))
 }
 
 const lep = {
@@ -1017,7 +1017,7 @@ async function igstalk(Username) {
 }
 
 async function replyprem(teks) {
-    m.reply(`This feature is for premium user, contact the owner to become premium user`)
+    m.reply(`Fitur ini untuk pengguna premium, hubungi pemilik untuk menjadi pengguna premium`)
 }
 
         // Autosticker gc
@@ -1040,9 +1040,9 @@ async function replyprem(teks) {
         let gclink = (`https://chat.whatsapp.com/`+await NFSBotInc.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
-        if (isAdmins) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
-        if (NFSTheCreator) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
+        if (isgclink) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Tautan Grup Terdeteksi 」\`\`\`\n\nAnda tidak akan ditendang oleh bot karena yang Anda kirim adalah tautan ke grup ini`})
+        if (isAdmins) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Tautan Grup Terdeteksi 」\`\`\`\n\nAdmin sudah mengirimkan link, admin bebas memposting link apapun`})
+        if (NFSTheCreator) return NFSBotInc.sendMessage(m.chat, {text: `\`\`\`「 Tautan Grup Terdeteksi 」\`\`\`\n\nPemilik telah mengirim tautan, pemilik bebas memposting tautan apa pun`})
         kice = m.sender
         await NFSBotInc.sendMessage(m.chat,
 			    {
@@ -1054,7 +1054,7 @@ async function replyprem(teks) {
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			NFSBotInc.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+			NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Grup Terdeteksi 」\`\`\`\n\n@${kice.split("@")[0]} Telah ditendang karena mengirimkan tautan grup di grup ini`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
             }            
         }
 
@@ -1062,7 +1062,7 @@ async function replyprem(teks) {
 if (antiWame)
 if (budy.includes(`Wa.me`)) {
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Wa.me Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link wa.me, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1077,14 +1077,14 @@ kice = m.sender
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Wa.me Terdeteksi 」\`\`\`\n\n@${kice.split("@")[0]} Ditendang gara-gara kirim link wa.me di grup ini`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
 
 if (antiWame)
 if (budy.includes(`http://wa.me`)) {
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Wa.me Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link wa.me, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1099,7 +1099,7 @@ kice = m.sender
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Wa.me Terdeteksi 」\`\`\`\n\n@${kice.split("@")[0]} Ditendang gara-gara kirim link wa.me di grup ini`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
 
@@ -1117,7 +1117,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@$
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			NFSBotInc.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			NFSBotInc.sendMessage(from, {text:`\`\`\`「 Virus terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirimkan virus di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
   }
   }
 
@@ -1125,7 +1125,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@$
 if (antiToxic)
 if (BadNFS.includes(messagesD)) {
 if (m.text) {
-bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nYou are using bad word but you are an admin/owner that's why i won't kick you😇`
+bvl = `\`\`\`「 Kata Buruk Terdeteksi 」\`\`\`\n\nAnda menggunakan kata-kata buruk tetapi Anda adalah admin/pemilik itu sebabnya saya tidak akan menendang Anda😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1139,14 +1139,14 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			await NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Kata Buruk Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} ditendang karena menggunakan kata-kata buruk di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
 }
 
 //antilink youtube video by NFS
 if (AntiLinkYoutubeVid)
 if (budy.includes("https://youtu.be/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 YoutTube Video Link Detected 」\`\`\`\n\nAdmin has sent a youtube video link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Video Youtube Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link video youtube, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1160,7 +1160,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Video YouTube Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan video youtube di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1168,7 +1168,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`
 if (AntiLinkYoutubeChannel)
 if (budy.includes("https://youtube.com/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a youtube channel link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Saluran Youtube Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link youtube channel, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1182,7 +1182,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Saluran YouTube Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirimkan tautan saluran youtube di grup ini`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
 } else {
 }
 
@@ -1190,7 +1190,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`
 if (AntiLinkInstagram)
 if (budy.includes("https://www.instagram.com/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Instagram Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link instagram, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1204,7 +1204,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Instagram Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan instagram di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1212,7 +1212,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n
 if (AntiLinkFacebook)
 if (budy.includes("https://facebook.com/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Facebook Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link facebook, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1226,7 +1226,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Facebook Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan facebook di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1235,7 +1235,7 @@ if (AntiLinkTelegram)
 if (budy.includes("https://t.me/")){
 if (AntiLinkTelegram)
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Telegram Terdeteksi 」\`\`\`\n\nLink telegram sudah admin kirim, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1249,7 +1249,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Telegram Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan telegram di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1257,7 +1257,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\
 if (AntiLinkTiktok)
 if (budy.includes("https://www.tiktok.com/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Tiktok Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link tiktok, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1271,7 +1271,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Tiktok Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan tiktok di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1279,7 +1279,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@
 if (AntiLinkTwitter)
 if (budy.includes("https://twitter.com/")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Twitter Link Detected 」\`\`\`\n\nAdmin has sent a twitter link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Twitter Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link twitter, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1293,7 +1293,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Tiktok Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan twitter di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1301,7 +1301,7 @@ NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@
 if (AntiLinkAll)
 if (budy.includes("https://")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to send any link😇`
+bvl = `\`\`\`「 Tautan Terdeteksi 」\`\`\`\n\nAdmin sudah kirim link, admin bebas kirim link apapun😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (NFSTheCreator) return m.reply(bvl)
@@ -1315,7 +1315,7 @@ if (NFSTheCreator) return m.reply(bvl)
 			        }
 			    })
 			NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-NFSBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+NFSBotInc.sendMessage(from, {text:`\`\`\`「 Tautan Terdeteksi 」\`\`\`\n\n@${m.sender.split("@")[0]} Telah ditendang karena mengirim tautan di grup ini`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -1338,7 +1338,7 @@ emoji.get(satu)
 NFSBotInc.sendMessage(from, { caption: mess.success, image: {url: emoji.images[dua].url} }, {quoted:m})
 })
 } catch (e) {
-m.reply("Emoji error, please enter another emoji\nNOTE : Just enter 1 emoji")
+m.reply("Emoji error, harap masukkan emoji lain\nCATATAN : Cukup masukkan 1 emoji")
 }
 }
 
@@ -1407,7 +1407,7 @@ Type *surrender* to surrender and admit defeat`
             state: 'WAITING'
             }
             if (text) room13.name = text
-            replygcNFS('Waiting For Partner' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
+            replygcNFS('Menunggu Mitra' + (text ? ` Ketik Perintah Di Bawah Ini ${prefix}${command} ${text}` : ''))
             this.game[room13.id] = room13
             }
             }
@@ -1417,12 +1417,12 @@ Type *surrender* to surrender and admit defeat`
             try {
             if (this.game) {
             delete this.game
-            NFSBotInc.sendText(m.chat, `Successfully deleted TicTacToe session`, m)
+            NFSBotInc.sendText(m.chat, `Berhasil menghapus sesi TicTacToe`, m)
             } else if (!this.game) {
-            replygcNFS(`Session TicTacToe🎮 does not exist`)
+            replygcNFS(`Sesi TicTacToe🎮 tidak ada`)
             } else throw '?'
             } catch (e) {
-            replygcNFS('damaged')
+            replygcNFS('rusak')
             }
             }
             break
@@ -1432,15 +1432,15 @@ Type *surrender* to surrender and admit defeat`
             let poin_lose = 10
             let timeout = 60000
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) replygcNFS(`Complete your previous game`)
-	    if (m.mentionedJid[0] === m.sender) return replygcNFS(`Can't play with myself !`)
-            if (!m.mentionedJid[0]) return replygcNFS(`_Who do you want to challenge?_\nTag the person..\n\nExample : ${prefix}suit @${owner}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replygcNFS(`The person you are challenging is playing suit with someone else :(`)
+	    if (m.mentionedJid[0] === m.sender) return replygcNFS(`Tidak bisa bermain dengan diriku sendiri !`)
+            if (!m.mentionedJid[0]) return replygcNFS(`_Siapa yang ingin Anda tantang?_\nTandai orangnya..\n\nContoh : ${prefix}suit @${owner}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replygcNFS(`Orang yang Anda tantang sedang bermain sesuai dengan orang lain :(`)
             let id = 'suit_' + new Date() * 1
             let caption = `_*SUIT PvP*_
 
-@${m.sender.split`@`[0]} *Challenged* @${m.mentionedJid[0].split`@`[0]} *to play suit*
+@${m.sender.split`@`[0]} *Ditantang* @${m.mentionedJid[0].split`@`[0]} *untuk bermain jas*
 
-*Hi* @${m.mentionedJid[0].split`@`[0]} *Please type accept to accept or type reject to reject`
+*Hi* @${m.mentionedJid[0].split`@`[0]} *Silahkan ketik accept untuk menerima atau ketik reject untuk menolak`
             this.suit[id] = {
             chat: await NFSBotInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
             id: id,
@@ -1448,7 +1448,7 @@ Type *surrender* to surrender and admit defeat`
             p2: m.mentionedJid[0],
             status: 'wait',
             waktu: setTimeout(() => {
-            if (this.suit[id]) NFSBotInc.sendText(m.chat, `_Suit time out_`, m)
+            if (this.suit[id]) NFSBotInc.sendText(m.chat, `_Jas waktu habis_`, m)
             delete this.suit[id]
             }, 60000), poin, poin_lose, timeout
             }
@@ -1457,13 +1457,13 @@ Type *surrender* to surrender and admit defeat`
 	case 'public': {
                 if (!NFSTheCreator) return NFSStickOwner()
                 NFSBotInc.public = true
-                replygcNFS('*Successful in Changing To Public Usage*')
+                replygcNFS('*Berhasil Mengubah Ke Penggunaan Publik*')
             }
             break
             case 'self': {
                 if (!NFSTheCreator) return NFSStickOwner()
                 NFSBotInc.public = false
-                replygcNFS('*Successful in Changing To Self Usage*')
+                replygcNFS('*Berhasil Mengubah Ke Pemakaian Sendiri*')
             }
             break
 case 'rentbot': {
@@ -1472,18 +1472,18 @@ if (m.isGroup) return NFSStickPrivate()
 rentfromNFS(NFSBotInc, m, from)
 }
 break
-case 'rentbotlist': 
+case 'rentbotlist' case 'listrentbot': 
 try {
 let user = [... new Set([...global.conns.filter(NFSBotInc => NFSBotInc.user).map(NFSBotInc => NFSBotInc.user)])]
-te = "*Rentbot List*\n\n"
+te = "*Daftar Renbot*\n\n"
 for (let i of user){
 y = await NFSBotInc.decodeJid(i.id)
-te += " × User : @" + y.split("@")[0] + "\n"
-te += " × Name : " + i.name + "\n\n"
+te += " × Pengguna : @" + y.split("@")[0] + "\n"
+te += " × Nama : " + i.name + "\n\n"
 }
 NFSBotInc.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
 } catch (err) {
-replygcNFS(`There are no users who have rented the bot yet`)
+replygcNFS(`Belum ada pengguna yang menyewa bot`)
 }
 break
 case 'shutdown':
@@ -2142,10 +2142,10 @@ setTimeout(() => {
 NFSStickWait()
 }, 1000)
 setTimeout(() => {
-replygcNFS('Managed to Get One Person')
+replygcNFS('Berhasil Mendapatkan Satu Orang')
 }, 5000)
 setTimeout(() => {
-NFSBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
+NFSBotInc.sendMessage(from, {text: `Di Sini @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
 }, 9000)
 }
 break
@@ -2183,7 +2183,7 @@ mentionedJid:[sender],
 }
 break
 case 'request': case 'reportbug': {
-	if (!text) return replygcNFS(`Example : ${prefix + command} Hi Dev perintah play tidak berfungsi`)
+	if (!text) return replygcNFS(`*Contoh :* ${prefix + command} Hi Dev perintah play tidak berfungsi`)
             textt = `*| REQUEST/BUG |*`
             teks1 = `\n\n*User* : @${m.sender.split("@")[0]}\n*Request/Bug* : ${text}`
             teks2 = `\n\n*Hii ${pushname},Permintaan Anda telah diteruskan ke Pemilik saya*.\n*Harap tunggu...*`
@@ -2315,7 +2315,7 @@ case 'poll': {
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcNFS(
-                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|NFS,Cheems,Doge...`
+                    `Sebutkan pertanyaan dan minimal 2 opsi\n*Contoh :* ${prefix}poll Apa aku ganteng?|Ya,Tidak,Sangat Jelek...`
                 )
             let options = []
             for (let i of opt.split(',')) {
@@ -2331,16 +2331,16 @@ case 'poll': {
         break
         case 'vote': {
             if (!m.isGroup) return NFSStickGroup()
-            if (m.chat in vote) return replygcNFS(`_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`)
-            if (!text) return replygcNFS(`Enter Reason for Vote, Example: *${prefix + command} Handsome Owner*`)
-            replygcNFS(`Voting starts!\n\n*${prefix}upvote* - for upvote\n*${prefix}downvote* - for downvote\n*${prefix}checkvote* - to check the vote\n*${prefix}deletevote* - to delete vote`)
+            if (m.chat in vote) return replygcNFS(`_Masih ada suara di obrolan ini!_\n\n*${prefix}deletevote* - untuk menghapus suara`)
+            if (!text) return replygcNFS(`Masukkan Alasan Memilih, Contoh: *${prefix + command} Pemilik Tampan*`)
+            replygcNFS(`Pemungutan suara dimulai!\n\n*${prefix}upvote* - untuk upvote\n*${prefix}downvote* - untuk downvote\n*${prefix}checkvote* - untuk memeriksa vote\n*${prefix}deletevote* - untuk hapus vote`)
             vote[m.chat] = [q, [], []]
             await sleep(1000)
             upvote = vote[m.chat][1]
             devote = vote[m.chat][2]
             teks_vote = `* VOTE *
 
-*Reason:* ${vote[m.chat][0]}
+*Alasan:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
 │ 
@@ -2356,24 +2356,24 @@ case 'poll': {
 │ 
 └────
 
-Please Type Below
-*${prefix}upvote* - to cast vote
-*${prefix}downvote* -  to downvote
-*${prefix}deletevote* - to delete vote`
+Silakan Ketik Di Bawah Ini
+*${prefix}upvote* - untuk menaikan vote
+*${prefix}downvote* -  untuk menurunkan vote
+*${prefix}deletevote* - untuk hapus vote`
             NFSBotInc.sendMessage(m.chat, {text: teks_vote}, {quoted:m})
 	    }
             break
                case 'upvote': {
             if (!m.isGroup) return NFSStickGroup()
-            if (!(m.chat in vote)) return replygcNFS(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
+            if (!(m.chat in vote)) return replygcNFS(`_*tidak ada voting di grup ini!*_\n\n*${prefix}vote* - untuk memulai voting`)
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
-            if (wasVote) return replygcNFS('You have Voted')
+            if (wasVote) return replygcNFS('Anda telah Memilih')
             vote[m.chat][1].push(m.sender)
             menvote = vote[m.chat][1].concat(vote[m.chat][2])
             teks_vote = `* VOTE *
 
-*Reason:* ${vote[m.chat][0]}
+*Alasan:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
 │ 
@@ -2567,7 +2567,7 @@ if(!NFSTheCreator) return NFSStickOwner()
         let getGroups = await NFSBotInc.groupFetchAllParticipating()
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
         let NFScast = groups.map(v => v.id)
-        replygcNFS(` Broadcasting in ${NFScast.length} Group Chat, in ${NFScast.length * 1.5} seconds`)
+        replygcNFS(` Menyiarkan di ${NFScast.length} Obrolan Grup, di ${NFScast.length * 1.5} detik`)
         for (let i of NFScast) {
 let txt = `${ownername}'s Broadcast\n\nMessage : ${q}`
 if(/image/.test(mime)) {
@@ -2579,7 +2579,7 @@ let media = await quoted.download()
 await NFSBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participants.map(a => a.id) })
 }
             }
-        replygcNFS(`Successfuly Broadcasted in ${NFScast.length} Groups`)      
+        replygcNFS(`Berhasil Disiarkan di ${NFScast.length} Grup`)      
         break
 case 'block': case 'ban': {
 		if (!NFSTheCreator) return NFSStickOwner()
@@ -2638,31 +2638,31 @@ case 'group': case 'editinfo': {
 if (!m.isGroup) return NFSStickGroup()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (!isBotAdmins) return NFSStickBotAdmin()
-if (!q) return replygcNFS(`Send orders ${command} _options_\nOptions : close & open\nExample : ${command} close`)
+if (!q) return replygcNFS(`Kirim pesanan ${command} _options_\nPilihan : open & close\nContoh : ${command} open`)
 if (args[0] == 'close') {
 NFSBotInc.groupSettingUpdate(from, 'announcement')
-replygcNFS(`Success Allows Only Admins To Send Messages To This Group`)
+replygcNFS(`Sukses Mengizinkan Hanya Admin Yang Mengirim Pesan Ke Grup Ini`)
 } else if (args[0] == 'open') {
 NFSBotInc.groupSettingUpdate(from, 'not_announcement')
-replygcNFS(`Success Allows All Participants To Send Messages To This Group`)
+replygcNFS(`Sukses Mengizinkan Semua Peserta Mengirim Pesan Ke Grup Ini`)
 } else {
-replygcNFS(`Type Command ${command} _pptions_\nOptions : Close & Open\nExample : ${command} close`)
+replygcNFS(`Ketik Perintah ${command} _pptions_\nPilihan : Close & Open\nContoh : ${command} close`)
 }}
 break
 case 'autostickergc':
             case 'autosticker':
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
-if (args.length < 1) return replygcNFS('type auto sticker on to enable\ntype auto sticker off to disable')
+if (args.length < 1) return replygcNFS('ketik *autosticker on* untuk mengaktifkan\nketik *autosticker off* untuk menonaktifkan')
 if (args[0]  === 'on'){
-if (isAutoSticker) return replygcNFS(`Already activated`)
+if (isAutoSticker) return replygcNFS(`Telah diaktifkan`)
 autosticker.push(from)
 fs.writeFileSync('./database/autosticker.json', JSON.stringify(autosticker))
-replygcNFS('autosticker activated')
+replygcNFS('stiker otomatis diaktifkan')
 } else if (args[0] === 'off'){
 let anuticker1 = autosticker.indexOf(from)
 autosticker.splice(anuticker1, 1)
 fs.writeFileSync('./database/autosticker.json', JSON.stringify(autosticker))
-replygcNFS('auto sticker deactivated')
+replygcNFS('stiker otomatis dinonaktifkan')
 }
 break
 case 'antivirus': case 'antivirtex': {
@@ -2670,25 +2670,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (antiVirtex) return replygcNFS('Already activated')
+if (antiVirtex) return replygcNFS('Telah diaktifkan')
 ntvirtex.push(from)
 fs.writeFileSync('./database/antivirus.json', JSON.stringify(ntvirtex))
-replygcNFS('Success in turning on antivirus in this group')
+replygcNFS('Sukses menyalakan antivirus di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNo body is allowed to send virus in this group, member who send will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nTidak ada orang yang diperbolehkan mengirim virus di grup ini, anggota yang mengirim akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!antiVirtex) return replygcNFS('Already deactivated')
+if (!antiVirtex) return replygcNFS('Sudah dinonaktifkan')
 let off = ntvirtex.indexOf(from)
 ntvirtex.splice(off, 1)
 fs.writeFileSync('./database/antivirus.json', JSON.stringify(ntvirtex))
-replygcNFS('Success in turning off antivirus this group')
+replygcNFS('Sukses mematikan antivirus grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2697,25 +2697,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiNsfw) return replygcNFS('Already activated')
+if (AntiNsfw) return replygcNFS('Telah diaktifkan')
 ntnsfw.push(from)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
-replygcNFS('Success in turning on nsfw in this group')
+replygcNFS('Sukses menyalakan nsfw di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nFitur Nsfw (tidak aman untuk bekerja) telah diaktifkan di grup ini, yang berarti seseorang dapat mengakses grafik seksual dari bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiNsfw) return replygcNFS('Already deactivated')
+if (!AntiNsfw) return replygcNFS('Sudah dinonaktifkan')
 let off = ntnsfw.indexOf(from)
 ntnsfw.splice(off, 1)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
-replygcNFS('Success in turning off nsfw in this group')
+replygcNFS('Sukses mematikan nsfw di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2724,25 +2724,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkYoutubeVid) return replygcNFS('Already activated')
+if (AntiLinkYoutubeVid) return replygcNFS('Telah diaktifkan')
 ntilinkytvid.push(from)
 fs.writeFileSync('./database/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
-replygcNFS('Success in turning on youtube video antilink in this group')
+replygcNFS('Sukses menyalakan antilink video youtube di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube video link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirimkan link video youtube di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkYoutubeVid) return replygcNFS('Already deactivated')
+if (!AntiLinkYoutubeVid) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinkytvid.indexOf(from)
 ntilinkytvid.splice(off, 1)
 fs.writeFileSync('./database/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
-replygcNFS('Success in turning off youtube video antilink in this group')
+replygcNFS('Sukses mematikan antilink video youtube di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :*  ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2751,25 +2751,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkYoutubeChannel) return replygcNFS('Already activated')
+if (AntiLinkYoutubeChannel) return replygcNFS('Telah diaktifkan')
 ntilinkytch.push(from)
 fs.writeFileSync('./database/antilinkytchannel.json', JSON.stringify(ntilinkytch))
-replygcNFS('Success in turning on youtube channel antilink in this group')
+replygcNFS('Sukses menyalakan antilink channel youtube di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube channel link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirimkan tautan saluran youtube di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkYoutubeChannel) return replygcNFS('Already deactivated')
+if (!AntiLinkYoutubeChannel) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinkytch.indexOf(from)
 fs.writeFileSync('./database/antilinkytchannel.json', JSON.stringify(ntilinkytch))
 ntilinkytch.splice(off, 1)
-replygcNFS('Success in turning off youtube channel antilink in this group')
+replygcNFS('Sukses mematikan antilink channel youtube di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2778,25 +2778,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkInstagram) return replygcNFS('Already activated')
+if (AntiLinkInstagram) return replygcNFS('Telah diaktifkan')
 ntilinkig.push(from)
 fs.writeFileSync('./database/antilinkinstagram.json', JSON.stringify(ntilinkig))
-replygcNFS('Success in turning on instagram antilink in this group')
+replygcNFS('Sukses menyalakan antilink instagram di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the instagram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirimkan link instagram di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkInstagram) return replygcNFS('Already deactivated')
+if (!AntiLinkInstagram) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinkig.indexOf(from)
 ntilinkig.splice(off, 1)
 fs.writeFileSync('./database/antilinkinstagram.json', JSON.stringify(ntilinkig))
-replygcNFS('Success in turning off instagram antilink in this group')
+replygcNFS('Sukses mematikan antilink instagram di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2805,25 +2805,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkFacebook) return replygcNFS('Already activated')
+if (AntiLinkFacebook) return replygcNFS('Telah diaktifkan')
 ntilinkfb.push(from)
 fs.writeFileSync('./database/antilinkfacebook.json', JSON.stringify(ntilinkfb))
-replygcNFS('Success in turning on facebook antilink in this group')
+replygcNFS('Sukses menyalakan antilink facebook di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the facebook link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirim tautan facebook di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkFacebook) return replygcNFS('Already deactivated')
+if (!AntiLinkFacebook) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinkfb.indexOf(from)
 ntilinkfb.splice(off, 1)
 fs.writeFileSync('./database/antilinkfacebook.json', JSON.stringify(ntilinkfb))
-replygcNFS('Success in turning off facebook antilink in this group')
+replygcNFS('Sukses mematikan antilink facebook di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2832,25 +2832,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkTelegram) return replygcNFS('Already activated')
+if (AntiLinkTelegram) return replygcNFS('Telah diaktifkan')
 ntilinktg.push(from)
 fs.writeFileSync('./database/antilinktelegram.json', JSON.stringify(ntilinktg))
-replygcNFS('Success in turning on telegram antilink in this group')
+replygcNFS('Sukses menyalakan antilink telegram di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the telegram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirimkan link telegram di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkTelegram) return replygcNFS('Already deactivated')
+if (!AntiLinkTelegram) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinktg.indexOf(from)
 ntilinktg.splice(off, 1)
 fs.writeFileSync('./database/antilinktelegram.json', JSON.stringify(ntilinktg))
-replygcNFS('Success in turning off telegram antilink in this group')
+replygcNFS('Sukses mematikan antilink telegram di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\nExample: ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2859,25 +2859,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkTiktok) return replygcNFS('Already activated')
+if (AntiLinkTiktok) return replygcNFS('Telah diaktifkan')
 ntilinktt.push(from)
 fs.writeFileSync('./database/antilinktiktok.json', JSON.stringify(ntilinktt))
-replygcNFS('Success in turning on tiktok antilink in this group')
+replygcNFS('Sukses menyalakan antilink tiktok di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the tiktok link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirim tautan tiktok di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkTiktok) return replygcNFS('Already deactivated')
+if (!AntiLinkTiktok) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinktt.indexOf(from)
 ntilinktt.splice(off, 1)
 fs.writeFileSync('./database/antilinktiktok.json', JSON.stringify(ntilinktt))
-replygcNFS('Success in turning off tiktok antilink in this group')
+replygcNFS('Sukses mematikan antilink tiktok di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2886,25 +2886,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkTwitter) return replygcNFS('Already activated')
+if (AntiLinkTwitter) return replygcNFS('Telah diaktifkan')
 ntilinktwt.push(from)
 fs.writeFileSync('./database/antilinktwitter.json', JSON.stringify(ntilinktwt))
-replygcNFS('Success in turning on twitter antilink in this group')
+replygcNFS('Sukses menyalakan antilink twitter di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the twitter link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirim tautan twitter di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!AntiLinkTwitter) return replygcNFS('Already deactivated')
 let off = ntilinktwt.indexOf(from)
 ntilinktwt.splice(off, 1)
 fs.writeFileSync('./database/antilinktwitter.json', JSON.stringify(ntilinktwt))
-replygcNFS('Success in turning off twitter antilink in this group')
+replygcNFS('Sukses mematikan antilink twitter di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2913,25 +2913,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (AntiLinkTwitter) return replygcNFS('Already activated')
+if (AntiLinkTwitter) return replygcNFS('Telah diaktifkan')
 ntilinkall.push(from)
 fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))
-replygcNFS('Success in turning on all antilink in this group')
+replygcNFS('Sukses mengaktifkan semua antilink di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send any link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nJika Anda bukan admin, jangan kirim tautan apa pun di grup ini atau Anda akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiLinkAll) return replygcNFS('Already deactivated')
+if (!AntiLinkAll) return replygcNFS('Sudah dinonaktifkan')
 let off = ntilinkall.indexOf(from)
 ntilinkall.splice(off, 1)
 fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))
-replygcNFS('Success in turning off all antilink in this group')
+replygcNFS('Sukses mematikan semua antilink di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2940,25 +2940,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (antiToxic) return replygcNFS('Already activated')
+if (antiToxic) return replygcNFS('Telah diaktifkan')
 nttoxic.push(from)
 fs.writeFileSync('./database/antitoxic.json', JSON.stringify(nttoxic))
-replygcNFS('Success in turning on antitoxic in this group')
+replygcNFS('Sukses menyalakan anti toksik di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nTidak ada yang diperbolehkan menggunakan kata-kata buruk di grup ini, yang menggunakan akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!antiToxic) return replygcNFS('Already deactivated')
+if (!antiToxic) return replygcNFS('Sudah dinonaktifkan')
 let off = nttoxic.indexOf(from)
 nttoxic.splice(off, 1)
 fs.writeFileSync('./database/antitoxic.json', JSON.stringify(nttoxic))
-replygcNFS('Success in turning off antitoxic in this group')
+replygcNFS('Sukses mematikan anti toksik di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2967,25 +2967,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (antiWame) return replygcNFS('Already activated')
+if (antiWame) return replygcNFS('Telah diaktifkan')
 ntwame.push(from)
 fs.writeFileSync('./database/antiwame.json', JSON.stringify(ntwame))
-replygcNFS('Success in turning on antiwame in this group')
+replygcNFS('Sukses menyalakan antiwame di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send wa.me in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nTidak ada yang boleh mengirim wa.me di grup ini, yang mengirim akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!antiWame) return replygcNFS('Already deactivated')
+if (!antiWame) return replygcNFS('Sudah dinonaktifkan')
 let off = nttoxic.indexOf(from)
 ntwame.splice(off, 1)
 fs.writeFileSync('./database/antiwame.json', JSON.stringify(ntwame))
-replygcNFS('Success in turning off antiwame in this group')
+replygcNFS('Sukses mematikan antiwame di grup ini')
 } else {
-  await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+  await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -2994,25 +2994,25 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isBotAdmins) return NFSStickBotAdmin()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (args[0] === "on") {
-if (Antilinkgc) return replygcNFS('Already activated')
+if (Antilinkgc) return replygcNFS('Telah diaktifkan')
 ntlinkgc.push(from)
 fs.writeFileSync('./database/antilinkgc.json', JSON.stringify(ntlinkgc))
-replygcNFS('Success in turning on antiwame in this group')
+replygcNFS('Sukses menyalakan antiwame di grup ini')
 var groupe = await NFSBotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send group link in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+NFSBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Peringatan⚠️ 」\`\`\`\n\nTidak ada yang boleh mengirim tautan grup di grup ini, siapa pun yang mengirim akan langsung ditendang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!Antilinkgc) return replygcNFS('Already deactivated')
+if (!Antilinkgc) return replygcNFS('Sudah dinonaktifkan')
 let off = ntlinkgc.indexOf(from)
 ntlinkgc.splice(off, 1)
 fs.writeFileSync('./database/antilinkgc.json', JSON.stringify(ntlinkgc))
-replygcNFS('Success in turning off antiwame in this group')
+replygcNFS('Sukses mematikan antiwame di grup ini')
 } else {
-await replygcNFS(`Please Type The Option\n\nExample: ${prefix + command} on\nExample: ${prefix + command} off\n\non to enable\noff to disable`)
+await replygcNFS(`Silakan Ketik Opsi\n\n*Contoh :* ${prefix + command} on\n*Contoh :* ${prefix + command} off\n\non untuk mengaktifkan\noff untuk menonaktifkan`)
   }
   }
   break
@@ -3044,12 +3044,12 @@ var timer = args[0] * `3600000`
 } else if (args[1] == 'day') {
 var timer = args[0] * `86400000`
 } else {
-return replygcNFS('*Choose:*\nsecond\nminute\nhour\n\n*Example*\n10 second')
+return replygcNFS('*Choose:*\nsecond\nminute\nhour\n\n*Contoh*\n10 second')
 }
-replygcNFS(`Close Time ${q} Starting from now`)
+replygcNFS(`Tutup Waktu ${q} Mulai dari sekarang`)
 setTimeout(() => {
 var nomor = m.participant
-const close = `*On time* Group Closed By Admin\nNow Only Admins Can Send Messages`
+const close = `*Tepat waktu* Grup Ditutup Oleh Admin\nSekarang Hanya Admin Yang Dapat Mengirim Pesan`
 NFSBotInc.groupSettingUpdate(from, 'announcement')
 replygcNFS(close)
 }, timer)
@@ -3059,7 +3059,7 @@ break
                 if (!m.isGroup) return NFSStickGroup()
                 if (!isBotAdmins) return NFSStickBotAdmin()
                 if (!isAdmins) return NFSStickAdmin()
-                if (!text) return replygcNFS('Enter the value enable/disable')
+                if (!text) return replygcNFS('Masukkan nilainya enable/disable')
                 if (args[0] === 'enable') {
                     await NFSBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL })
                 } else if (args[0] === 'disable') {
@@ -3071,7 +3071,7 @@ break
             case 'delete': case 'del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
-                if (!isBaileys) return replygcNFS('The message was not sent by a bot!')
+                if (!isBaileys) return replygcNFS('Pesan tidak dikirim oleh bot!')
                  NFSBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
@@ -3097,10 +3097,10 @@ var timer = args[0] * `86400000`
 } else {
 return replygcNFS('*Choose:*\nsecond\nminute\nhour\n\n*Example*\n10 second')
 }
-replygcNFS(`Open Time ${q} Starting from now`)
+replygcNFS(`Waktu Buka ${q} Mulai dari sekarang`)
 setTimeout(() => {
 var nomor = m.participant
-const open = `*On time* Group Opened By Admin\n Now Members Can Send Messages`
+const open = `*Tepat waktu* Grup Dibuka Oleh Admin\nSekarang Anggota Bisa Kirim Pesan`
 NFSBotInc.groupSettingUpdate(from, 'not_announcement')
 replygcNFS(open)
 }, timer)
@@ -3117,16 +3117,16 @@ await replygcNFS(`Done`)
 break
 case 'setbotname':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (!text) return replygcNFS(`Where is the name?\nExample: ${prefix + command} Cheems Bot`)
+if (!text) return replygcNFS(`Dimana namanya?\n*Contoh :* ${prefix + command} NFS Bot`)
     await NFSBotInc.updateProfileName(text)
-    replygcNFS(`Success in changing the name of bot's number`)
+    replygcNFS(`Berhasil mengubah nama nomor bot`)
     }
     break
 case 'setbotbio':{
 if (!NFSTheCreator) return NFSStickOwner()
-if (!text) return replygcNFS(`Where is the text?\nExample: ${prefix + command} Cheems Bot`)
+if (!text) return replygcNFS(`Dimana teksnya?\nContoh: ${prefix + command} NFS Bot`)
     await NFSBotInc.updateProfileStatus(text)
-    replygcNFS(`Success in changing the bio of bot's number`)
+    replygcNFS(`Berhasil mengubah bio nomor bot`)
     }
     break
     case 'setgroupname': case 'setsubject': {
@@ -3151,9 +3151,9 @@ case 'setppgroup': case 'setgcpp': case 'setgrouppp': {
 if (!m.isGroup) return NFSStickGroup()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (!isBotAdmins) return NFSStickBotAdmin()
-if (!quoted) return replygcNFS(`Where is the picture?`)
-if (!/image/.test(mime)) return replygcNFS(`Send/Reply Image With Caption ${prefix + command}`)
-if (/webp/.test(mime)) return replygcNFS(`Send/Reply Image With Caption ${prefix + command}`)
+if (!quoted) return replygcNFS(`Mana gambarnya?`)
+if (!/image/.test(mime)) return replygcNFS(`Kirim / Balas Gambar Dengan Caption ${prefix + command}`)
+if (/webp/.test(mime)) return replygcNFS(`Kirim / Balas Gambar Dengan Caption ${prefix + command}`)
 var mediz = await NFSBotInc.downloadAndSaveMediaMessage(quoted, 'ppgc.jpeg')
 if (args[0] == `full`) {
 var { img } = await generateProfilePicture(mediz)
@@ -3191,7 +3191,7 @@ if (!isBotAdmins) return NFSStickBotAdmin()
 case 'deleteppbot': case 'delppbot': {
 if (!NFSTheCreator) return NFSStickOwner()
     await NFSBotInc.removeProfilePicture(NFSBotInc.user.id)
-    replygcNFS(`Success in deleting bot's profile picture`)
+    replygcNFS(`Berhasil menghapus gambar profil bot`)
     }
     break
 case 'promote': {
@@ -3223,7 +3223,7 @@ case 'totag': {
 if (!m.isGroup) return NFSStickGroup()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (!isBotAdmins) return NFSStickBotAdmin()
-               if (!m.quoted) return replygcNFS(`Reply message with caption ${prefix + command}`)
+               if (!m.quoted) return replygcNFS(`Balas pesan dengan teks ${prefix + command}`)
                NFSBotInc.sendMessage(m.chat, { forward: m.quoted.fakeObj, mentions: participants.map(a => a.id) })
                }
                break
@@ -3233,10 +3233,10 @@ if (!m.isGroup) return NFSStickGroup()
 if (!isAdmins && !NFSTheCreator) return NFSStickAdmin()
 if (!isBotAdmins) return NFSStickBotAdmin()
 me = m.sender
-let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝ 
+let teks = `╚»˙·٠${themeemoji}●♥ Tandai Semua ♥●${themeemoji}٠·˙«╝ 
  
- 😶 *Tagger :*  @${me.split('@')[0]}
- 🌿 *Message : ${q ? q : 'no message'}*\n\n`
+ 😶 *Tag :*  @${me.split('@')[0]}
+ 🌿 *Pesan : ${q ? q : 'no message'}*\n\n`
 for (let mem of participants) {
 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`
 }
@@ -3244,7 +3244,7 @@ NFSBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id
 }
 break
 case 'ebinary': {
-if (!q) return replygcNFS(`Send/reply text with captions ${prefix + command}`)
+if (!q) return replygcNFS(`Kirim/balas teks dengan teks ${prefix + command}`)
 NFSStickWait()
 let { eBinary } = require('./scrape/binary')
 let eb = await eBinary(`${q}`)
@@ -3252,7 +3252,7 @@ replygcNFS(eb)
 }
 break
 case 'dbinary': {
-if (!q) return replygcNFS(`Send/reply text with captions ${prefix + command}`)
+if (!q) return replygcNFS(`Kirim/balas teks dengan teks ${prefix + command}`)
 NFSStickWait()
 let { dBinary } = require('./scrape/binary')
 let db = await dBinary(`${q}`)
@@ -3260,8 +3260,8 @@ replygcNFS(db)
 }
 break
 case 'remini': {
-			if (!quoted) return replygcNFS(`Where is the picture?`)
-			if (!/image/.test(mime)) return replygcNFS(`Send/Reply Photos With Captions ${prefix + command}`)
+			if (!quoted) return replygcNFS(`Dimana gambarnya?`)
+			if (!/image/.test(mime)) return replygcNFS(`Kirim / Balas Foto Dengan Teks ${prefix + command}`)
 			NFSStickWait()
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
@@ -3270,7 +3270,7 @@ case 'remini': {
 			}
 			break
 			case 'gimage': {
-                if (!text) return replygcNFS(`Example : ${prefix + command} carry minati`)
+                if (!text) return replygcNFS(`*Contoh :* ${prefix + command} carry minati`)
                 NFSStickWait()
                 let gis = require('g-i-s')
                 gis(text, async (error, result) => {
@@ -3281,7 +3281,7 @@ case 'remini': {
             }
             case 'gimage': {
 
-       if (!text) return replygcNFS(`Example : ${prefix + command} kaori cicak`
+       if (!text) return replygcNFS(`Contoh : ${prefix + command} kaori cicak`
 )
         NFSezyanu = await fetchJson(`https://api.akuari.my.id/search/googleimage?query=${text}`)
 
@@ -3295,15 +3295,15 @@ case 'remini': {
 
         break
 			case 'mediafire': {
-	if (args.length == 0) return replygcNFS(`Where is the link ?`)
-	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return replygcNFS(`The link you provided is invalid`)
+	if (args.length == 0) return replygcNFS(`Di mana tautannya ?`)
+	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return replygcNFS(`Tautan yang Anda berikan tidak valid`)
 	const { mediafireDl } = require('./lib/mediafire.js')
 	const baby1 = await mediafireDl(text)
-	if (baby1[0].size.split('MB')[0] >= 100) return replygcNFS('Oops, the file is too big...')
+	if (baby1[0].size.split('MB')[0] >= 100) return replygcNFS('Ups, file terlalu besar...')
 	const result4 = `*MEDIAFIRE DOWNLOADER*
 
-*❖ Name* : ${baby1[0].nama}
-*❖ Size* : ${baby1[0].size}
+*❖ Nama* : ${baby1[0].nama}
+*❖ Ukuran* : ${baby1[0].size}
 *❖ Mime* : ${baby1[0].mime}
 *❖ Link* : ${baby1[0].link}`
 replygcNFS(`${result4}`)
@@ -3311,7 +3311,7 @@ NFSBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : ba
 }
 break
 case 'tiktokvideo':{ 
-if (!text) return replygcNFS( `Example : ${prefix + command} link`)
+if (!text) return replygcNFS( `*Contoh :* ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
 NFSStickWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
@@ -3320,7 +3320,7 @@ NFSBotInc.sendMessage(m.chat, { caption: `Ini dia!`, video: { url: data.watermar
 }
 break
 case 'tiktokaudio':{
-if (!text) return replygcNFS( `Example : ${prefix + command} link`)
+if (!text) return replygcNFS( `*Contoh :* ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
 NFSStickWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
@@ -3329,14 +3329,14 @@ NFSBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4
 }
 break
 case 'google': {
-if (!q) return replygcNFS(`Example : ${prefix + command} ${botname}`)
+if (!q) return replygcNFS(`*Contoh :* ${prefix + command} ${botname}`)
 NFSStickWait()
 let google = require('google-it')
 google({'query': text}).then(res => {
-let teks = `Google Search From : ${text}\n\n`
+let teks = `Google Penelusuran Dari : ${text}\n\n`
 for (let g of res) {
-teks += `⭔ *Title* : ${g.title}\n`
-teks += `⭔ *Description* : ${g.snippet}\n`
+teks += `⭔ *Judul* : ${g.title}\n`
+teks += `⭔ *Keterangan* : ${g.snippet}\n`
 teks += `⭔ *Link* : ${g.link}\n\n────────────────────────\n\n`
 } 
 replygcNFS(teks)
@@ -3344,7 +3344,7 @@ replygcNFS(teks)
 }
 break
 case 'happymod':{
-if (!q) return replygcNFS(`Example ${prefix+command} Sufway surfer mod`)
+if (!q) return replygcNFS(`*Contoh :* ${prefix+command} Sufway surfer mod`)
 NFSStickWait()
 let kat = await scp1.happymod(q)
 replygcNFS(util.format(kat))
@@ -3352,19 +3352,19 @@ replygcNFS(util.format(kat))
 break
 case 'search':
 case 'yts': case 'ytsearch': {
-                if (!text) return replygcNFS(`Example : ${prefix + command} story wa anime`)
+                if (!text) return replygcNFS(`*Contoh :* ${prefix + command} story wa anime`)
                 let yts = require("yt-search")
                 let search = await yts(text)
-                let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
+                let teks = 'Pencarian YouTube\n\n Hasil dari '+text+'\n\n'
                 let no = 1
                 for (let i of search.all) {
-                    teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
+                    teks += `${themeemoji} no : ${no++}\n${themeemoji} Jenis : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Judul : ${i.title}\n${themeemoji} Tampilan : ${i.views}\n${themeemoji} Durasi : ${i.timestamp}\n${themeemoji} Diunggah : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
                 }
                 NFSBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
 case 'xxxxplay':{
-if (!text) return replygcNFS(`Example : ${prefix+command} story wa anime`)
+if (!text) return replygcNFS(`*Contoh :* ${prefix+command} story wa anime`)
 NFSStickWait()
 let search = await yts(text)
 url = search.videos[0].url
