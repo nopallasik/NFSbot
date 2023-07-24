@@ -1472,7 +1472,7 @@ if (m.isGroup) return NFSStickPrivate()
 rentfromNFS(NFSBotInc, m, from)
 }
 break
-case 'rentbotlist' case 'listrentbot': 
+case 'rentbotlist':
 try {
 let user = [... new Set([...global.conns.filter(NFSBotInc => NFSBotInc.user).map(NFSBotInc => NFSBotInc.user)])]
 te = "*Daftar Renbot*\n\n"
