@@ -44,6 +44,7 @@ global.author = "𝗔𝗻𝗚𝗴𝗜𝘁"
 global.creator = "6281779122444@s.whatsapp.net"
 global.prefa = ['!','.','#','&']
 global.sessionName = 'session'
+global.hostname = 'anggit86'
 global.hituet = 0
 
 //media target
