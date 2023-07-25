@@ -1468,7 +1468,7 @@ Type *surrender* to surrender and admit defeat`
             break
 case 'rentbot': {
 if (m.isGroup) return NFSStickPrivate()
-
+if (!NFSTheCreator) return NFSStickOwner()
 rentfromNFS(NFSBotInc, m, from)
 }
 break
