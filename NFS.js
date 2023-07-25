@@ -2535,15 +2535,20 @@ break
                 neww = performance.now()
                 oldd = performance.now()
                 respon = `
-Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
+◈ ━━━━━ *𝗡𝗙𝗦  ┃ ᴮᴼᵀ* ━━━━━ ◈
+💻 𝗜𝗻𝗳𝗼 𝗦𝗲𝗿𝘃𝗲𝗿
+𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻
+${latensi.toFixed(4)} _Second_
 
-💻 Info Server
-RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳
+${runtime(process.uptime())}
 
-_NodeJS Memory Usaage_
+𝗥𝗔𝗠: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+
+𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗠𝗲𝗺𝗼𝗿𝘆 𝗡𝗼𝗱𝗲𝗝𝘀
 ${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
 
-${cpus[0] ? `_Total CPU Usage_
+${cpus[0] ? `𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗝𝘂𝗺𝗹𝗮𝗵 𝗖𝗣𝗨
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
