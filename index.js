@@ -64,7 +64,7 @@ async function NFSBotIncBot() {
                 return msg.message || undefined
             }
             return {
-                conversation: "Cheems Bot Here"
+                conversation: "NFS Bot Di Sini"
             }
         }
     })
@@ -80,34 +80,34 @@ try{
 		if (connection === 'close') {
 			let reason = new Boom(lastDisconnect?.error)?.output.statusCode
 			if (reason === DisconnectReason.badSession) {
-				console.log(`Bad Session File, Please Delete Session and Scan Again`);
+				console.log(`File Sesi Buruk, Harap Hapus Sesi dan Pindai Lagi`);
 				NFSBotIncBot()
 			} else if (reason === DisconnectReason.connectionClosed) {
-				console.log("Connection closed, reconnecting....");
+				console.log("Koneksi ditutup, menghubungkan kembali....");
 				NFSBotIncBot();
 			} else if (reason === DisconnectReason.connectionLost) {
-				console.log("Connection Lost from Server, reconnecting...");
+				console.log("Koneksi Hilang dari Server, menghubungkan kembali...");
 				NFSBotIncBot();
 			} else if (reason === DisconnectReason.connectionReplaced) {
-				console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First");
+				console.log("Koneksi Diganti, Sesi Baru Dibuka, Harap Tutup Sesi Saat Ini Terlebih Dahulu");
 				NFSBotIncBot()
 			} else if (reason === DisconnectReason.loggedOut) {
-				console.log(`Device Logged Out, Please Scan Again And Run.`);
+				console.log(`Perangkat Keluar, Harap Pindai Lagi Dan Jalankan.`);
 				NFSBotIncBot();
 			} else if (reason === DisconnectReason.restartRequired) {
-				console.log("Restart Required, Restarting...");
+				console.log("Mengulang kembali Diperlukan, Mengulang kembali...");
 				NFSBotIncBot();
 			} else if (reason === DisconnectReason.timedOut) {
-				console.log("Connection TimedOut, Reconnecting...");
+				console.log("Koneksi Habis, Menghubungkan...");
 				NFSBotIncBot();
-			} else NFSBotInc.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+			} else NFSBotInc.end(`Alasan Putus Tidak Diketahui: ${reason}|${connection}`)
 		}
 		if (update.connection == "connecting" || update.receivedPendingNotifications == "false") {
-			console.log(color(`\n🌿Connecting...`, 'yellow'))
+			console.log(color(`\n🌿Menghubungkan...`, 'yellow'))
 		}
 		if (update.connection == "open" || update.receivedPendingNotifications == "true") {
 			console.log(color(` `,'magenta'))
-            console.log(color(`🌿Connected to => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
+            console.log(color(`🌿Terhubung dengan => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
 			await delay(1999)
             console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
             console.log(color(`< ================================================== >`, 'cyan'))
@@ -126,7 +126,7 @@ try{
 })
 
 await delay(5555) 
-start('2',colors.bold.white('\n\nWaiting for New Messages..'))
+start('2',colors.bold.white('\n\nMenunggu Pesan Baru..'))
 
 NFSBotInc.ev.on('creds.update', await saveCreds)
 
@@ -174,32 +174,32 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 			if (res.announce == true) {
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup has been closed by admin, Now only admins can send messages !`,
+					text: `「 Perubahan Setelan Grup 」\n\nGrup telah ditutup oleh admin, Sekarang hanya admin yang dapat mengirim pesan !`,
 				});
 			} else if (res.announce == false) {
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nThe group has been opened by admin, Now participants can send messages !`,
+					text: `「 Perubahan Setelan Grup 」\n\nGrup telah dibuka oleh admin, Sekarang peserta dapat mengirim pesan !`,
 				});
 			} else if (res.restrict == true) {
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup info has been restricted, Now only admin can edit group info !`,
+					text: `「 Perubahan Setelan Grup 」\n\nInfo grup telah dibatasi, Sekarang hanya admin yang dapat mengedit info grup !`,
 				});
 			} else if (res.restrict == false) {
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup info has been opened, Now participants can edit group info !`,
+					text: `「 Perubahan Setelan Grup 」\n\nInfo grup telah dibuka, Sekarang peserta dapat mengedit info grup !`,
 				});
 			} else if(!res.desc == ''){
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, { 
-					text: `「 Group Settings Change 」\n\n*Group description has been changed to*\n\n${res.desc}`,
+					text: `「 Perubahan Setelan Grup 」\n\n*Deskripsi grup telah diubah menjadi*\n\n${res.desc}`,
 				});
       } else {
 				await sleep(2000)
 				NFSBotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\n*Group name has been changed to*\n\n*${res.subject}*`,
+					text: `「 Perubahan Setelan Grup 」\n\n*Nama grup telah diubah menjadi*\n\n*${res.subject}*`,
 				});
 			} 
 			
@@ -304,7 +304,7 @@ const NFSbuffer = await getBuffer(ppuser)
 const NFStime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 const NFSdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
 let NFSName = num
-NFSbody = `𝗢𝗼𝗽𝘀‼️ @${NFSName.split("@")[0]}, you have been *demoted* from *admin* 😬`
+NFSbody = `𝗢𝗼𝗽𝘀‼️ @${NFSName.split("@")[0]}, Anda telah *diturunkan* dari *admin* 😬`
 NFSBotInc.sendMessage(anu.id,
  { text: NFSbody,
  contextInfo:{
@@ -616,7 +616,7 @@ NFSBotInc.sendMessage(jid, fjejfjjjer, { quoted: m })
 }
 
             /**
-             * Send Media/File with Automatic Type Specifier
+             * Kirim Media/File dengan Automatic Type Specifier
              * @param {String} jid
              * @param {String|Buffer} path
              * @param {String} filename
