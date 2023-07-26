@@ -177,6 +177,7 @@ try {
         const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
         const time2 = moment.tz('Asia/Jakarta').format('HH')
+        const timesholat = moment().tz('Asia/Jakarta').format('HH:mm')
         if(time2 == "01"){var NFSytimewisher = `Selamat Pagi 🌝`}
         if(time2 == "02"){var NFSytimewisher = `Selamat Pagi 🌝`}
         if(time2 == "03"){var NFSytimewisher = `Selamat Pagi 🌝`}
@@ -201,6 +202,13 @@ try {
         if(time2 == "22"){var NFSytimewisher = `Selamat Malam 🌃`}
         if(time2 == "23"){var NFSytimewisher = `Selamat Malam 🌜`}
         if(time2 == "00"){var NFSytimewisher = `Selamat Malam 🌜`}
+        //Jadwal Sholat\\
+        if(timesholat == "04:30"){var NFStimesholat = `Waktunya Sholat *Subuh* Kaka 😇`}
+        if(timesholat == "11:36"){var NFStimesholat = `Waktunya Sholat *Dzuhur* 😇`}
+        if(timesholat == "02:58"){var NFStimesholat = `Waktunya Sholat *Ashar* Kaka 😇`}
+        if(timesholat == "05:29"){var NFStimesholat = `Waktunya Sholat *Magrib* Kaka 😇`}
+        if(timesholat == "06:42"){var NFStimesholat = `Waktunya Sholat *Isya* Kaka 😇`}
+        if(timesholat){var NFStimesholat = `Belum Waktunya Sholat Kaka 😁`}
 
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
@@ -1546,11 +1554,15 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │
 └─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
 │
-│𝗝𝗮𝗺 : ${xtime}
+│𝗝𝗮𝗺 : ${xtime} WIB
 │𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
 │
+└─ ❖「 𝗪𝗔𝗞𝗧𝗨 𝗦𝗛𝗢𝗟𝗔𝗧 」❖
+│
+│${NFStimesholat}
+│
 └┬────────────┈ ⳹
-   │✑「 𝗠𝗘𝗡𝗨 」
+   │✑ 「 𝗠𝗘𝗡𝗨 」
 ┌└─────────────┈ ⳹
 │❏.allmenu
 │❏.downloadmenu
@@ -1592,8 +1604,7 @@ mentionedJid:[sender],
 }, { quoted: m })
 }
 break
-case 'pak': case 'lek': case 'om': case 'p': case 'hai': case 'hallo': case 'halo': case 'lik': case 'info': case 'inpo': case 'posisi': case 'pcc': case 'bro': {
-let me = m.sender
+case 'pak': case 'lek': case 'om': case 'bang': case 'lik': case 'inpo': case 'posisi': case 'pcc': {
 teks = `┌─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
 │
 │𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
@@ -1603,17 +1614,31 @@ teks = `┌─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
 *Halo ${pushname}, ${NFSytimewisher}*
 *Saya adalah ${global.botname} yang di kembangkan oleh* ${global.ownername}
 
-*Ada keperluan apakah anda mengunjungi saya*
-*Apakah ada yang bisa saya bantu*
+*Ada keperluan apakah anda?*
+*Apakah ada yang bisa saya bantu?*
 
 *Silahkan masukan perintah help / menu untuk info lebih lanjut*
+*Atau ketik perintah .owner untuk menghubungi pemilik saya*
+
+*Terima Kasih sudah berkunjung 😉*
 `
-sendNFSBotIncMessage(from, { 
+NFSBotInc.sendMessage(from, {
 text: teks,
-mentions: [m.sender],
-}, {
-    quoted: m,
-})
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: true, 
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"body": `Powerred By ${global.ownername}`
+}
+}
+}, { quoted: m })
 }
 break
 case 'allmenu': {
