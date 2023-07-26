@@ -1592,7 +1592,7 @@ mentionedJid:[sender],
 }, { quoted: m })
 }
 break
-case 'pak': case 'lek': case 'om': case 'p': case 'hai': case 'hallo': case 'halo': case 'lik': case 'info': case 'inpo': case 'posisi': case 'pcc': {
+case 'pak': case 'lek': case 'om': case 'p': case 'hai': case 'hallo': case 'halo': case 'lik': case 'info': case 'inpo': case 'posisi': case 'pcc': case 'bro': {
 let me = m.sender
 teks = `┌─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
 │
@@ -6104,7 +6104,7 @@ case 'igstalk': {
 if (!args[0]) return replygcNFS(`Masukkan Nama Pengguna Instagram\n\n*Contoh :* ${prefix + command} anggit0817`)
 const fg = require('api-dylux')
     try {
-    let res = await fg.igStalk(args[0])
+    let res = await fg.igStalks(args[0])
     let te = `
 ┌──「 *MENGUNTIT* 
 ▢ *🔖Nama:* ${res.name} 
