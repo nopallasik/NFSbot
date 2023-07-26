@@ -6104,9 +6104,9 @@ case 'igstalk': {
 if (!args[0]) return replygcNFS(`Masukkan Nama Pengguna Instagram\n\n*Contoh :* ${prefix + command} anggit0817`)
 const fg = require('api-dylux')
     try {
-    let res = await fg.igStalks(args[0])
+    let res = await fg.igStalk(args[0])
     let te = `
-┌──「 *MENGUNTIT* 
+┌──「 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 」
 ▢ *🔖Nama:* ${res.name} 
 ▢ *🔖Username:* ${res.username}
 ▢ *👥Pengikut:* ${res.followersH}
