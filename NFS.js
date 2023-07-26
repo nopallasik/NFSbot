@@ -6463,10 +6463,10 @@ NFSStickWait()
                 quoted: m,
             })
             break
-            case 'weather':{
-if (!text) return replygcNFS('Lokasi apa?')
+            case 'weather': case 'infocuaca': case 'cuaca': {
+            if (!text) return replygcNFS(`Tulis lokasi nya dong kaka\n\n*Contoh :* ${prefix + command} Mojokerto`)
             let wdata = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
+                `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=id`
             );
             let textw = ""
             textw += `*🗺️Cuaca dari  ${text}*\n\n`
