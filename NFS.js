@@ -1590,8 +1590,32 @@ mentionedJid:[sender],
 }
 }
 }, { quoted: m })
-           }
-           break
+}
+break
+case 'pak': case 'lek': case 'om': case 'p': case 'hai': case 'hallo': case 'halo': case 'lik': case 'info': case 'inpo': case 'posisi': case 'pcc': {
+let me = m.sender
+teks = `┌─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
+│
+│𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
+│𝗝𝗮𝗺 : ${xtime}
+│𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
+└─────────────┈
+*Halo ${pushname}, ${NFSytimewisher}*
+*Saya adalah ${global.botname} yang di kembangkan oleh* ${global.ownername}
+
+*Ada keperluan apakah anda mengunjungi saya*
+*Apakah ada yang bisa saya bantu*
+
+*Silahkan masukan perintah help / menu untuk info lebih lanjut*
+`
+sendNFSBotIncMessage(from, { 
+text: teks,
+mentions: [m.sender],
+}, {
+    quoted: m,
+})
+}
+break
 case 'allmenu': {
 var unicorn = await getBuffer(picak+'All Menu')
 sendNFSBotIncMessage(from, { 
@@ -2182,11 +2206,11 @@ mentionedJid:[sender],
 })
 }
 break
-case 'request': case 'reportbug': {
-	if (!text) return replygcNFS(`*Contoh :* ${prefix + command} Hi Dev perintah play tidak berfungsi`)
-            textt = `*| REQUEST/BUG |*`
-            teks1 = `\n\n*User* : @${m.sender.split("@")[0]}\n*Request/Bug* : ${text}`
-            teks2 = `\n\n*Hii ${pushname},Permintaan Anda telah diteruskan ke Pemilik saya*.\n*Harap tunggu...*`
+case 'request': case 'reportbug': case 'pm': {
+	if (!text) return replygcNFS(`◈ ━━━━━ 𝗖𝗢𝗡𝗧𝗢𝗛 ━━━━━ ◈\n\n𝗥𝗲𝗽𝗼𝗿𝘁 𝗕𝘂𝗴 :\n.reportbug / .request Halo Dev perintah play tidak berfungsi\n\n𝗣𝗺 𝗗𝗲𝘃 :\n.pm Halo bosku mohon ijin untuk Cht pribadi`)
+            textt = `◈ ━━━━━ 𝗟𝗔𝗣𝗢𝗥𝗔𝗡 ━━━━━ ◈`
+            teks1 = `\n\n𝗡𝗮𝗺𝗮 : @${m.sender.split("@")[0]}\n𝗣𝗲𝘀𝗮𝗻 : ${text}`
+            teks2 = `\n\n*Halo ${pushname}, ${NFSytimewisher}*\n*Permintaan Anda telah diteruskan ke Pemilik saya*.\n*Harap tunggu...*`
             for (let i of owner) {
                 NFSBotInc.sendMessage(i + "@s.whatsapp.net", {
                     text: textt + teks1,
@@ -2198,12 +2222,23 @@ case 'request': case 'reportbug': {
             NFSBotInc.sendMessage(m.chat, {
                 text: textt + teks2 + teks1,
                 mentions: [m.sender],
+                contextInfo:{
+                mentionedJid:[sender],
+                "externalAdReply": {
+                "showAdAttribution": true,
+                "renderLargerThumbnail": true,
+                "title": botname, 
+                "containsAutoReply": true,
+                "mediaType": 1, 
+                "thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+                "mediaUrl": `${wagc}`,
+                "sourceUrl": `${wagc}`
+                }}
             }, {
                 quoted: m,
             })
-
-        }
-        break
+}
+break
 case 'q': case 'quoted': {
 if (!m.quoted) return replygcNFS('Tolong Balas Pada Pesan!!')
 let NFSquotx= await NFSBotInc.serializeM(await m.getQuotedObj())
