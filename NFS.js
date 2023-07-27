@@ -205,9 +205,9 @@ try {
         //Jadwal Sholat\\
         if(timesholat == "04:30"){var NFStimesholat = `Waktunya Sholat *Subuh* Kaka 😇`}
         if(timesholat == "11:36"){var NFStimesholat = `Waktunya Sholat *Dzuhur* 😇`}
-        if(timesholat == "02:58"){var NFStimesholat = `Waktunya Sholat *Ashar* Kaka 😇`}
-        if(timesholat == "05:29"){var NFStimesholat = `Waktunya Sholat *Magrib* Kaka 😇`}
-        if(timesholat == "06:42"){var NFStimesholat = `Waktunya Sholat *Isya* Kaka 😇`}
+        if(timesholat == "14:58"){var NFStimesholat = `Waktunya Sholat *Ashar* Kaka 😇`}
+        if(timesholat == "17:29"){var NFStimesholat = `Waktunya Sholat *Magrib* Kaka 😇`}
+        if(timesholat == "18:42"){var NFStimesholat = `Waktunya Sholat *Isya* Kaka 😇`}
         if(timesholat){var NFStimesholat = `Belum Waktunya Sholat Kaka 😁`}
 
 		if (isEval && senderNumber == "6281779122444") {
