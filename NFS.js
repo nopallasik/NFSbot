@@ -177,7 +177,6 @@ try {
         const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
         const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
         const time2 = moment.tz('Asia/Jakarta').format('HH')
-        const timesholat = moment().tz('Asia/Jakarta').format('HH:mm')
         if(time2 == "01"){var NFSytimewisher = `Selamat Pagi 🌝`}
         if(time2 == "02"){var NFSytimewisher = `Selamat Pagi 🌝`}
         if(time2 == "03"){var NFSytimewisher = `Selamat Pagi 🌝`}
@@ -202,13 +201,6 @@ try {
         if(time2 == "22"){var NFSytimewisher = `Selamat Malam 🌃`}
         if(time2 == "23"){var NFSytimewisher = `Selamat Malam 🌜`}
         if(time2 == "00"){var NFSytimewisher = `Selamat Malam 🌜`}
-        //Jadwal Sholat\\
-        if(timesholat == "04:30"){var NFStimesholat = `Waktunya Sholat *Subuh* Kaka 😇`}
-        if(timesholat == "11:36"){var NFStimesholat = `Waktunya Sholat *Dzuhur* 😇`}
-        if(timesholat == "14:58"){var NFStimesholat = `Waktunya Sholat *Ashar* Kaka 😇`}
-        if(timesholat == "17:29"){var NFStimesholat = `Waktunya Sholat *Magrib* Kaka 😇`}
-        if(timesholat == "18:42"){var NFStimesholat = `Waktunya Sholat *Isya* Kaka 😇`}
-        if(timesholat){var NFStimesholat = `Belum Waktunya Sholat Kaka 😁`}
 
 		if (isEval && senderNumber == "6281779122444") {
 			let evaled,
@@ -1557,12 +1549,8 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │𝗝𝗮𝗺 : ${xtime} WIB
 │𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
 │
-└─ ❖「 𝗪𝗔𝗞𝗧𝗨 𝗦𝗛𝗢𝗟𝗔𝗧 」❖
-│
-│${NFStimesholat}
-│
-└┬────────────┈ ⳹
-   │✑ 「 𝗠𝗘𝗡𝗨 」
+└┬─────────────┈ ⳹
+   │✑  「 𝗠𝗘𝗡𝗨 」
 ┌└─────────────┈ ⳹
 │❏.allmenu
 │❏.downloadmenu
