@@ -1,7 +1,7 @@
 {
   "name": "NFS-Bot",
-  "version": "1.0.0",
-  "description": "Automated whatsapp md bot created using nodejs and baileys lib",
+  "version": "1.0.1",
+  "description": "Bot whatsapp md otomatis dibuat menggunakan nodejs dan baileys lib",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -93,10 +93,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blawuken/CheemsBot-MD8.git"
+    "url": "git+https://github.com/Blawuken/NFSbot.git"
   },
   "bugs": {
-    "url": "https://github.com/Blawuken/CheemsBot-MD8/issues"
+    "url": "https://github.com/Blawuken/NFSbot/issues"
   },
-  "homepage": "https://github.com/Blawuken/CheemsBot-MD8/#readme"
+  "homepage": "https://github.com/Blawuken/NFSbot/#readme"
 }
