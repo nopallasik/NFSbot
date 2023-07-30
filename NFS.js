@@ -4,9 +4,9 @@ const { modul } = require('./module')
 const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormData, FileType, fetch, fs, fsx, ffmpeg, Jimp, jsobfus, PhoneNumber, process, moment, ms, speed, syntaxerror, util, ytdl, googleTTS, maker } = modul
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
-const { clockString, parseMention, formatp, tanggal, getTime, isUrl, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
+const { clockString, parseMention, formatp, tanggal, getTime, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
 const { color, bgcolor } = require('./lib/color')
-const { fetchBuffer, buffergif } = require("./lib/myfunc2")
+const { fetchBuffer, isUrl, buffergif } = require("./lib/myfunc2")
 const { rentfromNFS, conns } = require('./RentBot')
 const { uptotelegra } = require('./scrape/upload')
 const { msgFilter } = require('./lib/antispam')
@@ -149,28 +149,22 @@ try {
         
         //theme sticker reply
         const NFSStickWait = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/wait.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Tunggu Sebentar..⏳`)
         }
         const NFSStickAdmin = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/admin.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Fitur Ini Hanya Untuk Admin..🤦`)
         }
         const NFSStickBotAdmin = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/botadmin.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Fitur Ini Untuk Admin Bot..🙇`)
         }
         const NFSStickOwner = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/owner.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Fitur Ini Hanya Untuk Owner..🚫`)
         }
         const NFSStickGroup = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/group.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Fitur Ini Hanya Untuk Grup..🗣️`)
         }
         const NFSStickPrivate = () => {
-        let NFSStikRep = fs.readFileSync('./NFSMedia/theme/sticker_reply/private.webp')
-        NFSBotInc.sendMessage(from, { sticker: NFSStikRep }, { quoted: m })
+        reply(`Lakukan Perintah Ini Pada Obrolan Pribadi..👥`)
         }
                    
         //TIME
@@ -1515,7 +1509,7 @@ const repf = await NFSBotInc.sendMessage(from, {
 contacts: { 
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
-NFSBotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Ini pemilikku yang tampan😇`, mentions: [sender]}, { quoted: repf })
+NFSBotInc.sendMessage(from, { text : `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}, Ini pemilikku yang tampan😇`, mentions: [sender]}, { quoted: repf })
 }
 break
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
@@ -1524,6 +1518,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             let timestampe = speed()
             let latensie = speed() - timestampe
             NFSezy = `◈ ━━━━━ *𝗡𝗙𝗦  ┃ ᴮᴼᵀ* ━━━━━ ◈
+
 *${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
 
 ┌─ ❖「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧」❖
@@ -1542,7 +1537,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │
 │𝗡𝗮𝗺𝗮 : ${pushname}
 │𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-│𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ✔️' : `Terbatas ⛔`}
+│𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ✔️' : `Terbatas 🚫`}
 │
 └─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
 │
@@ -1550,7 +1545,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 │𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
 │
 └┬─────────────┈ ⳹
-   │✑  「 𝗠𝗘𝗡𝗨 」
+   │✑    「 𝗠𝗘𝗡𝗨 」
 ┌└─────────────┈ ⳹
 │❏.allmenu
 │❏.downloadmenu
@@ -1632,7 +1627,7 @@ break
 case 'allmenu': {
 var unicorn = await getBuffer(picak+'All Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${allmenu(prefix, hituet)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${allmenu(prefix, hituet)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1653,7 +1648,7 @@ break
 case 'ownermenu': {
 var unicorn = await getBuffer(picak+'Owner Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${ownermenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${ownermenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1674,7 +1669,7 @@ break
 case 'othermenu': {
 	var unicorn = await getBuffer(picak+'Other Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${othermenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${othermenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1695,7 +1690,7 @@ break
 case 'downloadmenu': {
 var unicorn = await getBuffer(picak+'Download Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${downloadmenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${downloadmenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1716,7 +1711,7 @@ break
 case 'groupmenu': {
 var unicorn = await getBuffer(picak+'Group Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${groupmenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${groupmenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1737,7 +1732,7 @@ break
 case 'funmenu': {
 var unicorn = await getBuffer(picak+'Fun Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${funmenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${funmenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1758,7 +1753,7 @@ break
 case 'stalkermenu': {
 var unicorn = await getBuffer(picak+'Stalker Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${stalkermenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${stalkermenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1779,7 +1774,7 @@ break
 case 'randomphotomenu': {
 var unicorn = await getBuffer(picak+'Random Pic Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${randphotomenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${randphotomenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1800,7 +1795,7 @@ break
 case 'randomvideomenu': {
 var unicorn = await getBuffer(picak+'Random Vid Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${randvideomenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${randvideomenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1821,7 +1816,7 @@ break
 case 'textpromenu': {
 var unicorn = await getBuffer(picak+'Textpro Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${textpromenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${textpromenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1842,7 +1837,7 @@ break
 case 'photooxymenu': {
 var unicorn = await getBuffer(picak+'Photooxy Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${photooxymenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${photooxymenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1863,7 +1858,7 @@ break
 case 'ephoto360menu': {
 var unicorn = await getBuffer(picak+'Photo360 Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${ephoto360menu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${ephoto360menu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1884,7 +1879,7 @@ break
 case 'nsfwmenu': {
 var unicorn = await getBuffer(picak+'Anime NSFW Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${nsfwmenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${nsfwmenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1905,7 +1900,7 @@ break
 case 'animemenu': {
 var unicorn = await getBuffer(picak+'Anime Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${animemenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${animemenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1926,7 +1921,7 @@ break
 case 'stickermenu': {
 var unicorn = await getBuffer(picak+'Sticker Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${stickermenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${stickermenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1947,7 +1942,7 @@ break
 case 'databasemenu': {
 var unicorn = await getBuffer(picak+'Database Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${databasemenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${databasemenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1968,7 +1963,7 @@ break
 case 'aimenu': {
 var unicorn = await getBuffer(picak+'OpenAI Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${aimenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${aimenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1989,7 +1984,7 @@ break
 case 'bugmenu': {
 var unicorn = await getBuffer(picak+'Bug Menu')
 sendNFSBotIncMessage(from, { 
-text: `Hi @${sender.split("@")[0]}\n\n${bugmenu(prefix)}`,
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${bugmenu(prefix)}`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -2186,7 +2181,7 @@ NFSBotInc.sendMessage(from, {text: `Di Sini @${teman.split("@")[0]}`, mentions: 
 }, 9000)
 }
 break
-case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'cekbot': case 'sourcecode': {
+case 'sc': case 'script': case 'donasi': case 'donate': case 'cekupdate': case 'cekbot': case 'sourcecode': {
 let me = m.sender
 teks = `*「  ${global.botname} Script 」*
 
@@ -3439,24 +3434,25 @@ Salin tautan di atas dan ketik tautan .ytmp3 untuk audio dan tautan .ytmp4 untuk
 NFSBotInc.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 }
 break
-case 'play':  case 'song': {
+case 'play': case 'song': {
 if (!text) return replygcNFS(`*Contoh* : ${prefix + command} Sido Rondo`)
-const NFSplaymp3 = require('./lib/ytdl2')
+NFSStickWait()
+const YT = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
-        let anup3k = search.videos[0]
-const pl= await NFSplaymp3.mp3(anup3k.url)
+        let anu = search.videos[0]
+const pl= await YT.mp3(anu.url)
 await NFSBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
-    fileName: anup3k.title + '.mp3',
+    fileName: anu.title + '.mp3',
     mimetype: 'audio/mp4', ptt: true,
     contextInfo:{
         externalAdReply:{
-            title:anup3k.title,
+            title:anu.title,
             body: botname,
             thumbnail: await fetchBuffer(pl.meta.image),
             mediaType:2,
-            mediaUrl:anup3k.url,
+            mediaUrl:anu.url,
         }
 
     },
@@ -3464,10 +3460,11 @@ await NFSBotInc.sendMessage(m.chat,{
 await fs.unlinkSync(pl.path)
 }
 break
-case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
-const NFSaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !NFSaudp3.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
-const audio=await NFSaudp3.mp3(text)
+case "ytmp3": case "ytaudio": {//credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
+const YT = require('./lib/ytdl2')
+if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
+NFSStickWait()
+const audio=await YT.mp3(text)
 await NFSBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
     mimetype: 'audio/mp4', ptt: true,
@@ -3483,11 +3480,13 @@ await NFSBotInc.sendMessage(m.chat,{
     },
 },{quoted:m})
 await fs.unlinkSync(audio.path)
+}
 break
 case 'ytmp4': case 'ytvideo': {
-const NFSvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !NFSvidoh.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3 128kbps`)
-const vid=await NFSvidoh.mp4(text)
+const YT = require('./lib/ytdl2')
+if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3 128kbps`)
+NFSStickWait()
+const vid=await YT.mp4(text)
 const ytc=`
 *${themeemoji}Judul:* ${vid.title}
 *${themeemoji}Tanggal:* ${vid.date}
@@ -6120,17 +6119,17 @@ const fg = require('api-dylux')
     let res = await fg.igStalk(args[0])
     let te = `
 ┌──「 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 」
-▢ *🔖Nama:* ${res.name} 
-▢ *🔖Username:* ${res.username}
+▢ *✏️Nama:* ${res.name} 
+▢ *📝Username:* ${res.username}
 ▢ *👥Pengikut:* ${res.followersH}
-▢ *👣Mengikuti:* ${res.followingH}
-▢ *📌Bio:* ${res.description}
+▢ *🫂Mengikuti:* ${res.followingH}
 ▢ *🏝️Posts:* ${res.postsH}
+▢ *📌Bio:* ${res.description}
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
 └────────────`
      await NFSBotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
-        replygcNFS(`Pastikan nama pengguna berasal dari *Instagram*`)
+        replygcNFS(`Tidak Dapat Mencari Informasi Tentang Akun *Instagram* Tersebut\n\nCoba Buka https://dumpor.com/v/usermae tanpa awalan *@*`)
       }
 }
 break
