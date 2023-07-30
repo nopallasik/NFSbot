@@ -1588,13 +1588,7 @@ mentionedJid:[sender],
 }
 break
 case 'pak': case 'lek': case 'om': case 'bang': case 'lik': case 'inpo': case 'posisi': case 'pcc': {
-teks = `┌─ ❖「 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨 」❖
-│
-│𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳 : ${runtime(process.uptime())}
-│𝗝𝗮𝗺 : ${xtime}
-│𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
-└─────────────┈
-*Halo ${pushname}, ${NFSytimewisher}*
+teks = `*Halo ${pushname}, ${NFSytimewisher}*
 *Saya adalah ${global.botname} yang di kembangkan oleh* ${global.ownername}
 
 *Ada keperluan apakah anda?*
