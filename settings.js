@@ -30,6 +30,7 @@ global.location = "Bangsal, Mojokerto, Jawa Timur, Indonesia" //ur location
 
 //new
 global.botname = "NFS-Bot"
+global.storename ="𝗪𝗮𝗿𝗼𝗻𝗴 𝗬𝘂𝗸 𝗞𝗮𝗿𝗼𝗽𝗮𝗵"
 global.ownernumber = '6281779122444'
 global.ownername = '𝗔𝗻𝗚𝗴𝗜𝘁'
 global.ownerNumber = ["6281779122444@s.whatsapp.net"]
