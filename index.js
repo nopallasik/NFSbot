@@ -2,25 +2,7 @@ const { modul } = require('./module');
 const moment = require('moment-timezone');
 const { baileys, boom, chalk, fs, figlet, FileType, path, pino, process, PhoneNumber, axios, yargs, _ } = modul;
 const { Boom } = boom
-const {
-	default: NFSBotIncConnect,
-	BufferJSON,
-	initInMemoryKeyStore,
-	DisconnectReason,
-	AnyMessageContent,
-	makeInMemoryStore,
-	useMultiFileAuthState,
-	delay,
-	fetchLatestBaileysVersion,
-	generateForwardMessageContent,
-    prepareWAMessageMedia,
-    generateWAMessageFromContent,
-    generateMessageID,
-    downloadContentFromMessage,
-    jidDecode,
-    getAggregateVotesInPollMessage,
-    proto
-} = require("@whiskeysockets/baileys")
+const { default: NFSBotIncConnect, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, makeInMemoryStore, useMultiFileAuthState, delay, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, jidDecode, getAggregateVotesInPollMessage, proto } = require("@whiskeysockets/baileys")
 const { color, bgcolor } = require('./lib/color')
 const colors = require('colors')
 const { start } = require('./lib/spinner')
@@ -41,7 +23,6 @@ chats: {},
 settings: {},
 ...(global.db || {})
 }
-
 //=================================================//
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
 //=================================================//

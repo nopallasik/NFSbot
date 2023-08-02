@@ -39,7 +39,7 @@ async function textpro(url, text) {
   const caritoken = await geturl.text();
   let hasilcookie = geturl.headers
     .get("set-cookie")
-    .split(",")
+    .split(',')[0]
     .map((v) => cookie.parse(v))
     .reduce((a, c) => {
       return { ...a, ...c };
