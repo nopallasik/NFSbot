@@ -12,7 +12,29 @@ const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, awa
 
 const prefix = ''
 
-global.db = JSON.parse(fs.readFileSync('./database/database.json'))
+//=================================================//
+const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
+//=================================================//
+var low
+try {
+low = require('lowdb')
+} catch (e) {
+low = require('./lib/lowdb')}
+//=================================================//
+const { Low, JSONFile } = low
+const mongoDB = require('./lib/mongoDB')
+//=================================================//
+//=================================================//
+const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
+//=================================================//
+global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
+global.db = new Low(
+/https?:\/\//.test(opts['db'] || '') ?
+new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
+new mongoDB(opts['db']) :
+new JSONFile(`./src/database.json`)
+)
+
 if (global.db) global.db = {
 sticker: {},
 database: {}, 
@@ -23,10 +45,6 @@ chats: {},
 settings: {},
 ...(global.db || {})
 }
-//=================================================//
-const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
-//=================================================//
-const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
 require('./NFS.js')
 nocache('../NFS.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
@@ -91,8 +109,7 @@ try{
 			console.log(color(` `,'magenta'))
             console.log(color(`🌿Terhubung dengan => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
 			await delay(1999)
-            console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
-            console.log(color(`< ================================================== >`, 'cyan'))
+            console.log(color(`< ============================================ >`, 'cyan'))
 	        console.log(color(`\n${themeemoji} YT CHANNEL: sentup-gaming8456`,'magenta'))
             console.log(color(`${themeemoji} GITHUB: Blawuken `,'magenta'))
             console.log(color(`${themeemoji} INSTAGRAM: @anggit0817 `,'magenta'))

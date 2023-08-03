@@ -1,7 +1,7 @@
 require('./settings')
 require('./lib/listmenu')
 const { modul } = require('./module')
-const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormData, FileType, fetch, fs, fsx, ffmpeg, Jimp, jsobfus, PhoneNumber, process, moment, ms, speed, syntaxerror, util, ytdl, googleTTS, maker } = modul
+const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormData, FileType, fetch, fs, fsx, ffmpeg, Jimp, jsobfus, PhoneNumber, process, moment, ms, speed, syntaxerror, util, ytdl, googleTTS, maker} = modul
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
 const { clockString, parseMention, formatp, tanggal, getTime, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
@@ -10,7 +10,6 @@ const { fetchBuffer, isUrl, buffergif } = require("./lib/myfunc2")
 const { rentfromNFS, conns } = require('./RentBot')
 const { uptotelegra } = require('./scrape/upload')
 const { msgFilter } = require('./lib/antispam')
-
 const { ytDonlodMp3, ytDonlodMp4, ytPlayMp3, ytPlayMp4, ytSearch } = require('./scrape/yt')
 const anon = require('./lib/menfess') 
 const scp1 = require('./scrape/scraper') 
@@ -27,7 +26,6 @@ const mlstalk = require('./scrape/mlstalk')
 const textpro = require('./scrape/textpro')
 const textpro2 = require('./scrape/textpro2')
 const photooxy = require('./scrape/photooxy')
-const yts = require('./scrape/yt-search')
 const vm = require('node:vm')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
@@ -46,17 +44,16 @@ let ntnsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'))
 let ntvirtex = JSON.parse(fs.readFileSync('./database/antivirus.json'))
 let nttoxic = JSON.parse(fs.readFileSync('./database/antitoxic.json'))
 let ntwame = JSON.parse(fs.readFileSync('./database/antiwame.json'))
-let ntlinkgc =JSON.parse(fs.readFileSync('./database/antilinkgc.json'))
-let ntilinkall =JSON.parse(fs.readFileSync('./database/antilinkall.json'))
-let ntilinktwt =JSON.parse(fs.readFileSync('./database/antilinktwitter.json'))
-let ntilinktt =JSON.parse(fs.readFileSync('./database/antilinktiktok.json'))
-let ntilinktg =JSON.parse(fs.readFileSync('./database/antilinktelegram.json'))
-let ntilinkfb =JSON.parse(fs.readFileSync('./database/antilinkfacebook.json'))
-let ntilinkig =JSON.parse(fs.readFileSync('./database/antilinkinstagram.json'))
-let ntilinkytch =JSON.parse(fs.readFileSync('./database/antilinkytchannel.json'))
-let ntilinkytvid =JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'))
+let ntlinkgc = JSON.parse(fs.readFileSync('./database/antilinkgc.json'))
+let ntilinkall = JSON.parse(fs.readFileSync('./database/antilinkall.json'))
+let ntilinktwt = JSON.parse(fs.readFileSync('./database/antilinktwitter.json'))
+let ntilinktt = JSON.parse(fs.readFileSync('./database/antilinktiktok.json'))
+let ntilinktg = JSON.parse(fs.readFileSync('./database/antilinktelegram.json'))
+let ntilinkfb = JSON.parse(fs.readFileSync('./database/antilinkfacebook.json'))
+let ntilinkig = JSON.parse(fs.readFileSync('./database/antilinkinstagram.json'))
+let ntilinkytch = JSON.parse(fs.readFileSync('./database/antilinkytchannel.json'))
+let ntilinkytvid = JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'))
 
-global.db = JSON.parse(fs.readFileSync('./database/database.json'))
 if (global.db) global.db = {
 sticker: {},
 database: {}, 
@@ -4025,11 +4022,12 @@ case 'addproduk': {
                 let msgs = global.db.database
                 if (text.toLowerCase() in msgs) return reply(`'${text}' terdaftar dalam daftar pesan`)
                 msgs[text.toLowerCase()] = quoted.fakeObj
+                fs.writeFileSync('./database/produk.json', JSON.stringify(msgs))
                 reply(`Berhasil menambahkan barang dalam daftar produk sebagai '${text}'\n\nLihat daftar barang jualan Dengan mengetik ${prefix}produk/${prefix}listproduk`)
             }
             break
 case 'produk': case 'listproduk': {
-    let msgs = JSON.parse(fs.readFileSync('./database/database.json'))
+    let msgs = JSON.parse(fs.readFileSync('./database/produk.json'))
     let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
     let teks = ' DAFTAR PRODUK \n\n'
     for (let i of seplit) {
@@ -4037,12 +4035,13 @@ case 'produk': case 'listproduk': {
     }replygcSTORE(teks)
 }
 	    break
-	case 'delproduk': case 'hapusproduk': {
+	    case 'delproduk': case 'hapusproduk': {
 	        if (!isPrem) return replyprem(mess.premium)
 	        let msgs = global.db.database
 	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' tidak tercantum dalam daftar produk`)
-		delete msgs[text.toLowerCase()]
-		reply(`Berhasil Menghapus '${text}' dari daftar produk`)
+		    delete msgs[text.toLowerCase()]
+		    fs.writeFileSync('./database/produk.json', JSON.stringify(msgs))
+		    reply(`Berhasil Menghapus '${text}' dari daftar produk`)
             }
 break
 case 'pesan': {
@@ -4766,7 +4765,7 @@ if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-
 if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'
 if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'
-let anu = await textpro.textpro(link, q)
+let anu = await textpro.textpro(link, [`${q}`,])
 NFSBotInc.sendMessage(m.chat, { image: { url: anu }, caption: `${mess.success}` }, { quoted: m })
 }
 break
@@ -4882,16 +4881,14 @@ break
 case 'batman':
 if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ajg`)
 await loading()
-maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
-    `${q}`,])
-  .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err))
-   break
+maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [`${q}`,])
+.then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
+.catch((err) => console.log(err))
+break
 case '3dbox':
 if(!q) return replygcNFS(`*Contoh :* ${prefix + command} ea`)
 await loading()
-maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
-    `${q}`,])
+maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [`${q}`,])
 .then((data) => NFSBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Dibuat oleh ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
 break

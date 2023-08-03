@@ -1,5 +1,5 @@
 const yt = require("ytdl-core")
-const yts = require("./yt-search")
+const yts = require("yt-search")
 
 async function ytDonlodMp3(url) {
   return new Promise((resolve, reject) => {

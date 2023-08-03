@@ -1,7 +1,10 @@
-const cheerio = require('cheerio')
-const cookie = require('cookie')
-const fetch = require('node-fetch')
-const FormData = require('form-data')
+/*
+   TextPro By NaufalCream
+*/
+const fetch = require("node-fetch");
+const cheerio = require("cheerio");
+const cookie = require("cookie");
+const FormData = require("form-data");
 
 async function post(url, formdata = {}, cookies) {
   let encode = encodeURIComponent;
@@ -27,6 +30,13 @@ async function post(url, formdata = {}, cookies) {
   });
 }
 
+/**
+ * TextPro Scraper
+ * @function
+ * @param {String} url - Your phootoxy url, example https://photooxy.com/logo-and-text-effects/make-tik-tok-text-effect-375.html.
+ * @param {String[]} text - Text (required). example ["text", "text 2 if any"]
+ */
+
 async function textpro(url, text) {
   if (!/^https:\/\/textpro\.me\/.+\.html$/.test(url))
     throw new Error("Url Salah!!");
@@ -39,7 +49,7 @@ async function textpro(url, text) {
   const caritoken = await geturl.text();
   let hasilcookie = geturl.headers
     .get("set-cookie")
-    .split(',')[0]
+    .split(",")[0]
     .map((v) => cookie.parse(v))
     .reduce((a, c) => {
       return { ...a, ...c };
@@ -73,7 +83,7 @@ async function textpro(url, text) {
   });
   const caritoken2 = await geturl2.text();
   const token2 = /<div.*?id="form_value".+>(.*?)<\/div>/.exec(caritoken2);
-  if (!token2) throw new Error("Token Not Found!!");
+  if (!token2) throw new Error("Token Tidak Ditemukan!!");
   const prosesimage = await post(
     "https://textpro.me/effect/create-image",
     JSON.parse(token2[1]),

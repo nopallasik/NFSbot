@@ -1,5 +1,6 @@
 module.exports = {
 modul: {
+    _: require('lodash'),
 	axios: require('axios'),
 	boom: require('@hapi/boom'),
 	baileys: require('@whiskeysockets/baileys'),
