@@ -74,7 +74,7 @@ if (kay.key && kay.key.remoteJid === 'status@broadcast') return
 if (!NFSBotInc.public && !kay.key.fromMe && chatUpdate.type === 'notify') return
 if (kay.key.id.startsWith('BAE5') && kay.key.id.length === 16) return
 m = smsg(NFSBotInc, kay, store)
-require('./NFSCheems7')(NFSBotInc, m, chatUpdate, store)
+require('./NFS')(NFSBotInc, m, chatUpdate, store)
 } catch (err) {
 console.log(err)}
 })
