@@ -164,12 +164,12 @@ const NFStextNul = () => {
 }
  
 //TIME
-const xtime = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
-const xdate = moment.tz('Asia/Jakarta').format('DD')
-const xjam = moment.tz('Asia/Jakarta').format('HH')
-const xhari = moment().locale('id').format('dddd')
-const xbulan = moment().locale('id').format('MMMM')
-const xtahun = moment.tz('Asia/Jakarta').format('YYYY')
+const xtime = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z');
+const xdate = moment.tz('Asia/Jakarta').format('DD');
+const xjam = moment.tz('Asia/Jakarta').format('HH');
+const xhari = moment().tz('Asia/Jakarta').locale('id').format('dddd')
+const xbulan = moment().tz('Asia/Jakarta').locale('id').format('MMMM');
+const xtahun = moment.tz('Asia/Jakarta').format('YYYY');
 if(xjam == "01"){var NFSytimewisher = `Selamat Pagi 🌝`}
 if(xjam == "02"){var NFSytimewisher = `Selamat Pagi 🌝`}
 if(xjam == "03"){var NFSytimewisher = `Selamat Pagi 🌝`}
@@ -479,18 +479,18 @@ return await NFSBotInc.relayMessage(chatId, generate.message, { messageId: gener
 
 async function loading () {
 var progress = [
-" ○○●ʟᴏᴀᴅɪɴɢ●○○\n█▒▒▒▒▒▒▒▒▒▒▒▒▒ 5%",
-" ○●○ʟᴏᴀᴅɪɴɢ○●○\n██▒▒▒▒▒▒▒▒▒▒▒▒ 15%",
-" ●○○ʟᴏᴀᴅɪɴɢ○○●\n███▒▒▒▒▒▒▒▒▒▒▒ 32%",
-" ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████▒▒▒▒▒▒▒▒▒ 46%",
-" ○○●ʟᴏᴀᴅɪɴɢ●○○\n███████▒▒▒▒▒▒▒ 64%",
-" ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████████▒▒▒▒▒ 73%",
-" ●○○ʟᴏᴀᴅɪɴɢ○○●\n███████████▒▒▒ 89%",
-" ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████████████▒ 97%",
-" ○○●ʟᴏᴀᴅɪɴɢ●○○\n██████████████ 100%",
+"    ○○●ʟᴏᴀᴅɪɴɢ●○○\n█▒▒▒▒▒▒▒▒▒▒▒▒▒ 5%",
+"    ○●○ʟᴏᴀᴅɪɴɢ○●○\n██▒▒▒▒▒▒▒▒▒▒▒▒ 15%",
+"    ●○○ʟᴏᴀᴅɪɴɢ○○●\n███▒▒▒▒▒▒▒▒▒▒▒ 32%",
+"    ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████▒▒▒▒▒▒▒▒▒ 46%",
+"    ○○●ʟᴏᴀᴅɪɴɢ●○○\n███████▒▒▒▒▒▒▒ 64%",
+"    ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████████▒▒▒▒▒ 73%",
+"    ●○○ʟᴏᴀᴅɪɴɢ○○●\n███████████▒▒▒ 89%",
+"    ○●○ʟᴏᴀᴅɪɴɢ○●○\n█████████████▒ 97%",
+"    ○○●ʟᴏᴀᴅɪɴɢ●○○\n██████████████ 100%",
 "ᴄᴏᴍᴘʟᴇᴛᴇᴅ..."
 ]
-let { key } = await NFSBotInc.sendMessage(m.chat,{text: ' ○○●ᴡᴀɪᴛɪɴɢ●○○\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 0%'})
+let { key } = await NFSBotInc.sendMessage(m.chat,{text: '    ○○●ᴡᴀɪᴛɪɴɢ●○○\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 0%'})
 for (let i = 0; i < progress.length; i++) {
 await NFSBotInc.sendMessage(m.chat, {text: progress[i], edit: key });
 }
@@ -1493,13 +1493,13 @@ break
 case '.public': {
 if (!NFSTheCreator) return NFStextOwner()
 NFSBotInc.public = true
-replygcNFS('*Berhasil Mengubah Ke Penggunaan Publik*')
+replygcNFS('*ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴜʙᴀʜ ᴋᴇ ᴍᴏᴅᴇ ᴘᴜʙʟɪᴋ*')
 }
 break
 case '.self': {
 if (!NFSTheCreator) return NFStextOwner()
 NFSBotInc.public = false
-replygcNFS('*Berhasil Mengubah Ke Pemakaian Sendiri*')
+replygcNFS('*ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴜʙᴀʜ ᴋᴇ ᴍᴏᴅᴇ ᴘʀɪʙᴀᴅɪ*')
 }
 break
 case '.rentbot': {
@@ -1511,26 +1511,26 @@ break
 case '.rentbotlist':
 try {
 let user = [... new Set([...global.conns.filter(NFSBotInc => NFSBotInc.user).map(NFSBotInc => NFSBotInc.user)])]
-te = "*Daftar Renbot*\n\n"
+te = "*ᴅᴀғᴛᴀʀ ᴘᴇɴɢɢᴜɴᴀ*\n\n"
 for (let i of user){
 y = await NFSBotInc.decodeJid(i.id)
-te += " × Pengguna : @" + y.split("@")[0] + "\n"
-te += " × Nama : " + i.name + "\n\n"
+te += " × ᴘᴇɴɢɢᴜɴᴀ : @" + y.split("@")[0] + "\n"
+te += " × ɴᴀᴍᴀ : " + i.name + "\n\n"
 }
 NFSBotInc.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
 } catch (err) {
-replygcNFS(`Belum ada pengguna yang menyewa bot`)
+replygcNFS(`ʙᴇʟᴜᴍ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴍᴇɴʏᴇᴡᴀ ʙᴏᴛ!`)
 }
 break
 case '.shutdown':
 if (!NFSTheCreator) return NFStextOwner()
-replygcNFS(`Bot telah di matikan...`)
+replygcNFS(`ʙᴏᴛ ᴀᴋᴀɴ ᴅɪ ᴍᴀᴛɪᴋᴀɴ...`)
 await sleep(3000)
 process.exit()
 break
 case '.restart': {
 if (!NFSTheCreator) return NFStextOwner()
-replygcNFS(`Bot akan di mulai ulang...`)
+replygcNFS(`ᴍᴇᴍᴜʟᴀɪ ᴜʟᴀɴɢ ʙᴏᴛ...`)
 await sleep(3000)
 process.exit()
 exec("npm start", (error, stdout, stderr) => {
@@ -1551,7 +1551,6 @@ const repf = await NFSBotInc.sendMessage(from, {
 contacts: { 
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
-NFSBotInc.sendMessage(from, { text : `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}, Ini pemilikku yang tampan😇`, mentions: [sender]}, { quoted: repf })
 }
 break
 case '.alive': case '.menu': case '.help': {
@@ -1565,40 +1564,40 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 
 ︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭
 ╭────┈ ↷
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧
+│ ✎.... ɪɴғᴏ ʙᴏᴛ
 │╭────────────╯
-││• ➛𝗕𝗼𝘁 : ${global.botname}
-││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
-││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
-││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
-││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+││• ➛ʙᴏᴛ : ${global.botname}
+││• ➛ᴘᴇɴɢᴇᴍʙᴀɴɢ : ${global.ownername}
+││• ➛ɴᴏᴍᴇʀ : +${ownernumber}
+││• ➛ᴘʀᴇғɪx : .
+││• ➛ᴍᴏᴅᴇ : ${NFSBotInc.public ? 'Public' : `Pribadi`}
+││• ➛ʜᴏsᴛ ɴᴀᴍᴇ : ${global.hostname}
+││• ➛ᴘʟᴀᴛғᴏʀᴍ : ${os.platform()}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥
+│ ✎.... ɪɴғᴏ ᴜsᴇʀ
 │╭────────────╯
-││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
+││• ➛ɴᴀᴍᴀ : ${pushname}
+││• ➛ɴᴏᴍᴇʀ : @${me.split('@')[0]}
+││• ➛sᴛᴀᴛᴜs : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
+│ ✎. ɪɴғᴏ ᴡᴀᴋᴛᴜ
 │╭────────────╯
-││• ➛𝗝𝗮𝗺 : ${xtime}
-││• ➛𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
-││• ➛𝗛𝗮𝗿𝗶 : ${xhari}
-││• ➛𝗕𝘂𝗹𝗮𝗻 : ${xbulan}
-││• ➛𝗧𝗮𝗵𝘂𝗻 : ${xtahun}
+││• ➛ᴊᴀᴍ : ${xtime}
+││• ➛ᴛᴀɴɢɢᴀʟ : ${xdate}
+││• ➛ʜᴀʀɪ : ${xhari}
+││• ➛ʙᴜʟᴀɴ : ${xbulan}
+││• ➛ᴛᴀʜᴜɴ : ${xtahun}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎....... 𝗠𝗘𝗡𝗨
+│ ✎....... ᴍᴇɴᴜ
 │╭────────────╯
 ││• ➛.menubot
 ││• ➛.menustore
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 ╰─▸ ❝ ニード・フォー・スピード
-📡𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻
+📡ᴋᴇᴄᴇᴘᴀᴛᴀɴ
 ${latensie.toFixed(4)} miliseconds
 
-📺𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳
+📺ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ
 ${runtime(process.uptime())}
 `
 let ments = [ownernya, me, mark]
@@ -1634,31 +1633,31 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 
 ︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭
 ╭────┈ ↷
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧
+│ ✎.... ɪɴғᴏ ʙᴏᴛ
 │╭────────────╯
-││• ➛𝗕𝗼𝘁 : ${global.botname}
-││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
-││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
-││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
-││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+││• ➛ʙᴏᴛ : ${global.botname}
+││• ➛ᴘᴇɴɢᴇᴍʙᴀɴɢ : ${global.ownername}
+││• ➛ɴᴏᴍᴇʀ : +${ownernumber}
+││• ➛ᴘʀᴇғɪx : .
+││• ➛ᴍᴏᴅᴇ : ${NFSBotInc.public ? 'Public' : `Pribadi`}
+││• ➛ʜᴏsᴛ ɴᴀᴍᴇ : ${global.hostname}
+││• ➛ᴘʟᴀᴛғᴏʀᴍ : ${os.platform()}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥
+│ ✎.... ɪɴғᴏ ᴜsᴇʀ
 │╭────────────╯
-││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
+││• ➛ɴᴀᴍᴀ : ${pushname}
+││• ➛ɴᴏᴍᴇʀ : @${me.split('@')[0]}
+││• ➛sᴛᴀᴛᴜs : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
+│ ✎. ɪɴғᴏ ᴡᴀᴋᴛᴜ
 │╭────────────╯
-││• ➛𝗝𝗮𝗺 : ${xtime}
-││• ➛𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
-││• ➛𝗛𝗮𝗿𝗶 : ${xhari}
-││• ➛𝗕𝘂𝗹𝗮𝗻 : ${xbulan}
-││• ➛𝗧𝗮𝗵𝘂𝗻 : ${xtahun}
+││• ➛ᴊᴀᴍ : ${xtime}
+││• ➛ᴛᴀɴɢɢᴀʟ : ${xdate}
+││• ➛ʜᴀʀɪ : ${xhari}
+││• ➛ʙᴜʟᴀɴ : ${xbulan}
+││• ➛ᴛᴀʜᴜɴ : ${xtahun}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎....... 𝗠𝗘𝗡𝗨
+│ ✎....... ᴍᴇɴᴜ
 │╭────────────╯
 ││• ➛.allmenu
 ││• ➛.downloadmenu
@@ -1680,10 +1679,10 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 ││• ➛.othermenu
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 ╰─▸ ❝ ニード・フォー・スピード
-📡𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻
+📡ᴋᴇᴄᴇᴘᴀᴛᴀɴ
 ${latensie.toFixed(4)} miliseconds
 
-📺𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳
+📺ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ
 ${runtime(process.uptime())}
 `
 let ments = [ownernya, me, mark]
@@ -1707,7 +1706,7 @@ mentionedJid:[sender],
 }, { quoted: m })
 }
 break
-case '.pak': case '.lek': case '.om': case '.bang': case '.lik': case '.inpo': case '.posisi': case '.pcc': {
+case 'pak': case 'lek': case 'om': case 'bang': case 'lik': case 'inpo': case 'posisi': case 'pcc': {
 if (m.isGroup) return NFStextNul()
 teks = `Halo ${pushname}, ${NFSytimewisher}
 Saya adalah ${global.botname} yang di kembangkan oleh ${global.ownername}
@@ -1739,7 +1738,7 @@ mentionedJid:[sender],
 }, { quoted: m })
 }
 break
-case '.assalamualaikum': case '.askum': case '.assalam': {
+case 'assalamualaikum': case 'askum': case 'assalam': {
 if (m.isGroup) return NFStextNul()
 teks = `Waalakumsalam ฅ( ̳• ◡ • ̳)ฅ
 
@@ -2344,7 +2343,8 @@ Jangan lupa donasi ya 🍜
 
 Facebook : ${global.websitex}
 GitHub : ${global.botscript}
-WhatsApp : +${global.ownernumber}`
+WhatsApp : +${global.ownernumber}
+`
 sendNFSBotIncMessage(from, { 
 text: teks,
 contextInfo:{
@@ -2366,10 +2366,10 @@ mentionedJid:[sender],
 }
 break
 case '.request': case '.reportbug': case '.pm': {
-if (!text) return replygcNFS(`◈ ━━━━━ 𝗖𝗢𝗡𝗧𝗢𝗛 ━━━━━ ◈\n\n𝗥𝗲𝗽𝗼𝗿𝘁 𝗕𝘂𝗴 :\n.reportbug / .request Halo Dev perintah play tidak berfungsi\n\n𝗣𝗺 𝗗𝗲𝘃 :\n.pm Halo bosku mohon ijin untuk Cht pribadi`)
-textt = `◈ ━━━━━ 𝗟𝗔𝗣𝗢𝗥𝗔𝗡 ━━━━━ ◈`
-teks1 = `\n\n𝗡𝗮𝗺𝗮 : @${m.sender.split("@")[0]}\n𝗣𝗲𝘀𝗮𝗻 : ${text}`
-teks2 = `\n\n*Halo ${pushname}, ${NFSytimewisher}*\n*Permintaan Anda telah diteruskan ke Pemilik saya*.\n*Harap tunggu...*`
+if (!text) return replygcNFS(`◈ ━━━━━ ᴄᴏɴᴛᴏʜ ━━━━━ ◈\n\nʀᴇᴘᴏᴛ ʙᴜɢ :\n.reportbug / .request Halo Dev perintah play tidak berfungsi\n\nᴘᴍ ᴅᴇᴠ :\n.pm Halo bosku mohon ijin untuk Cht pribadi`)
+textt = `◈ ━━━━━ ʟᴀᴘᴏʀᴀɴ ━━━━━ ◈`
+teks1 = `\n\nɴᴀᴍᴀ : @${m.sender.split("@")[0]}\nᴘᴇsᴀɴ : ${text}`
+teks2 = `\n\n*Halo ${pushname}, ${NFSytimewisher}*\n*ᴘᴇsᴀɴ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪ ᴋɪʀɪᴍ ᴋᴇ ᴘᴇɴɢᴇᴍʙᴀɴɢ*.\n*ᴛᴇʀɪᴍᴀᴋᴀsɪʜ...*`
 for (let i of owner) {
 NFSBotInc.sendMessage(i + "@s.whatsapp.net", {
 text: textt + teks1,
@@ -2399,56 +2399,54 @@ quoted: m,
 }
 break
 case '.q': case '.quoted': {
-if (!m.quoted) return replygcNFS('Tolong Balas Pada Pesan!!')
+if (!m.quoted) return replygcNFS('ᴛᴏʟᴏɴɢ ʙᴀʟᴀs ᴘᴀᴅᴀ ᴘᴇsᴀɴ!!')
 let NFSquotx= await NFSBotInc.serializeM(await m.getQuotedObj())
-if (!NFSquotx.quoted) return replygcNFS('Pesan yang Anda balas tidak dikirim oleh bot')
+if (!NFSquotx.quoted) return replygcNFS('ᴘᴇsᴀɴ ʏᴀɴɢ ᴀɴᴅᴀ ʙᴀʟᴀs ᴛɪᴅᴀᴋ ᴅɪ ᴋɪʀɪᴍ ᴏʟᴇʜ ʙᴏᴛ')
 await NFSquotx.quoted.copyNForward(m.chat, true)
 }
 break
 case '.igstalk2':{
 
-if (!q) return replygcNFS(`*Contoh* : ${prefix+command} anggit0817`)
+if (!q) return replygcNFS(`*ᴄᴏɴᴛᴏʜ* : ${prefix+command} anggit0817`)
 await loading()
 const aj = await igstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption: 
-`*/ Instagram Penguntit \\*
+`*// ɪɴsᴛᴀɢʀᴀᴍ sᴛᴀʟᴋᴇʀ \\*
 
-Nama lengkap : ${aj.fullname}
-Nama belakang : ${aj.username}
-Post : ${aj.post}
-Pengikut : ${aj.followers}
-Mengikuti : ${aj.following}
-Bio : ${aj.bio}` }, { quoted: m } )
+ɴᴀᴍᴀ : ${aj.fullname}
+ᴜsᴇʀɴᴀᴍᴇ : ${aj.username}
+ᴘᴏsᴛɪɴɢᴀɴ : ${aj.post}
+ᴘᴇɴɢɪᴋᴜᴛ : ${aj.followers}
+ᴍᴇɴɢɪᴋᴜᴛɪ : ${aj.following}
+ʙɪᴏ : ${aj.bio}` }, { quoted: m } )
 }
 break
 case '.ffstalk':{
-
-if (!q) return replygcNFS(`*Contoh* : ${prefix+command} 946716486`)
+if (!q) return replygcNFS(`*ᴄᴏɴᴛᴏʜ* : ${prefix+command} 946716486`)
 await loading()
 eeh = await ffstalk.ffstalk(`${q}`)
-replygcNFS(`*/ Free Fire Stalker \\*
+replygcNFS(`*// ғʀᴇᴇ ғɪʀᴇ sᴛᴀʟᴋᴇʀ \\*
 
-Id : ${eeh.id}
-Nickname : ${eeh.nickname}`)
+ɪᴅ : ${eeh.id}
+ɴɪᴄᴋɴᴀᴍᴇ : ${eeh.nickname}`)
 }
 break
 case '.mlstalk': {
-
-if (!q) return replygcNFS(`Example ${prefix+command} 530793138|8129`)
+if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} 530793138|8129`)
 await loading()
 let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
-replygcNFS(`*/ Mobile Legend Stalker \\*
+replygcNFS(`*// ᴍᴏʙɪʟᴇ ʟᴇɢᴇɴᴅ sᴛᴀʟᴋᴇʀ \\*
 
-Username : ${dat.userName}
-Id : ${q.split("|")[0]}
-ID Zone: ${q.split("|")[1]}`)
+ᴜsᴇʀɴᴀᴍᴇ : ${dat.userName}
+ɪᴅ : ${q.split("|")[0]}
+ɪᴅ ᴢᴏɴᴇ: ${q.split("|")[1]}`)
 }
 break
 case '.npmstalk':{
-if (!q) return replygcNFS(`Example ${prefix+command} NFSapi`)
+if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} ytdl-core`)
 await loading()
 eha = await npmstalk.npmstalk(q)
-replygcNFS(`*/ Npm Stalker \\*
+replygcNFS(`*// Npm Stalker \\*
 
 Name : ${eha.name}
 Version Latest : ${eha.versionLatest}
@@ -2461,11 +2459,11 @@ Latest Publish Time : ${eha.latestPublishTime}`)
 }
 break
 case '.ghstalk': case '.githubstalk':{
-if (!q) return replygcNFS(`Example ${prefix+command} Blawuken`)
+if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} Blawuken`)
 await loading()
 aj = await githubstalk.githubstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
-`*/ Github Stalker \\*
+`*// Github Stalker \\*
 
 Username : ${aj.username}
 Nickname : ${aj.nickname}
@@ -2478,7 +2476,7 @@ Type : ${aj.type}
 Admin : ${aj.admin}
 Company : ${aj.company}
 Blog : ${aj.blog}
-Location : ${aj.location}
+Lokasi : ${aj.location}
 Email : ${aj.email}
 Public Repo : ${aj.public_repo}
 Public Gists : ${aj.public_gists}
@@ -2489,7 +2487,7 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 }
 break
 case '.ss': case '.ssweb': {
-if (!q) return replygcNFS(`Example ${prefix+command} link`)
+if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ : ${prefix+command} link`)
 await loading()
 let krt = await scp1.ssweb(q)
 NFSBotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
@@ -2497,7 +2495,7 @@ NFSBotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
 break
 case '.join': {
 if (!NFSTheCreator) return NFStextOwner()
-if (!text) return replygcNFS(`Contoh ${prefix+command} linkgc`)
+if (!text) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} linkgc`)
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replygcNFS('Link Invalid!')
 let result = args[0].split('https://chat.whatsapp.com/')[1]
 await NFSBotInc.groupAcceptInvite(result)
@@ -2557,7 +2555,7 @@ Silakan Ketik Di Bawah Ini
 NFSBotInc.sendMessage(m.chat, {text: teks_vote}, {quoted:m})
 }
 break
- case '.upvote': {
+case '.upvote': {
 if (!m.isGroup) return NFSStickGroup()
 if (!(m.chat in vote)) return replygcNFS(`_*tidak ada voting di grup ini!*_\n\n*${prefix}vote* - untuk memulai voting`)
 isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -2589,7 +2587,7 @@ Please Type Below
 *${prefix}deletevote* - to delete vote`
 NFSBotInc.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
 }
- break
+break
 case '.downvote': {
 if (!m.isGroup) return NFSStickGroup()
 if (!(m.chat in vote)) return replygcNFS(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
@@ -2623,7 +2621,7 @@ Please Type Below
 NFSBotInc.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
 }
 break
-case '.checkvote':
+case '.checkvote': {
 if (!m.isGroup) return NFSStickGroup()
 if (!(m.chat in vote)) return replygcNFS(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
 teks_vote = `* VOTE *
@@ -2650,12 +2648,13 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 ©${NFSBotInc.user.id}
 `
 NFSBotInc.sendTextWithMentions(m.chat, teks_vote, m)
+}
 break
 case '.deletevote': case'delvote': case '.hapusvote': {
 if (!m.isGroup) return NFSStickGroup()
 if (!(m.chat in vote)) return replygcNFS(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
 delete vote[m.chat]
-replygcNFS('Successfully Deleted Vote Session In This Group')
+replygcNFS('Sesi Vote Berhasil Dihapus Di Grup Ini')
 }
 break
 case '.toonce': case '.toviewonce': {
@@ -2698,6 +2697,7 @@ NFSBotInc.sendTextWithMentions(m.chat, teks, m)
 }
 break
 case '.ping': case '.botstatus': case '.statusbot': {
+await loading()
 const used = process.memoryUsage()
 const cpus = os.cpus().map(cpu => {
 cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)

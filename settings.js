@@ -39,7 +39,7 @@ global.websitex = "https://www.facebook.com/AnGgIt.jambol?mibextid=ZbWKwL"
 global.wagc = "https://chat.whatsapp.com/GmiVR3wE5iGBJoxIf4H6at"
 global.themeemoji = '🪀'
 global.wm = "ɴғs ʙᴏᴛ ɪɴᴄ."
-global.botscript = 'https://github.com/Blawuken/CheemsBot-MD8' //script link
+global.botscript = 'https://github.com/Blawuken/NFSbot' //script link
 global.packname = "sᴛɪᴄᴋᴇʀ ʙʏ"
 global.author = "ᴀɴɢɢɪᴛ"
 global.creator = "6281779122444@s.whatsapp.net"
@@ -63,7 +63,7 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 
 //messages
 global.mess = {
-    success: 'ɴɪʜ....', 
+    success: 'ɴɪʜ... 😉', 
 }
 
 let file = require.resolve(__filename)
