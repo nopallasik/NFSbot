@@ -73,7 +73,7 @@ try {
 const { type, quotedMsg, mentioned, now, fromMe } = m
 const body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
 const budy = (typeof m.text == 'string' ? m.text : '')
-const prefix = prefa ? /^[°•π÷×¶∆£¢€¥®=????+✓_=|~!?@#%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®=????+✓_=|~!?@#%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+const prefix = prefa ? /^[]/gi.test(body) ? body.match(/^[]/gi)[0] : "" : prefa ?? global.prefix
 const chath = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'documentMessage') && m.message.documentMessage.caption ? m.message.documentMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage' && m.message.buttonsResponseMessage.selectedButtonId) ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'templateButtonReplyMessage') && m.message.templateButtonReplyMessage.selectedId ? m.message.templateButtonReplyMessage.selectedId : (m.mtype == "listResponseMessage") ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == "messageContextInfo") ? m.message.listResponseMessage.singleSelectReply.selectedRowId : ''
 const pes = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text: ''
 const messagesC = pes.slice(0).trim()
@@ -233,12 +233,12 @@ premium: false
 const setting = db.settings[botNumber]
 if (typeof setting !== 'object') db.settings[botNumber] = {}
 if (setting) {
-if (!('anticall' in setting)) setting.anticall = false
-if (!isNumber(setting.status)) setting.status = 0
-if (!('autobio' in setting)) setting.autobio = false
+if (!('anticall' in setting)) setting.anticall = true
+if (!isNumber(setting.status)) setting.status = 1
+if (!('autobio' in setting)) setting.autobio = true
 } else global.db.settings[botNumber] = {
 anticall: true,
-status: 0,
+status: 1,
 autobio: true
 }
 
@@ -446,7 +446,7 @@ if (db.settings[botNumber].autobio) {
 let setting = global.db.settings[botNumber]
 if (new Date() * 1 - setting.status > 1000) {
 let uptime = await runtime(process.uptime())
-await NFSBotInc.updateProfileStatus(`${NFSBotInc.user.name} | ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ : ${runtime(process.uptime())}`)
+await NFSBotInc.updateProfileStatus(`${global.botname} | ᴀᴋᴛɪғ : ${runtime(process.uptime())}`)
 setting.status = new Date() * 1
 }
 }
@@ -490,11 +490,9 @@ var progress = [
 " ○○●ʟᴏᴀᴅɪɴɢ●○○\n██████████████ 100%",
 "ᴄᴏᴍᴘʟᴇᴛᴇᴅ..."
 ]
-let { key } = await NFSBotInc.sendMessage(from, {text: ' ○○●ᴡᴀɪᴛɪɴɢ●○○\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 0%'})//Pengalih isu
-
+let { key } = await NFSBotInc.sendMessage(m.chat,{text: ' ○○●ᴡᴀɪᴛɪɴɢ●○○\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 0%'})
 for (let i = 0; i < progress.length; i++) {
-/*await delay(10)*/
-await NFSBotInc.sendMessage(from, {text: progress[i], edit: key });//PESAN LEPAS
+await NFSBotInc.sendMessage(m.chat, {text: progress[i], edit: key });
 }
 }
 
@@ -1572,7 +1570,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 ││• ➛𝗕𝗼𝘁 : ${global.botname}
 ││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : NO-PREFIX
+││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
 ││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
 ││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
 ││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
@@ -1581,7 +1579,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 │╭────────────╯
 ││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ✔️' : `Terbatas 🚫`}
+││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 │ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
 │╭────────────╯
@@ -1641,7 +1639,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 ││• ➛𝗕𝗼𝘁 : ${global.botname}
 ││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : NO-PREFIX
+││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
 ││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
 ││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
 ││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
@@ -1650,7 +1648,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 │╭────────────╯
 ││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ✔️' : `Terbatas 🚫`}
+││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 │ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
 │╭────────────╯
@@ -3939,7 +3937,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 ││• ➛𝗕𝗼𝘁 : ${global.botname}
 ││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : NO-PREFIX
+││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
 ││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
 ││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
 ││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
@@ -3948,7 +3946,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 │╭────────────╯
 ││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
 ││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ✔️' : `Terbatas 🚫`}
+││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 │ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
 │╭────────────╯
@@ -4769,7 +4767,7 @@ if (/steel/.test(command)) link = 'https://textpro.me/steel-text-effect-online-9
 if (/fabric/.test(command)) link = 'https://textpro.me/fabric-text-effect-online-964.html'
 if (/ancient/.test(command)) link = 'https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html'
 let anu = await maker.textpro(link, q)
-NFSBotInc.sendMessage(from, { image: { url: anu.image }, caption: `🎑 ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ ${global.botname}` }, { quoted: m })
+NFSBotInc.sendMessage(from, { image: { url: anu.image }, caption: `💥 ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ ${global.botname}` }, { quoted: m })
 }
 break
 case '.pornhub': case '.retro': case '.8bit': case '.lion': case '.3davengers': case '.3dspace': case '.marvel': {
@@ -4786,7 +4784,7 @@ if (/marvel/.test(command)) link = 'https://textpro.me/create-logo-style-marvel-
 teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 let anuhub = await maker.textpro(link, [`${teks1}`,`${teks2}`])
-NFSBotInc.sendMessage(from, { image: { url: anuhub.image }, caption: `🎑 ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ ${global.botname}` }, { quoted: m })
+NFSBotInc.sendMessage(from, { image: { url: anuhub.image }, caption: `💥 ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ ${global.botname}` }, { quoted: m })
 }
 //▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬//
 break
@@ -6348,7 +6346,7 @@ case '.tts': case '.gtts':{
 if (!text) return replygcNFS('Dimana teksnya?')
 let texttts = text
 const NFSrl = googleTTS.getAudioUrl(texttts, {
-lang: "en",
+lang: "id",
 slow: false,
 host: "https://translate.google.com",
 })

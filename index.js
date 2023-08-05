@@ -52,7 +52,7 @@ const {  saveCreds, state } = await useMultiFileAuthState(`./${sessionName}`)
 const NFSBotInc = NFSBotIncConnect({
 logger: pino({ level: 'silent' }),
 printQRInTerminal: true,
-browser: [`${botname}`,'Safari','3.0'],
+browser: [`${botname}`],
 auth: state,
 getMessage: async (key) => {
 if (store) {

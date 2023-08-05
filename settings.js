@@ -6,11 +6,11 @@ global.autoTyping = false //auto tying in gc (true to on, false to off)
 global.autoRecord = false //auto recording (true to on, false to off)
 global.autoblockmorroco = false //auto block 212 (true to on, false to off)
 global.autokickmorroco = false //auto kick 212 (true to on, false to off) 
-global.antispam = false //auto kick spammer (true to on, false to off)
+global.antispam = true //auto kick spammer (true to on, false to off)
 
 
 //if api key expire, u can generate one from here: https://beta.openai.com/account/api-keys
-global.keyopenai = "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"
+global.keyopenai = "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"
 
 //documents variants
 global.doc1 = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
@@ -29,19 +29,19 @@ global.socialm = "GitHub: Blawuken" //ur github or insta name
 global.location = "Bangsal, Mojokerto, Jawa Timur, Indonesia" //ur location
 
 //new
-global.botname = "NFS-Bot"
+global.botname = "ɴғs-ʙᴏᴛ"
 global.storename ="𝗪𝗮𝗿𝗼𝗻𝗴 𝗬𝘂𝗸 𝗞𝗮𝗿𝗼𝗽𝗮𝗵"
 global.ownernumber = '6281779122444'
-global.ownername = '𝗔𝗻𝗚𝗴𝗜𝘁'
+global.ownername = 'ᴀɴɢɢɪᴛ'
 global.ownerNumber = ["6281779122444@s.whatsapp.net"]
 global.ownerweb = "https://www.youtube.com/@sentup-gaming8456"
 global.websitex = "https://www.facebook.com/AnGgIt.jambol?mibextid=ZbWKwL"
 global.wagc = "https://chat.whatsapp.com/GmiVR3wE5iGBJoxIf4H6at"
 global.themeemoji = '🪀'
-global.wm = "NFS Bot Inc."
+global.wm = "ɴғs ʙᴏᴛ ɪɴᴄ."
 global.botscript = 'https://github.com/Blawuken/CheemsBot-MD8' //script link
-global.packname = "𝗦𝘁𝗶𝗰𝗸𝗲𝗿 𝗕𝘆"
-global.author = "𝗔𝗻𝗚𝗴𝗜𝘁"
+global.packname = "sᴛɪᴄᴋᴇʀ ʙʏ"
+global.author = "ᴀɴɢɢɪᴛ"
 global.creator = "6281779122444@s.whatsapp.net"
 global.prefa = ['!','.','#','&']
 global.sessionName = 'session'
@@ -63,7 +63,7 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 
 //messages
 global.mess = {
-    success: 'Ini dia!', 
+    success: 'ɴɪʜ....', 
 }
 
 let file = require.resolve(__filename)
