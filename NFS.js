@@ -195,7 +195,7 @@ if(xjam == "22"){var NFSytimewisher = `Selamat Malam 🌃`}
 if(xjam == "23"){var NFSytimewisher = `Selamat Malam 🌜`}
 if(xjam == "00"){var NFSytimewisher = `Selamat Malam 🌜`}
 
-if (isEval && senderNumber == "6281779122444") {
+if (isEval && senderNumber == `${global.ownernumber}`) {
 let evaled,
 text = q,
 { inspect } = require('util')
@@ -430,7 +430,6 @@ NFSBotInc.sendText(roof.asal, `_*ʜᴀsɪʟ ᴘᴇʀᴛᴀɴᴅɪɴɢᴀɴ*_${ti
 delete this.suit[roof.id]
 }
 } //end
-
 if (db.users[m.sender].afkTime > -1) {
 let user = global.db.users[m.sender]
 m.reply(`
@@ -495,7 +494,24 @@ for (let i = 0; i < progress.length; i++) {
 await NFSBotInc.sendMessage(m.chat, {text: progress[i], edit: key });
 }
 }
-
+//Anti Bot//
+async function before(m, { isAdmin, isBotAdmin }) {
+  if (m.isBaileys && m.fromMe) return true
+  let chat = global.db.data.chats[m.chat]
+  let sender = global.db.data.chats[m.sender]
+  let hapus = m.key.participant
+  let bang = m.key.id
+  if (chat.antiBot) {
+    if (m.isBaileys && m.fromMe == false){
+        if (isAdmin || !isBotAdmin){		  
+        } else {
+          m.reply(`*⚠️ʙᴏᴛ ʟᴀɪɴ ᴛᴇʀᴅᴇᴛᴇᴋsɪ⚠️*\n\nHusshhh Sana Pergi Dari Grup Ini!!!`)
+    return await NFSBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        }return true
+    }
+  }
+  return true
+}
 //group chat msg by NFS
 const replygcNFS = (teks) => {
 NFSBotInc.sendMessage(m.chat,
@@ -655,7 +671,7 @@ const fgif = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "
 const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": wm, "caption": `${pushname}`, 'jpegThumbnail': thumb}}}
 const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
-const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=6281779122444:6281779122444\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
+const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=${global.ownernumber}:${global.ownernumber}\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
 const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./NFSMedia/theme/cheemspic.jpg'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
@@ -1397,7 +1413,6 @@ type: 'append'
 }
 NFSBotInc.ev.emit('messages.upsert', msg)
 }
-
 switch (command) {
 case '.ttc': case '.ttt': case '.tictactoe': {
 let TicTacToe = require("./lib/tictactoe")
@@ -1508,7 +1523,7 @@ if (!NFSTheCreator) return NFStextOwner()
 rentfromNFS(NFSBotInc, m, from)
 }
 break
-case '.rentbotlist':
+case '.rentbotlist': {
 try {
 let user = [... new Set([...global.conns.filter(NFSBotInc => NFSBotInc.user).map(NFSBotInc => NFSBotInc.user)])]
 te = "*ᴅᴀғᴛᴀʀ ᴘᴇɴɢɢᴜɴᴀ*\n\n"
@@ -1521,12 +1536,14 @@ NFSBotInc.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
 } catch (err) {
 replygcNFS(`ʙᴇʟᴜᴍ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴍᴇɴʏᴇᴡᴀ ʙᴏᴛ!`)
 }
+}
 break
-case '.shutdown':
+case '.shutdown': {
 if (!NFSTheCreator) return NFStextOwner()
 replygcNFS(`ʙᴏᴛ ᴀᴋᴀɴ ᴅɪ ᴍᴀᴛɪᴋᴀɴ...`)
 await sleep(3000)
 process.exit()
+}
 break
 case '.restart': {
 if (!NFSTheCreator) return NFStextOwner()
@@ -1660,6 +1677,7 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 │ ✎....... ᴍᴇɴᴜ
 │╭────────────╯
 ││• ➛.allmenu
+││• ➛.islamimenu
 ││• ➛.downloadmenu
 ││• ➛.funmenu
 ││• ➛.aimenu
@@ -2152,6 +2170,27 @@ mentionedJid:[sender],
 })
 }
 break
+case '.islamimenu': {
+var unicorn = await getBuffer(picak+'Islami Menu')
+sendNFSBotIncMessage(from, { 
+text: `Hallo @${sender.split("@")[0]}, ${NFSytimewisher}\n\n${islamimenu(prefix)}`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
 case '.sound1':
 case '.sound2':
 case '.sound3':
@@ -2316,9 +2355,7 @@ case '.sound161':
 NFSBotInc_dev = await getBuffer(`https://github.com/Blawuken/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await NFSBotInc.sendMessage(m.chat, { audio: NFSBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 break
-case '.friend':
-case '.searchfriend':{
-
+case '.friend': case '.searchfriend':{
 let teman = pickRandom(NFSverifieduser)
 setTimeout(() => {
 NFStextWait()
@@ -2339,11 +2376,8 @@ Halo @${me.split('@')[0]} 👋
 Jangan lupa donasi ya 🍜
 
 *Dana* : 089629929193
-*Ovo* : 089629929193
 
-Facebook : ${global.websitex}
-GitHub : ${global.botscript}
-WhatsApp : +${global.ownernumber}
+https://linkbio.co/NFSofficial
 `
 sendNFSBotIncMessage(from, { 
 text: teks,
@@ -2406,7 +2440,6 @@ await NFSquotx.quoted.copyNForward(m.chat, true)
 }
 break
 case '.igstalk2':{
-
 if (!q) return replygcNFS(`*ᴄᴏɴᴛᴏʜ* : ${prefix+command} anggit0817`)
 await loading()
 const aj = await igstalk(`${q}`)
@@ -3542,8 +3575,7 @@ let kat = await scp1.happymod(q)
 replygcNFS(util.format(kat))
 }
 break
-case '.search':
-case '.yts': case '.ytsearch': {
+case '.search': case '.yts': case '.ytsearch': {
 if (!text) return replygcNFS(`*Contoh :* ${prefix + command} story wa anime`)
 let yts = require("yt-search")
 let search = await yts(text)
@@ -3605,7 +3637,7 @@ await fs.unlinkSync(pl.path)
 break
 case ".ytmp3": case ".ytaudio": {//credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const YT = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
+if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`ᴍᴀɴᴀ ʟɪɴᴋ ʏᴏᴜᴛᴜʙᴇ ɴʏᴀ?\n\nᴄᴏɴᴛᴏʜ : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
 await loading()
 const audio=await YT.mp3(text)
 await NFSBotInc.sendMessage(m.chat,{
@@ -3626,7 +3658,7 @@ await fs.unlinkSync(audio.path)
 break
 case '.ytmp4': case '.ytvideo': {
 const YT = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`Mana link youtube nya?\n\n*Contoh* : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3 128kbps`)
+if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`ᴍᴀɴᴀ ʟɪɴᴋ ʏᴏᴜᴛᴜʙᴇ ɴʏᴀ?\n\nᴄᴏɴᴛᴏʜ : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
 await loading()
 const vid=await YT.mp4(text)
 const ytc=`
@@ -3672,7 +3704,7 @@ replygcNFS(`${getCase(q)}`)
 break
 case '.addprem':
 if (!NFSTheCreator) return NFStextOwner()
-if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} ${global.ownernumber}`)
 prrkek = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 let ceknya = await NFSBotInc.onWhatsApp(prrkek)
 if (ceknya.length == 0) return replygcNFS(`Masukkan nomor yang valid dan terdaftar di WhatsApp!!!`)
@@ -3682,7 +3714,7 @@ replygcNFS(`Nomor ${prrkek} Telah Di Masukan Ke Daftar Premium!`)
 break
 case '.delprem':
 if (!NFSTheCreator) return NFStextOwner()
-if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n\n*Contoh* ${prefix+command} ${global.ownernumber}`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 unp = prem.indexOf(ya)
 prem.splice(unp, 1)
@@ -3857,7 +3889,7 @@ replygcNFS(`Nomor ${bnnd} Telah Menjadi Pemilik!!!`)
 break
 case '.delowner':
 if (!NFSTheCreator) return NFStextOwner()
-if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n*Contoh* ${prefix+command} 6281779122444`)
+if (!args[0]) return replygcNFS(`Gunakan ${prefix+command} nomor\n*Contoh* ${prefix+command} ${global.ownernumber}`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
 owner.splice(unp, 1)
@@ -6304,14 +6336,14 @@ const fg = require('api-dylux')
 try {
 let res = await fg.igStalk(args[0])
 let te = `
-┌──「 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 」
-▢ *✏️Nama:* ${res.name} 
-▢ *📝Username:* ${res.username}
-▢ *👥Pengikut:* ${res.followersH}
-▢ *🫂Mengikuti:* ${res.followingH}
-▢ *🏝️Posts:* ${res.postsH}
-▢ *📌Bio:* ${res.description}
-▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
+┌──「 ɪɴғᴏʀᴍᴀsɪ 」
+▢ *✏️ɴᴀᴍᴀ:* ${res.name} 
+▢ *📝ᴜsᴇʀɴᴀᴍᴇ:* ${res.username}
+▢ *👥ᴘᴇɴɢɪᴋᴜᴛ:* ${res.followersH}
+▢ *🫂ᴍᴇɴɢɪᴋᴜᴛɪ:* ${res.followingH}
+▢ *🏝️ᴘᴏsᴛɪɴɢᴀɴ:* ${res.postsH}
+▢ *📌ʙɪᴏ:* ${res.description}
+▢ *🔗ʟɪɴᴋ* : https://instagram.com/${res.username.replace(/^@/, '')}
 └────────────`
  await NFSBotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
 } catch {
@@ -6476,7 +6508,7 @@ await loading()
 const fg = require('api-dylux')
 try {
 let res = await fg.GDriveDl(args[0])
- await replygcNFS(`
+await replygcNFS(`
 ≡ *Google Drive DL*
 ▢ *Nama:* ${res.fileName}
 ▢ *Ukuran:* ${res.fileSize}
@@ -6490,7 +6522,7 @@ break
 case '.invite': {
 if (!m.isGroup) return NFStextGroup()
 if (!isBotAdmins) return NFStextAdminBot()
-if (!text) return replygcNFS(`Masukkan nomor yang ingin Anda undang ke grup\n\n*Contoh :*\n*${prefix + command}* 6281779122444`)
+if (!text) return replygcNFS(`Masukkan nomor yang ingin Anda undang ke grup\n\n*Contoh :*\n*${prefix + command}* ${global.ownernumber}`)
 if (text.includes('+')) return replygcNFS(`Masukkan nomor dengan awalan nomor code negara tanpa *+*`)
 if (isNaN(text)) return replygcNFS(`Masukkan hanya angka plus kode negara Anda tanpa spasi`)
 let group = m.chat
@@ -6516,10 +6548,11 @@ NFSBotInc.sendMessage(m.chat, { caption: `╭───────────�
 │╰─────────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ✦
 │ °⌜꧁༒~刀ｷ丂乃のｲ~༒꧂⌟°
 │
-│01:43 ━━━━●───── 30:45
+│01:43 ━━━━●───── ${xn.result.duration}
 │⇆ㅤ ㅤ◁ㅤ ❚❚ ㅤ▷ ㅤㅤ↻﻿
 │ılıılıılıılıılıılı
 │ᴠᴏʟᴜᴍᴇ : ▮▮▮▮▮▮
+│${xn.result.info}
 ╰───────────────────▸ ❝
 `, video: {url: xn.result.files.high} }, { quoted: m })
 }
@@ -6532,7 +6565,7 @@ if (!text) return replygcNFS(`Masukkan Kata Pencarian`)
 await loading()
 const fg = require('api-dylux')
 let res = await fg.xnxxSearch(text)
-let ff = res.result.map((v, i) => `${i + 1}📝*Judul* : ${v.title}\n📎*Link:* ${v.link}\n`).join('\n') 
+let ff = res.result.map((v, i) => `${i + 1}📝*Judul* : ${v.title}\n📎*Link:* ${v.link}\n`).join('\n')
 if (res.status) replygcNFS(ff)
 }
 break
@@ -6833,9 +6866,81 @@ replygcNFS(`Batas Sedang Tunggu Sejenak.`)
 } else replygcNFS('Masukkan Nomor Sasaran!')
 }
 break
+case '.gempa': {
+await loading()
+const linkgempa = 'https://data.bmkg.go.id/DataMKG/TEWS/'
+try{
+let res = await fetch(linkgempa + 'autogempa.json')
+let anu = await res.json()
+anu = anu.Infogempa.gempa
+let txt = `*${anu.Wilayah}*
 
+ᴛᴀɴɢɢᴀʟ : ${anu.Tanggal}
+ᴡᴀᴋᴛᴜ : ${anu.Jam}
+ᴘᴏᴛᴇɴsɪ : ${anu.Potensi}
+ᴍᴀɢɴɪᴛᴜᴅᴏ : ${anu.Magnitude}
+ᴋᴇᴅᴀʟᴀᴍᴀɴ : ${anu.Kedalaman}
+ᴋᴏᴏʀᴅɪɴᴀᴛ : ${anu.Coordinates}
+ᴅɪʀᴀsᴀᴋᴀɴ : ${anu.Dirasakan}`
+await NFSBotInc.sendMessage(m.chat, { image: { url: linkgempa + anu.Shakemap }, caption: txt }, { quoted: m })
+} catch (e) {
+console.log(e)
+m.reply(`[!] Fitur Error.`)
+}
+}
+break
+case '.ayatkursi': {
+ayatkursi = `*「 Ayat Kursi 」*
+
+اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ
+
+“Alloohu laa ilaaha illaa huwal hayyul qoyyuum, laa ta’khudzuhuu sinatuw walaa naum. Lahuu maa fissamaawaati wa maa fil ardli man dzal ladzii yasyfa’u ‘indahuu illaa biidznih, ya’lamu maa baina aidiihim wamaa kholfahum wa laa yuhiithuuna bisyai’im min ‘ilmihii illaa bimaa syaa’ wasi’a kursiyyuhus samaawaati wal ardlo walaa ya’uuduhuu hifdhuhumaa wahuwal ‘aliyyul ‘adhiim.”
+
+
+Artinya:
+Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya.
+Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar." 
+(QS. Al Baqarah: 255)
+`
+await loading()
+NFSBotInc.sendMessage(from, { text: `${ayatkursi}` }, { quoted: m })
+}
+break
+case '.asmaulhusna': {
+require('./lib/asmaulhusna')
+const anjuran = `Dari Abu hurarirah radhiallahu anhu, Rasulullah Saw bersabda: 
+
+إِنَّ لِلَّهِ تَعَالَى تِسْعَةً وَتِسْعِينَ اسْمًا، مِائَةٌ إِلَّا وَاحِدًا، مَنْ أَحْصَاهَا دخل الجنة، وهو وتر يُحِبُّ الْوِتْرَ
+ᴀʀᴛɪɴʏᴀ: Sesungguhnya Allah mempunyai sembilan puluh sembilan nama, alias seratus kurang satu. Barang siapa yang menghitung-hitungnya, niscaya masuk surga; Dia Witir dan menyukai yang witir.`
+if(!text) return replygcNFS(`ʟᴜ ɢᴀᴋ ᴘᴇʀɴᴀʜ ʙᴇʟᴀᴊᴀʀ ᴀsᴍᴀᴜʟ ʜᴜsɴᴀ ʏᴀ..\n\nᴄᴏɴᴛᴏʜ : ${prefix + command} 1\n\n ${anjuran}`)
+let json = JSON.parse(JSON.stringify(global.asmaulhusna))
+let data = json.map((v, i) => `${i + 1}. ${v.latin}\n${v.arabic}\n${v.translation_id}`).join('\n\n')
+if (isNaN(args[0])) throw `contoh:\n${usedPrefix + command} 1`
+if (args[0]) {
+if (args[0] < 1 || args[0] > 99) throw `Lu Gak Pernah Belajar Asmaul Husna Yak?\n${anjuran}`
+let { index, latin, arabic, translation_id } = json.find(v => v.index == args[0].replace(/[^0-9]/g, ''))
+await loading()
+return m.reply(`No. ${index}
+${arabic}
+${latin}
+${translation_id}
+`.trim())
+}
+}
+break
+case '.jadwalsholat': {
+if(!text) return replygcNFS(`*ᴄᴏɴᴛᴏʜ :* ${prefix + command} ɴᴀᴍᴀ ᴋᴏᴛᴀ`)
+await loading()
+const { jadwalsholat } = require('@bochilteam/scraper')
+const sembayang = await jadwalsholat(text)
+reply(`
+✦==Jadwal Sholat *${text}*==✦
+
+${Object.entries(sembayang.today).map(([name, data]) => `*Sholat ${name}:* ${data}`).join('\n').trim()}
+`.trim())
+}
+break
 default:
-
 if (budy.startsWith('<')) {
 if (!NFSTheCreator) return
 try {
@@ -6894,7 +6999,7 @@ NFSBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-NFSBotInc.sendMessage("6281779122444@s.whatsapp.net", { text: "Halo developer, sepertinya ada kesalahan, tolong perbaiki " + util.format(e), 
+NFSBotInc.sendMessage('${global.ownernumber}@s.whatsapp.net', { text: "Halo developer, sepertinya ada kesalahan, tolong perbaiki " + util.format(e), 
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
