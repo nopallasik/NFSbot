@@ -1,6 +1,6 @@
 {
   "name": "NFS-Bot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bot whatsapp md otomatis dibuat menggunakan nodejs dan baileys lib",
   "main": "index.js",
   "type": "commonjs",

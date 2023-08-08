@@ -93,11 +93,11 @@ if (reason === DisconnectReason.badSession) {
     NFSBotIncBot();
 } else NFSBotInc.end(`Alasan Putus Tidak Diketahui: ${reason}|${connection}`)}
 if (update.connection == "connecting" || update.receivedPendingNotifications == "false") {
-    console.log(color(`\n🌿  Menghubungkan...`, 'yellow'))
+    console.log(color(`\n🔴  Menghubungkan...`, 'yellow'))
 }
 if (update.connection == "open" || update.receivedPendingNotifications == "true") {
     console.log(color(` `,'magenta'))
-    console.log(color(`🌿  Terhubung dengan => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
+    console.log(color(`🟢  Terhubung dengan => ` + JSON.stringify(NFSBotInc.user, null, 2), 'yellow'))
     await delay(1999)
     console.log(color(`< ============================================ >`, 'cyan'))
     console.log(color(`\n${themeemoji} YT CHANNEL: sentup-gaming8456`,'magenta'))
@@ -114,7 +114,7 @@ if (update.connection == "open" || update.receivedPendingNotifications == "true"
 })
 //▬▭▬▭▬▭▬▭▬▭▬▭[ɴғs-ᴘʀᴏᴊᴇᴄᴛ]▬▭▬▭▬▭▬▭▬▭▬▭//
 await delay(5555) 
-start('2',colors.bold.white('\n\nMenunggu Pesan Baru..'))
+start('2',colors.bold.white('\n⏳  Menunggu Pesan Baru..'))
 //▬▭▬▭▬▭▬▭▬▭▬▭[ɴғs-ᴘʀᴏᴊᴇᴄᴛ]▬▭▬▭▬▭▬▭▬▭▬▭//
 NFSBotInc.ev.on('creds.update', await saveCreds)
 //▬▭▬▭▬▭▬▭▬▭▬▭[ɴғs-ᴘʀᴏᴊᴇᴄᴛ]▬▭▬▭▬▭▬▭▬▭▬▭//
