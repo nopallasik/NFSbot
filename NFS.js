@@ -1577,7 +1577,7 @@ let timestampe = speed()
 let latensie = speed() - timestampe
 NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 
-*${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.
 
 ︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭
 ╭────┈ ↷
@@ -1646,7 +1646,7 @@ let timestampe = speed()
 let latensie = speed() - timestampe
 NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 
-*${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.
 
 ︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭
 ╭────┈ ↷
@@ -1704,7 +1704,7 @@ ${latensie.toFixed(4)} miliseconds
 ${runtime(process.uptime())}
 `
 let ments = [ownernya, me, mark]
- NFSBotInc.sendMessage(from, { 
+NFSBotInc.sendMessage(from, { 
 text: NFSezy,
 contextInfo:{
 forwardingScore: 9999999,
@@ -2375,7 +2375,7 @@ teks = `*「${global.botname} Script 」*
 Halo @${me.split('@')[0]} 👋
 Jangan lupa donasi ya 🍜
 
-*Dana* : 089629929193
+ᴅᴀɴᴀ : 089629929193
 
 https://linkbio.co/NFSofficial
 `
@@ -2761,21 +2761,21 @@ let latensi = speed() - timestamp
 neww = performance.now()
 oldd = performance.now()
 respon = `
-◈ ━━━━━━━ 𝗜𝗡𝗙𝗢 𝗦𝗘𝗥𝗩𝗘𝗥 ━━━━━━━ ◈
+◈ ━━━━━ ɪɴғᴏ sᴇʀᴠᴇʀ ━━━━━ ◈
 
-🚨𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻
+🚨ᴋᴇᴄᴇᴘᴀᴛᴀɴ
 ${latensi.toFixed(4)} _Second_
 
-⏲️𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳
+⏲️ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ
 ${runtime(process.uptime())}
 
-🖥️𝗥𝗔𝗠
+🖥️ʀᴀᴍ
 ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
 
-💾𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗠𝗲𝗺𝗼𝗿𝘆 𝗡𝗼𝗱𝗲𝗝𝘀
+💾ᴘᴇɴɢɢᴜɴᴀᴀɴ ᴍᴇᴍᴏʀʏ ɴᴏᴅᴇᴊs
 ${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
 
-${cpus[0] ? `💽𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗝𝘂𝗺𝗹𝗮𝗵 𝗖𝗣𝗨
+${cpus[0] ? `💽ᴘᴇɴɢɢᴜɴᴀᴀɴ ᴊᴜᴍʟᴀʜ ᴄᴘᴜ
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
@@ -3960,35 +3960,35 @@ let timestampe = speed()
 let latensie = speed() - timestampe
 NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 
-*${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.*
+${NFSytimewisher} ${pushname}. Saya adalah bot WhatsApp otomatis yang dapat membantu melakukan sesuatu, mencari dan mendapatkan data atau informasi melalui WhatsApp.
 
 ︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭ ⭑︶꒷꒦︶ ๋࣭
 ╭────┈ ↷
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧
+│ ✎.... ɪɴғᴏ ʙᴏᴛ
 │╭────────────╯
-││• ➛𝗕𝗼𝘁 : ${global.botname}
-││• ➛𝗣𝗲𝗻𝗴𝗲𝗺𝗯𝗮𝗻𝗴 : ${global.ownername}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : +${ownernumber}
-││• ➛𝗣𝗿𝗲𝗳𝗶𝘅 : .
-││• ➛𝗠𝗼𝗱𝗲 : ${NFSBotInc.public ? 'Public' : `Pribadi`}
-││• ➛𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${global.hostname}
-││• ➛𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+││• ➛ʙᴏᴛ : ${global.botname}
+││• ➛ᴘᴇɴɢᴇᴍʙᴀɴɢ : ${global.ownername}
+││• ➛ɴᴏᴍᴇʀ : +${ownernumber}
+││• ➛ᴘʀᴇғɪx : .
+││• ➛ᴍᴏᴅᴇ : ${NFSBotInc.public ? 'Public' : `Pribadi`}
+││• ➛ʜᴏsᴛ ɴᴀᴍᴇ : ${global.hostname}
+││• ➛ᴘʟᴀᴛғᴏʀᴍ : ${os.platform()}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎.... 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥
+│ ✎.... ɪɴғᴏ ᴜsᴇʀ
 │╭────────────╯
-││• ➛𝗡𝗮𝗺𝗮 : ${pushname}
-││• ➛𝗡𝗼𝗺𝗲𝗿 : @${me.split('@')[0]}
-││• ➛𝗦𝘁𝗮𝘁𝘂𝘀 : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
+││• ➛ɴᴀᴍᴀ : ${pushname}
+││• ➛ɴᴏᴍᴇʀ : @${me.split('@')[0]}
+││• ➛sᴛᴀᴛᴜs : ${isPrem ? 'Premium ☑️' : `Terbatas ❎`}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎. 𝗜𝗡𝗙𝗢 𝗪𝗔𝗞𝗧𝗨
+│ ✎. ɪɴғᴏ ᴡᴀᴋᴛᴜ
 │╭────────────╯
-││• ➛𝗝𝗮𝗺 : ${xtime}
-││• ➛𝗧𝗮𝗻𝗴𝗴𝗮𝗹 : ${xdate}
-││• ➛𝗛𝗮𝗿𝗶 : ${xhari}
-││• ➛𝗕𝘂𝗹𝗮𝗻 : ${xbulan}
-││• ➛𝗧𝗮𝗵𝘂𝗻 : ${xtahun}
+││• ➛ᴊᴀᴍ : ${xtime}
+││• ➛ᴛᴀɴɢɢᴀʟ : ${xdate}
+││• ➛ʜᴀʀɪ : ${xhari}
+││• ➛ʙᴜʟᴀɴ : ${xbulan}
+││• ➛ᴛᴀʜᴜɴ : ${xtahun}
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
-│ ✎....... 𝗠𝗘𝗡𝗨
+│ ✎....... ᴍᴇɴᴜ
 │╭────────────╯
 ││• ➛.addproduk
 ││• ➛.produk
@@ -3996,22 +3996,22 @@ NFSezy = `━━━━°⌜꧁༒~𝗡𝗙𝗦~༒꧂⌟°━━━━
 ││• ➛.pesan
 │╰─────────── ·﻿ ﻿ ﻿· ﻿ ·﻿ ﻿ ﻿· ﻿・✦
 ╰─▸ ❝ ニード・フォー・スピード
-📡𝗞𝗲𝗰𝗲𝗽𝗮𝘁𝗮𝗻
+📡ᴋᴇᴄᴇᴘᴀᴛᴀɴ
 ${latensie.toFixed(4)} miliseconds
 
-📺𝗪𝗮𝗸𝘁𝘂 𝗔𝗸𝘁𝗶𝗳
+📺ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ
 ${runtime(process.uptime())}
 
-𝗔𝗱𝗱𝗽𝗿𝗼𝗱𝘂𝗸 :
+ᴀᴅᴅᴘʀᴏᴅᴜᴋ :
 untuk menambahkan daftar barang yang ingin di jual
 
-𝗣𝗿𝗼𝗱𝘂𝗸 :
+ᴘʀᴏᴅᴜᴋ :
 untuk melihat daftar barang/produk yang di jual
 
-𝗗𝗲𝗹𝗽𝗿𝗼𝗱𝘂𝗸 :
+ᴅᴇʟᴘʀᴏᴅᴜᴋ :
 untuk menghapus daftar barang yang di jual
 
-𝗣𝗲𝘀𝗮𝗻 :
+ᴘᴇsᴀɴ :
 untuk membuat pesanan
 `
 let ments = [ownernya, me, mark]
@@ -4064,9 +4064,9 @@ reply(`Berhasil Menghapus '${text}' dari daftar produk`)
 }
 break
 case '.pesan': {
-if (!text) return replygcSTORE(`◈ ━━━━━ 𝗖𝗢𝗡𝗧𝗢𝗛 ━━━━━ ◈\n\nKetik Perintah 𝗯𝘂𝗮𝘁𝗽𝗲𝘀𝗮𝗻𝗮𝗻 kemudian copy isi text tersebut dan isi sesuai data diri anda lalu kirim`)
+if (!text) return replygcSTORE(`◈ ━━━━━ ᴄᴏɴᴛᴏʜ ━━━━━ ◈\n\nKetik Perintah 𝗯𝘂𝗮𝘁𝗽𝗲𝘀𝗮𝗻𝗮𝗻 kemudian copy isi text tersebut dan isi sesuai data diri anda lalu kirim`)
 textt = `${text}`
-teks1 = `\n\n𝗣𝗲𝗺𝗲𝘀𝗮𝗻 : @${m.sender.split("@")[0]}`
+teks1 = `\n\nᴘᴇᴍᴇsᴀɴ : @${m.sender.split("@")[0]}`
 teks2 = `\n\n*Halo ${pushname}, ${NFSytimewisher}*\n*Permintaan pesanan Anda telah di kirim ke Penjual*.\n*Harap tunggu...*`
 for (let i of ownerstore) {
 NFSBotInc.sendMessage(i + "@s.whatsapp.net", {
@@ -4107,22 +4107,22 @@ quoted: m,
 }
 break
 case '.buatpesanan': {
-teks = `pesan ◈ ━━━━━━━ 𝗣𝗲𝘀𝗮𝗻𝗮𝗻 ━━━━━━━ ◈
+teks = `.pesan ◈ ━━━━━ ᴘᴇsᴀɴᴀɴ ━━━━━ ◈
 
 
-𝗡𝗮𝗺𝗮 : Nama Lengkap
-𝗧𝗧𝗟 : Tempat Tanggal Lahir
-𝗞𝗲𝗹𝗮𝗺𝗶𝗻 : Laki-Laki / Perempuan
-𝗔𝗴𝗮𝗺𝗮 : 
-𝗦𝘁𝗮𝘁𝘂𝘀 : Menikah / Belum Nikah
-𝗔𝗹𝗮𝗺𝗮𝘁 : Dsn. Ds. Rt. Rw. Kec. Kab. Prov.
-𝗡𝗼.𝗛𝗽 :
+ɴᴀᴍᴀ : Nama Lengkap
+ᴛᴛʟ : Tempat Tanggal Lahir
+ᴋᴇʟᴀᴍɪɴ : Laki-Laki / Perempuan
+ᴀɢᴀᴍᴀ : 
+sᴛᴀᴛᴜs : Menikah / Belum Nikah
+ᴀʟᴀᴍᴀᴛ : Dsn. Ds. Rt. Rw. Kec. Kab. Prov.
+ɴᴏ.ʜᴘ :
 
-𝗕𝗮𝗿𝗮𝗻𝗴 : Nama Barang
-𝗧𝗼𝘁𝗮𝗹 : Jumlah 
-𝗩𝗶𝗮 : Cod / Ambil Di Rumah / Kurir
+ʙᴀʀᴀɴɢ : Nama Barang
+ᴛᴏᴛᴀʟ : Jumlah 
+ᴠɪᴀ : Cod / Ambil Di Rumah / Kurir
 
-◈ ━━━━━━━ 𝗣𝗲𝘀𝗮𝗻𝗮𝗻 ━━━━━━━ ◈
+◈ ━━━━━ ᴘᴇsᴀɴᴀɴ ━━━━━ ◈
 `
 NFSBotInc.sendMessage(from, {
 text: teks,
@@ -4234,7 +4234,6 @@ case '.wink': case '.poke': case '.nom': case '.slap': case '.smile':
 case '.wave': case '.awoo': case '.blush': case '.smug': case '.glomp': 
 case '.happy': case '.dance': case '.cringe': case '.cuddle': case '.highfive': 
 case '.shinobu': case '.handhold': {
-
 axios.get(`https://api.waifu.pics/sfw/${command}`)
 .then(({data}) => {
 NFSBotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, author: global.author })
@@ -6288,7 +6287,7 @@ await replygcNFS(jawab)
 }
 break
 case '.runtime': {
-let lowq = `*Bot Telah Aktif Sejak:*\n*${runtime(process.uptime())}*`
+let lowq = `🟢 ${runtime(process.uptime())}`
 replygcNFS(lowq)
 }
 break
