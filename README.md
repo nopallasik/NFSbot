@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Blawuken/NFSbot/master/NFSMedia/theme/cheemspic.jpg" />
+  <img src="https://raw.githubusercontent.com/Blawuken/NFSbot/master/NFSMedia/theme/NFS_Logo.png" />
 </p>
 <h1 align="center">ꪶ𝗡𝗙𝗦 𝗕𝗼𝘁 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽ꫂ<br></h1>
 

@@ -527,7 +527,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./NFSMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./NFSMedia/theme/NFS_Logo.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})
 }
@@ -672,7 +672,7 @@ const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsap
 const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
 const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=${global.ownernumber}:${global.ownernumber}\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
-const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./NFSMedia/theme/cheemspic.jpg'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
+const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./NFSMedia/theme/NFS_Logo.png'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
 return banRep()
@@ -1571,6 +1571,7 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 }
 break
 case '.alive': case '.menu': case '.help': {
+await loading()
 let ownernya = ownernomer + '@s.whatsapp.net'
 let me = m.sender
 let timestampe = speed()
@@ -1618,7 +1619,6 @@ ${latensie.toFixed(4)} miliseconds
 ${runtime(process.uptime())}
 `
 let ments = [ownernya, me, mark]
-await loading()
 NFSBotInc.sendMessage(from, { 
 text: NFSezy,
 contextInfo:{
@@ -1631,7 +1631,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1716,7 +1716,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1749,7 +1749,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "body": `Powerred By ${global.ownername}`
 }
 }
@@ -1785,7 +1785,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "body": `Powerred By ${global.ownername}`
 }
 }
@@ -1805,7 +1805,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1826,7 +1826,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1847,7 +1847,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1868,7 +1868,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1889,7 +1889,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1910,7 +1910,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1931,7 +1931,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1952,7 +1952,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1973,7 +1973,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1994,7 +1994,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2015,7 +2015,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2036,7 +2036,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2057,7 +2057,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2078,7 +2078,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2099,7 +2099,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2120,7 +2120,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2141,7 +2141,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2162,7 +2162,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2183,7 +2183,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2423,7 +2423,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./NFSMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./NFSMedia/theme/NFS_Logo.png"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }}
@@ -2441,7 +2441,7 @@ await NFSquotx.quoted.copyNForward(m.chat, true)
 break
 case '.igstalk2':{
 if (!q) return replygcNFS(`*ᴄᴏɴᴛᴏʜ* : ${prefix+command} anggit0817`)
-await loading()
+NFStextWait()
 const aj = await igstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption: 
 `*// ɪɴsᴛᴀɢʀᴀᴍ sᴛᴀʟᴋᴇʀ \\*
@@ -2456,7 +2456,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption:
 break
 case '.ffstalk':{
 if (!q) return replygcNFS(`*ᴄᴏɴᴛᴏʜ* : ${prefix+command} 946716486`)
-await loading()
+NFStextWait()
 eeh = await ffstalk.ffstalk(`${q}`)
 replygcNFS(`*// ғʀᴇᴇ ғɪʀᴇ sᴛᴀʟᴋᴇʀ \\*
 
@@ -2466,7 +2466,7 @@ replygcNFS(`*// ғʀᴇᴇ ғɪʀᴇ sᴛᴀʟᴋᴇʀ \\*
 break
 case '.mlstalk': {
 if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} 530793138|8129`)
-await loading()
+NFStextWait()
 let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
 replygcNFS(`*// ᴍᴏʙɪʟᴇ ʟᴇɢᴇɴᴅ sᴛᴀʟᴋᴇʀ \\*
 
@@ -2477,7 +2477,7 @@ replygcNFS(`*// ᴍᴏʙɪʟᴇ ʟᴇɢᴇɴᴅ sᴛᴀʟᴋᴇʀ \\*
 break
 case '.npmstalk':{
 if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} ytdl-core`)
-await loading()
+NFStextWait()
 eha = await npmstalk.npmstalk(q)
 replygcNFS(`*// Npm Stalker \\*
 
@@ -2493,7 +2493,7 @@ Latest Publish Time : ${eha.latestPublishTime}`)
 break
 case '.ghstalk': case '.githubstalk':{
 if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ ${prefix+command} Blawuken`)
-await loading()
+NFStextWait()
 aj = await githubstalk.githubstalk(`${q}`)
 NFSBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
 `*// Github Stalker \\*
@@ -2521,7 +2521,7 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 break
 case '.ss': case '.ssweb': {
 if (!q) return replygcNFS(`ᴄᴏɴᴛᴏʜ : ${prefix+command} link`)
-await loading()
+NFStextWait()
 let krt = await scp1.ssweb(q)
 NFSBotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
 }
@@ -2692,7 +2692,7 @@ replygcNFS('Sesi Vote Berhasil Dihapus Di Grup Ini')
 break
 case '.toonce': case '.toviewonce': {
 if (!quoted) return replygcNFS(`Reply Image/Video`)
-await loading()
+NFStextWait()
 if (/image/.test(mime)) {
 anuan = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 NFSBotInc.sendMessage(m.chat, {image: {url:anuan}, caption: `Ini dia!`, fileLength: "999", viewOnce : true},{quoted: m })
@@ -2730,7 +2730,7 @@ NFSBotInc.sendTextWithMentions(m.chat, teks, m)
 }
 break
 case '.ping': case '.botstatus': case '.statusbot': {
-await loading()
+NFStextWait()
 const used = process.memoryUsage()
 const cpus = os.cpus().map(cpu => {
 cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -3476,7 +3476,7 @@ NFSBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id
 break
 case '.ebinary': {
 if (!q) return replygcNFS(`Kirim/balas teks dengan teks ${prefix + command}`)
-await loading()
+NFStextWait()
 let { eBinary } = require('./scrape/binary')
 let eb = await eBinary(`${q}`)
 replygcNFS(eb)
@@ -3484,7 +3484,7 @@ replygcNFS(eb)
 break
 case '.dbinary': {
 if (!q) return replygcNFS(`Kirim/balas teks dengan teks ${prefix + command}`)
-await loading()
+NFStextWait()
 let { dBinary } = require('./scrape/binary')
 let db = await dBinary(`${q}`)
 replygcNFS(db)
@@ -3493,7 +3493,7 @@ break
 case '.remini': {
 if (!quoted) return replygcNFS(`Dimana gambarnya?`)
 if (!/image/.test(mime)) return replygcNFS(`Kirim / Balas Foto Dengan Teks ${prefix + command}`)
-await loading()
+NFStextWait()
 const { remini } = require('./lib/remini')
 let media = await quoted.download()
 let proses = await remini(media, "enhance")
@@ -3502,7 +3502,7 @@ NFSBotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted:
 break
 case '.gimage': {
 if (!text) return replygcNFS(`*Contoh :* ${prefix + command} carry minati`)
-await loading()
+NFStextWait()
 let gis = require('g-i-s')
 gis(text, async (error, result) => {
 n = result
@@ -3538,7 +3538,7 @@ break
 case '.tiktokvideo':{
 if (!text) return replygcNFS( `*Contoh :* ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
-await loading()
+NFStextWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
 NFSBotInc.sendMessage(m.chat, { caption: `Ini dia!`, video: { url: data.watermark }}, {quoted:m})
 })
@@ -3547,7 +3547,7 @@ break
 case '.tiktokaudio':{
 if (!text) return replygcNFS( `*Contoh :* ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcNFS(`Link Invalid!!`)
-await loading()
+NFStextWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
 NFSBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4' }, { quoted: m })
 })
@@ -3555,7 +3555,7 @@ NFSBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4
 break
 case '.google': {
 if (!q) return replygcNFS(`*Contoh :* ${prefix + command} ${botname}`)
-await loading()
+NFStextWait()
 let google = require('google-it')
 google({'query': text}).then(res => {
 let teks = `Google Penelusuran Dari : ${text}\n\n`
@@ -3570,7 +3570,7 @@ replygcNFS(teks)
 break
 case '.happymod':{
 if (!q) return replygcNFS(`*Contoh :* ${prefix+command} Sufway surfer mod`)
-await loading()
+NFStextWait()
 let kat = await scp1.happymod(q)
 replygcNFS(util.format(kat))
 }
@@ -3589,7 +3589,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },caption:
 break
 case '.xxxxplay':{
 if (!text) return replygcNFS(`*Contoh :* ${prefix+command} story wa anime`)
-await loading()
+NFStextWait()
 let search = await yts(text)
 url = search.videos[0].url
 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
@@ -3611,7 +3611,7 @@ NFSBotInc.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 break
 case '.play': case '.song': {
 if (!text) return replygcNFS(`*Contoh* : ${prefix + command} Sido Rondo`)
-await loading()
+NFStextWait()
 const YT = require('./lib/ytdl2')
 let yts = require("youtube-yts")
 let search = await yts(text)
@@ -3638,7 +3638,7 @@ break
 case ".ytmp3": case ".ytaudio": {//credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const YT = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`ᴍᴀɴᴀ ʟɪɴᴋ ʏᴏᴜᴛᴜʙᴇ ɴʏᴀ?\n\nᴄᴏɴᴛᴏʜ : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
-await loading()
+NFStextWait()
 const audio=await YT.mp3(text)
 await NFSBotInc.sendMessage(m.chat,{
 audio: fs.readFileSync(audio.path),
@@ -3659,7 +3659,7 @@ break
 case '.ytmp4': case '.ytvideo': {
 const YT = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !YT.isYTUrl(text)) return replygcNFS(`ᴍᴀɴᴀ ʟɪɴᴋ ʏᴏᴜᴛᴜʙᴇ ɴʏᴀ?\n\nᴄᴏɴᴛᴏʜ : ${prefix + command} https://youtube.com/shorts/aTi_on08OuM?feature=share3`)
-await loading()
+NFStextWait()
 const vid=await YT.mp4(text)
 const ytc=`
 ╭────────────┈ ↷
@@ -3685,13 +3685,13 @@ caption: ytc
 break
 case '.ytvxxx': case '.ytmp4xxx': case '.mp4xxx':{
 if (!text) return replygcNFS('Masukkan tautan!!!')
-await loading()
+NFStextWait()
 downloadMp4(text)
 }
 break
 case '.ytaxxx': case '.ytmp3xxx': case '.mp3xxx':{
 if (!text) return replygcNFS('Masukkan tautan!!!')
-await loading()
+NFStextWait()
 downloadMp3(text)
 }
 break
@@ -4260,7 +4260,7 @@ break
 case '.tomp4': case '.tovideo': {
 if (!quoted) return replygcNFS('Balas ke Stiker')
 if (!/webp/.test(mime)) return replygcNFS(`Balas stiker dengan text *${prefix + command}*`)
-await loading()
+NFStextWait()
 let { webp2mp4File } = require('./lib/uploader')
 let media = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 let webpToMp4 = await webp2mp4File(media)
@@ -4271,7 +4271,7 @@ break
 case '.toaud': case '.toaudio': {
 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Anda Gunakan sebagai Audio Dengan Teks ${prefix + command}`)
 if (!quoted) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Anda Gunakan sebagai Audio Dengan Teks ${prefix + command}`)
-await loading()
+NFStextWait()
 let media = await quoted.download()
 let { toAudio } = require('./lib/converter')
 let audio = await toAudio(media, 'mp4')
@@ -4282,7 +4282,7 @@ case '.tomp3': {
 if (/document/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
 if (!quoted) return replygcNFS(`Kirim/Balas Video/Audio yang Ingin Dikonversi menjadi MP3 Dengan Teks ${prefix + command}`)
-await loading()
+NFStextWait()
 let media = await quoted.download()
 let { toAudio } = require('./lib/converter')
 let audio = await toAudio(media, 'mp4')
@@ -4292,7 +4292,7 @@ break
 case '.tovn': case '.toptt': {
 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcNFS(`Balas Video/Audio Yang Ingin Dijadikan VN Dengan Caption ${prefix + command}`)
 if (!quoted) return replygcNFS(`Balas Video/Audio Yang Ingin Dijadikan VN Dengan Caption ${prefix + command}`)
-await loading()
+NFStextWait()
 let media = await quoted.download()
 let { toPTT } = require('./lib/converter')
 let audio = await toPTT(media, 'mp4')
@@ -4302,7 +4302,7 @@ break
 case '.togif': {
 if (!quoted) return replygcNFS('Balas video')
 if (!/webp/.test(mime)) return replygcNFS(`Balas stiker dengan Text *${prefix + command}*`)
-await loading()
+NFStextWait()
 let { webp2mp4File } = require('./lib/uploader')
 let media = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 let webpToMp4 = await webp2mp4File(media)
@@ -4553,7 +4553,7 @@ buff = await getBuffer(defaultpp)
 NFSBotInc.sendMessage(from, { image: buff, caption: profile, mentions: [bet]},{quoted:m})
 break
 case '.toimg': {
-await loading()
+NFStextWait()
 const getRandom = (ext) => {
 return `${Math.floor(Math.random() * 10000)}${ext}`
 }
@@ -4652,7 +4652,7 @@ replygcNFS('Error')
 }
 }
 break
-case '.sticker': case '.stiker': {
+case '.sticker': case '.stiker': case '.s': {
 if (!quoted) return replygcNFS(`Kirim/Balas Gambar/Video/Gif Dengan Teks ${prefix+command}\nDurasi Video 1-9 Detik`)
 if (/image/.test(mime)) {
 let media = await quoted.download()
@@ -4725,7 +4725,7 @@ replygcNFS(teks)
 break
 case '.candy': case '.christmas': case '.3dchristmas': case '.sparklechristmas': case '.deepsea': case '.scifi': case '.rainbow': case '.waterpipe': case '.spooky': case '.pencil': case '.circuit': case '.discovery': case '.metalic': case '.fiction': case '.demon': case '.transformer': case '.berry': case '.thunder': case '.magma': case '.3dstone': case '.neonlight': case '.glitch': case '.harrypotter': case '.brokenglass': case '.papercut': case '.watercolor': case '.multicolor': case '.neondevil': case '.underwater': case '.graffitibike': case '.snow': case '.cloud': case '.honey': case '.ice': case '.fruitjuice': case '.biscuit': case '.wood': case '.chocolate': case '.strawberry': case '.matrix': case '.blood': case '.dropwater': case '.toxic': case '.lava': case '.rock': case '.bloodglas': case '.hallowen': case '.darkgold': case '.joker': case '.wicker':case '.firework': case '.skeleton': case '.blackpink': case '.sand': case '.glue': case '.1917': case '.leaves': case '.naruto': case '.batman': case '.3dbox': case '.window': case '.bokeh': case '.holographic': case '.thewall': case '.carbon': case '.whitebear': case '.metallic': case '.steel': case '.fabric': case '.ancient': {
 if (!q) return replygcNFS(`*Contoh :* ${prefix+command} ${global.botname}`) 
-await loading()
+NFStextWait()
 let link
 if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
 if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
@@ -4803,7 +4803,7 @@ NFSBotInc.sendMessage(from, { image: { url: anu.image }, caption: `💥 ᴅɪ ʙ
 break
 case '.pornhub': case '.retro': case '.8bit': case '.lion': case '.3davengers': case '.3dspace': case '.marvel': {
 if (!q) return replygcNFS(`*Contoh :* ${prefix+command} ɴғs | ᴏғғɪᴄɪᴀʟ`) 
-await loading()
+NFStextWait()
 let link
 if (/pornhub/.test(command)) link = 'https://textpro.me/pornhub-style-logo-online-generator-free-977.html'
 if (/retro/.test(command)) link = 'https://textpro.me/create-3d-retro-text-effect-online-free-1065.html'
@@ -4821,7 +4821,7 @@ NFSBotInc.sendMessage(from, { image: { url: anuhub.image }, caption: `💥 ᴅɪ
 break
 case '.glitchtext': case '.writetext': case '.advancedglow': case '.typographytext': case '.pixelglitch': case '.neonglitch': case '.flagtext': case '.flag3dtext': case '.deletingtext': case '.blackpinkstyle': case '.glowingtext': case '.underwatertext': case '.logomaker': case '.cartoonstyle': case '.papercutstyle': case '.watercolortext': case '.effectclouds': case '.blackpinklogo': case '.gradienttext': case '.summerbeach': case '.luxurygold': case '.multicoloredneon': case '.sandsummer': case '.galaxywallpaper': case '.1917style': case '.makingneon': case '.royaltext': case '.freecreate': case '.galaxystyle': case '.lighteffects':{
 if (!q) return replygcNFS(`*Contoh :* ${prefix+command} NFSBotInc`) 
-await loading()
+NFStextWait()
 let link
 if (/glitchtext/.test(command)) link = 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html'
 if (/writetext/.test(command)) link = 'https://en.ephoto360.com/write-text-on-wet-glass-online-589.html'
@@ -4859,7 +4859,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url: haldwhd }, caption: `${mess.succes
 break
 case '.shadow': case '.write': case '.romantic': case '.burnpaper': case '.smoke': case '.narutobanner': case '.love': case '.undergrass': case '.doublelove': case '.coffecup': case '.underwaterocean': case '.smokyneon': case '.starstext': case '.rainboweffect': case '.balloontext': case '.metalliceffect': case '.embroiderytext': case '.flamingtext': case '.stonetext': case '.writeart': case '.summertext': case '.wolfmetaltext': case '.nature3dtext': case '.rosestext': case '.naturetypography': case '.quotesunder': case '.shinetext':{
 if (!q) return replygcNFS(`*Contoh :* ${prefix+command} NFSBotInc`) 
-await loading()
+NFStextWait()
 let link
 if (/stonetext/.test(command)) link = 'https://photooxy.com/online-3d-white-stone-text-effect-utility-411.html'
 if (/writeart/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-art-quote-on-wood-heart-370.html'
@@ -4893,241 +4893,241 @@ NFSBotInc.sendMessage(m.chat, { image: { url: dehe }, caption: `${mess.success}`
 }
 break
 case '.tiktokgirl':
-await loading()
+NFStextWait()
 var asupan = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/tiktokgirl.json'))
 var hasil = pickRandom(asupan)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktokghea':
-await loading()
+NFStextWait()
 var gheayubi = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/gheayubi.json'))
 var hasil = pickRandom(gheayubi)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktokbocil':
-await loading()
+NFStextWait()
 var bocil = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/bocil.json'))
 var hasil = pickRandom(bocil)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktoknukhty':
-await loading()
+NFStextWait()
 var ukhty = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/ukhty.json'))
 var hasil = pickRandom(ukhty)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktoksantuy':
-await loading()
+NFStextWait()
 var santuy = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/santuy.json'))
 var hasil = pickRandom(santuy)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktokkayes':
-await loading()
+NFStextWait()
 var kayes = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/kayes.json'))
 var hasil = pickRandom(kayes)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktokpanrika':
-await loading()
+NFStextWait()
 var rikagusriani = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/panrika.json'))
 var hasil = pickRandom(rikagusriani)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.tiktoknotnot':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/notnot.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case '.chinese':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/china.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.hijab':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/hijab.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.indo':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/indonesia.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.japanese':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/japan.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.korean':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/korea.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.malay':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/malaysia.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.randomgirl':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.randomboy':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random2.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.thai':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/thailand.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.vietnamese':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/vietnam.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.aesthetic':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/aesthetic.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.antiwork':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/antiwork.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.blackpink':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/blackpink.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.bike':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/bike.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.boneka':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/boneka.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.cosplay':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cosplay.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.cat':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cat.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.doggo':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/doggo.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.justina':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/justina.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.kayes':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kayes.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.kpop':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kpop.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.notnot':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/notnot.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.car':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/car.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.couplepic':case '.couplepicture':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ppcouple.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.profilepic':case '.profilepicture':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/profile.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.pubg':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/pubg.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.rose':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/rose.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.ryujin':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ryujin.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.ulzzangboy':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzangboy.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.ulzzanggirl':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzanggirl.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.wallml': case '.wallpaperml':case '.mobilelegend':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallml.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case '.wallpaperphone': case '.wallphone':
-await loading()
+NFStextWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallhp.json'))
 var hasil = pickRandom(notnot)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
@@ -5143,7 +5143,7 @@ break
 case '.animewall': case '.animewallpaper':
 const { AnimeWallpaper } =require("anime-wallpaper")
 if(!q) return replygcNFS('Wallpaper apa yang Anda inginkan?')
-await loading()
+NFStextWait()
 const wall = new AnimeWallpaper()
 const pages = [1,2,3,4]
 const random=pages[Math.floor(Math.random() * pages.length)]
@@ -5157,7 +5157,7 @@ return('Error!')
 //NFSBotInc.sendMessage(m.chat,{image:{url:wallpaper[i].image},caption:`*Query :* ${q}`})
 break
 case '.akira': case '.akiyama': case '.ana': case '.art': case '.asuna': case '.ayuzawa': case '.boruto': case '.bts': case '.chiho': case '.chitoge': case '.cosplay': case '.cosplayloli': case '.cosplaysagiri': case '.cyber': case '.deidara': case '.doraemon': case '.elaina': case '.emilia': case '.erza': case '.exo':case '.gamewallpaper': case '.gremory': case '.hacker': case '.hestia': case '.hinata': case '.husbu': case '.inori': case '.islamic': case '.isuzu': case '.itachi': case '.itori': case '.jennie': case '.jiso': case '.justina': case '.kaga': case '.kagura': case '.kakasih': case '.kaori': case '.cartoon': case '.shortquote': case '.keneki': case '.kotori': case '.kurumi': case '.lisa': case '.loli': case '.madara': case '.megumin': case '.mikasa': case '.mikey': case '.miku': case '.minato': case '.mountain': case '.narutouzumaki': case '.neko': case '.neko2': case '.nekonime': case '.nezuko': case '.onepiece': case '.pentol': case '.pokemon': case '.programming':case '.randomnime': case '.randomnime2': case '.rize': case '.rose': case '.sagiri': case '.sakura': case '.sasuke': case '.satanic': case '.shina': case '.shinka': case '.shinomiya': case '.shizuka': case '.shota': case '.space': case '.technology': case '.tejina': case '.toukachan': case '.tsunade': case '.waifu': case '.yotsuba': case '.yuki': case '.yulibocil': case '.yumeko':{
-await loading()
+NFStextWait()
 let heyy
 if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/akira.json')
 if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/akiyama.json')
@@ -5302,7 +5302,7 @@ break
 case ".pushcontactv2":{
 if (!NFSTheCreator) return NFStextOwner()
 if (!q) return replygcNFS(`Penggunaan yang Salah Silakan Gunakan Perintah Seperti Ini\n${prefix+command} idgc|text`)
-await loading()
+NFStextWait()
 const metadata2 = await NFSBotInc.groupMetadata(q.split("|")[0])
 const halss = metadata2.participants
 for (let mem of halss) {
@@ -5340,7 +5340,7 @@ break
 case '.hentaivid2': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replygNFS(mess.nsfw)
-await loading()
+NFStextWait()
 sbe = await hentaivid()
 cejd = sbe[Math.floor(Math.random(), sbe.length)]
 NFSBotInc.sendMessage(m.chat, { video: { url: cejd.video_1 }, 
@@ -5356,7 +5356,7 @@ break
 case '.hentaivid': case '.hentaivideo': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 const { hentai } = require('./lib/scraper.js')
 anu = await hentai()
 result912 = anu[Math.floor(Math.random(), anu.length)]
@@ -5366,7 +5366,7 @@ break
 case '.trap' : {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`) 
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 }
@@ -5381,7 +5381,7 @@ break
 case '.hentai-waifu' : case '.nwaifu' : {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`) 
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 }
@@ -5389,14 +5389,14 @@ break
 case '.gasm': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 }
 break
 case '.milf': {
 if (!m.isGroup) return NFStextGroup()
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/milf.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5405,7 +5405,7 @@ break
 case '.animespank': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`) 
 await NFSBotInc.sendMessage(m.chat, { caption:`Ini dia!`, image: {url:waifudd.data.url} },{ quoted:m }).catch(err => {
 return('Error!')
@@ -5415,7 +5415,7 @@ break
 case '.ahegao': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ahegao.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5424,7 +5424,7 @@ break
 case '.ass': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ass.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5433,7 +5433,7 @@ break
 case '.bdsm': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/bdsm.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5442,7 +5442,7 @@ break
 case '.blowjob': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/blowjob.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5451,7 +5451,7 @@ break
 case '.cuckold': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cuckold.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5460,7 +5460,7 @@ break
 case '.cum': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cum.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5469,7 +5469,7 @@ break
 case '.eba': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/eba.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5478,7 +5478,7 @@ break
 case '.ero': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ero.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5487,7 +5487,7 @@ break
 case '.femdom': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/femdom.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5496,7 +5496,7 @@ break
 case '.foot': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/foot.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5505,7 +5505,7 @@ break
 case '.gangbang': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gangbang.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5514,7 +5514,7 @@ break
 case '.glasses': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/glasses.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5523,7 +5523,7 @@ break
 case '.hentai': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/hentai.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5532,7 +5532,7 @@ break
 case '.jahy': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/jahy.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5541,7 +5541,7 @@ break
 case '.manga': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/manga.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5550,7 +5550,7 @@ break
 case '.masturbation': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/masturbation.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5559,7 +5559,7 @@ break
 case '.neko-hentai': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5568,7 +5568,7 @@ break
 case '.neko-hentai2': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko2.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5577,7 +5577,7 @@ break
 case '.nsfwloli': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/nsfwloli.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5586,7 +5586,7 @@ break
 case '.orgy': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/orgy.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5595,7 +5595,7 @@ break
 case '.panties': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/panties.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5604,7 +5604,7 @@ break
 case '.pussy': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/pussy.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5613,7 +5613,7 @@ break
 case '.boobs': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/boobs.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5622,7 +5622,7 @@ break
 case '.asupan': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/asupan.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: NFSyresult.url }}, { quoted: m })
@@ -5631,7 +5631,7 @@ break
 case '.asupan2': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/asupan-la.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: NFSyresult.url }}, { quoted: m })
@@ -5640,7 +5640,7 @@ break
 case '.tentacles': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/tentacles.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5649,7 +5649,7 @@ break
 case '.thighs': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/thighs.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5658,7 +5658,7 @@ break
 case '.yuri': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/yuri.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5667,7 +5667,7 @@ break
 case '.zettai': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/zettai.json'))
 var NFSyresult = pickRandom(ahegaonsfw)
 NFSBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: NFSyresult.url } }, { quoted: m })
@@ -5676,7 +5676,7 @@ break
 case '.gifblowjob': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 let assss = await axios.get ("https://api.waifu.pics/nsfw/blowjob")
 var bobuff = await fetchBuffer(assss.data.url)
 var bogif = await buffergif(bobuff)
@@ -5687,7 +5687,7 @@ break
 case '.gifhentai': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gifs.json'))
 var NFSyresultx = pickRandom(ahegaonsfw)
 await NFSBotInc.sendMessage(m.chat,{video:NFSyresultx, gifPlayback:true },{quoted:m}).catch(err => {
@@ -5697,7 +5697,7 @@ break
 case '.gifs': case '.foot': {
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
-await loading()
+NFStextWait()
 let heyy
 let yeha = heyy[Math.floor(Math.random() * heyy.length)]
 if (/gifs/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/Blawuken/NFSMedia/master/gifs.json')
@@ -5706,7 +5706,7 @@ NFSBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, 
 }
 break
 case '.animeawoo':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5714,7 +5714,7 @@ return('Error!')
 }
 break
 case '.animemegumin':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/megumin`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5722,7 +5722,7 @@ return('Error!')
 }
 break
 case '.animeshinobu':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/shinobu`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5730,7 +5730,7 @@ return('Error!')
 }
 break
 case '.animehandhold':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/handhold`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5738,7 +5738,7 @@ return('Error!')
 }
 break
 case '.animehighfive':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/highfive`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5746,7 +5746,7 @@ return('Error!')
 }
 break
 case '.animecringe':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/cringe`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5754,7 +5754,7 @@ return('Error!')
 }
 break
 case '.animedance':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/dance`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5762,7 +5762,7 @@ return('Error!')
 }
 break
 case '.animehappy':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/happy`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5770,7 +5770,7 @@ return('Error!')
 }
 break
 case '.animeglomp':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/glomp`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5778,7 +5778,7 @@ return('Error!')
 }
 break
 case '.animesmug':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/smug`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5786,7 +5786,7 @@ return('Error!')
 }
 break
 case '.animeblush':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/blush`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5794,7 +5794,7 @@ return('Error!')
 }
 break
 case '.animewave':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/wave`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5802,7 +5802,7 @@ return('Error!')
 }
 break
 case '.animesmile':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/smile`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5810,7 +5810,7 @@ return('Error!')
 }
 break
 case '.animepoke':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/poke`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5818,7 +5818,7 @@ return('Error!')
 }
 break
 case '.animewink':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/wink`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5826,7 +5826,7 @@ return('Error!')
 }
 break
 case '.animebonk':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/bonk`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5834,7 +5834,7 @@ return('Error!')
 }
 break
 case '.animebully':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/bully`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5842,7 +5842,7 @@ return('Error!')
 }
 break
 case '.animeyeet':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/yeet`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5850,7 +5850,7 @@ return('Error!')
 }
 break
 case '.animebite':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/bite`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5858,7 +5858,7 @@ return('Error!')
 }
 break
 case '.animelick':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/lick`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5866,7 +5866,7 @@ return('Error!')
 }
 break
 case '.animekill':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/kill`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5874,7 +5874,7 @@ return('Error!')
 }
 break
 case '.animecry':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/cry`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5882,7 +5882,7 @@ return('Error!')
 }
 break
 case '.animewlp':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5890,7 +5890,7 @@ return('Error!')
 }
 break
 case '.animekiss':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5898,7 +5898,7 @@ return('Error!')
 }
 break
 case '.animehug':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5906,7 +5906,7 @@ return('Error!')
 }
 break
 case '.animeneko':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://waifu.pics/api/sfw/neko`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5914,7 +5914,7 @@ return('Error!')
 }
 break
 case '.animepat':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5922,7 +5922,7 @@ return('Error!')
 }
 break
 case '.animeslap':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5930,7 +5930,7 @@ return('Error!')
 }
 break
 case '.animecuddle':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5938,7 +5938,7 @@ return('Error!')
 }
 break
 case '.animewaifu':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5946,7 +5946,7 @@ return('Error!')
 }
 break
 case '.animenom':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/nom`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5954,7 +5954,7 @@ return('Error!')
 }
 break
 case '.animefoxgirl':{
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`) 
 await NFSBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
 return('Error!')
@@ -5962,7 +5962,7 @@ return('Error!')
 }
 break
 case '.animetickle': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/tickle`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -5970,7 +5970,7 @@ return('Error!')
 }
 break
 case '.animegecg': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/gecg`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -5978,7 +5978,7 @@ return('Error!')
 }
 break
 case '.dogwoof': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/woof`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -5986,7 +5986,7 @@ return('Error!')
 }
 break
 case '.8ballpool': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/8ball`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -5994,7 +5994,7 @@ return('Error!')
 }
 break
 case '.goosebird': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/goose`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -6002,7 +6002,7 @@ return('Error!')
 }
 break
 case '.animefeed': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/feed`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -6010,7 +6010,7 @@ return('Error!')
 }
 break
 case '.animeavatar': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/avatar`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -6018,7 +6018,7 @@ return('Error!')
 }
 break
 case '.lizardpic': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/lizard`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -6026,7 +6026,7 @@ return('Error!')
 }
 break
 case '.catmeow': {
-await loading()
+NFStextWait()
 waifudd = await axios.get(`https://nekos.life/api/v2/img/meow`) 
 await NFSBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
 return('Error!')
@@ -6035,73 +6035,73 @@ return('Error!')
 break
 case '.igemoji': case '.instagramemoji': {
 if (!q) return replygcNFS("Masukkan emoji, maksimal 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "11")
 }
 break
 case '.iphoneemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "0")
 }
 break
 case '.googleemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "1")
 }
 break
 case '.samsungemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "2")
 }
 break
 case '.microsoftemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "3")
 }
 break
 case '.whatsappemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "4")
 }
 break
 case '.twitteremoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "5")
 }
 break
 case '.facebookemoji': case '.fbemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "6")
 }
 break
 case '.skypeemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "7")
 }
 break
 case '.joyemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "8")
 }
 break
 case '.mojiemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "9")
 }
 break
 case '.pediaemoji': {
 if (!q) return replygcNFS("Masukan emoji, max 1 emoji, misal?" + ` ${prefix + command} 😀`)
-await loading()
+NFStextWait()
 emote(q, "10")
 }
 break
@@ -6194,7 +6194,7 @@ if (/slow/.test(command)) set = '-filter:a "atempo=0.7,asetrate=44100"'
 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
 if (/squirrel/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
 if (/audio/.test(mime)) {
-await loading()
+NFStextWait()
 let media = await NFSBotInc.downloadAndSaveMediaMessage(quoted)
 let ran = getRandom('.mp3')
 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
@@ -6318,7 +6318,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./NFSMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./NFSMedia/theme/NFS_Logo.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})
 }
@@ -6342,7 +6342,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./NFSMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./NFSMedia/theme/NFS_Logo.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})
 }
@@ -6353,7 +6353,7 @@ NFSBotInc.sendMessage(m.chat, {caption: mess.success, image: { url: 'https://cof
 break
 case '.wallpaper': {
 if (!text) return replygcNFS('Masukkan Judul Kueri')
-await loading()
+NFStextWait()
 let { wallpaper } = require('./lib/scraper')
 anuwallpep = await wallpaper(text)
 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]
@@ -6362,7 +6362,7 @@ NFSBotInc.sendMessage(m.chat, {caption: `${themeemoji} Judul : ${result.title}\n
 break
 case '.wikimedia': {
 if (!text) return replygcNFS('Masukkan Judul Kueri')
-await loading()
+NFStextWait()
 let { wikimedia } = require('./lib/scraper')
 let anumedia = await wikimedia(text)
 result = anumedia[Math.floor(Math.random() * anumedia.length)]
@@ -6391,7 +6391,7 @@ mentionedJid:[NFSshimts],
 "containsAutoReply": true,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./NFSMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./NFSMedia/theme/NFS_Logo.png`),
 "sourceUrl": `${wagc}`
 }
 }
@@ -6400,7 +6400,7 @@ mentionedJid:[NFSshimts],
 break
 case ".igvid": case ".instavid": {
 if (!text) return replygcNFS(`Di mana tautannya?\n\n*Contoh :* ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
-await loading()
+NFStextWait()
 let resNFSyinsta = await NFSInstaMp4(text)
 const gha1 = await NFSBotInc.sendMessage(m.chat,{video:{url: resNFSyinsta.url[0].url},caption: mess.success},{quoted:m})
 }
@@ -6428,7 +6428,7 @@ replygcNFS(`Tidak Dapat Mencari Informasi Tentang Akun *Instagram* Tersebut\n\nC
 break
 case ".igimg": case ".instaimg":{
 if (!text) return replygcNFS(`Di mana tautannya?\n\n*Contoh :* ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`)
-await loading()
+NFStextWait()
 const risponsNFS = await NFSIgImg(text)
 for (let i=0;i<risponsNFS.length;i++) {
 let ghd = await NFSBotInc.sendFileUrl(m.chat, risponsNFS[i], `Ini dia!`, m)
@@ -6437,14 +6437,14 @@ let ghd = await NFSBotInc.sendFileUrl(m.chat, risponsNFS[i], `Ini dia!`, m)
 break 
 case ".fbvid": case ".facebookvid":{
 if (!text) return replygcNFS(`Dimana urlnya?\n\n*Contoh :* ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-await loading()
+NFStextWait()
 let res = await NFSFb(q)
 let ghdp = await NFSBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case ".twittervid":case ".twitvid":{
 if (!text) return replygcNFS(`Dimana urlnya?\n\n*Contoh :* ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
-await loading()
+NFStextWait()
 let res = await NFSTwitter(q)
 let ghdx = await NFSBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
@@ -6566,7 +6566,7 @@ delete kuismath[m.sender.split('@')[0]]
 break
 case '.lyrics': {
 if (!text) return replygcNFS(`Lirik apa yang kamu cari?\n*Contoh penggunaan :* ${prefix}lyrics Sido rondo`)
-await loading()
+NFStextWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
 replygcNFS(`
@@ -6581,7 +6581,7 @@ replygcNFS(`
 break
 case '.gdrive': {
 if (!args[0]) return replygcNFS(`Masukkan tautan Google Drive`)
-await loading()
+NFStextWait()
 const fg = require('api-dylux')
 try {
 let res = await fg.GDriveDl(args[0])
@@ -6614,7 +6614,7 @@ if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
 if (!text) return replygcNFS(`Masukkan URL`)
 if (!text.includes('xnxx.com')) return replygcNFS(`Masukkan tautan xnxx`)
-await loading()
+NFStextWait()
 const fg = require('api-dylux')
 let xn = await fg.xnxxdl(text)
 NFSBotInc.sendMessage(m.chat, { caption: `╭────────────┈ ↷
@@ -6639,7 +6639,7 @@ if (!isPrem) return replyprem(mess.premium)
 if (!m.isGroup) return NFStextGroup()
 if (!AntiNsfw) return replynsfw(mess.nsfw)
 if (!text) return replygcNFS(`Masukkan Kata Pencarian`)
-await loading()
+NFStextWait()
 const fg = require('api-dylux')
 let res = await fg.xnxxSearch(text)
 let ff = res.result.map((v, i) => `${i + 1}📝*Judul* : ${v.title}\n📎*Link:* ${v.link}\n`).join('\n')
@@ -6648,7 +6648,7 @@ if (res.status) replygcNFS(ff)
 break
 case '.pinterest': {
 if (!text) return replygcNFS(`Masukkan Kata Pencarian`)
-await loading()
+NFStextWait()
 let { pinterest } = require('./lib/scraper')
 anutrest = await pinterest(text)
 result = anutrest[Math.floor(Math.random() * anutrest.length)]
@@ -6720,7 +6720,7 @@ break
 case '.anime': {
 if (!text) return replygcNFS(`Anime mana yang sedang kamu cari?`)
 const malScraper = require('mal-scraper')
-await loading()
+NFStextWait()
 const anime = await malScraper.getInfoFromName(text).catch(() => null)
 if (!anime) return replygcNFS(`Tidak bisa menemukan`)
 let animetxt = `
@@ -6743,7 +6743,7 @@ await NFSBotInc.sendMessage(m.chat,{image:{url:anime.picture}, caption:animetxt}
 break
 case '.imdb': {
 if (!text) return replygcNFS(`_Beri nama Seri atau film_`)
-await loading()
+NFStextWait()
 let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`)
 let imdbt = ""
 console.log(fids.data)
@@ -6939,7 +6939,7 @@ replygcNFS(`Batas Sedang Tunggu Sejenak.`)
 }
 break
 case '.gempa': {
-await loading()
+NFStextWait()
 const linkgempa = 'https://data.bmkg.go.id/DataMKG/TEWS/'
 try{
 let res = await fetch(linkgempa + 'autogempa.json')
@@ -6974,7 +6974,7 @@ Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lag
 Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar." 
 (QS. Al Baqarah: 255)
 `
-await loading()
+NFStextWait()
 NFSBotInc.sendMessage(from, { text: `${ayatkursi}` }, { quoted: m })
 }
 break
@@ -6991,7 +6991,7 @@ if (isNaN(args[0])) throw `contoh:\n${usedPrefix + command} 1`
 if (args[0]) {
 if (args[0] < 1 || args[0] > 99) throw `Lu Gak Pernah Belajar Asmaul Husna Yak?\n${anjuran}`
 let { index, latin, arabic, translation_id } = json.find(v => v.index == args[0].replace(/[^0-9]/g, ''))
-await loading()
+NFStextWait()
 return m.reply(`No. ${index}
 ${arabic}
 ${latin}
@@ -7002,7 +7002,7 @@ ${translation_id}
 break
 case '.jadwalsholat': {
 if(!text) return replygcNFS(`*ᴄᴏɴᴛᴏʜ :* ${prefix + command} ɴᴀᴍᴀ ᴋᴏᴛᴀ`)
-await loading()
+NFStextWait()
 const { jadwalsholat } = require('@bochilteam/scraper')
 const sembayang = await jadwalsholat(text)
 reply(`
